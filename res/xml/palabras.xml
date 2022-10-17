@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tema>
+
+	<palabra>
+
+		<categoria>Planetas</categoria>
+		<nombre>mercurio</nombre>
+		<pista_imagen>0x7f020003</pista_imagen>
+		<pista_categoria>planetas</pista_categoria>
+		<pista_audio>mercurio.mp3</pista_audio>
+		<pista_descripcion>Es el planeta del Sistema Solar más próximo al Sol y el más pequeño. Forma parte de los denominados planetas interiores o rocosos y carece de satélites.</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Planetas</categoria>
+		<nombre>venus</nombre>
+		<pista_imagen>0x7f02000d</pista_imagen>
+		<pista_categoria>planetas</pista_categoria>
+		<pista_audio>venus.mp3</pista_audio>
+		<pista_descripcion>Es el segundo planeta del Sistema Solar en orden de distancia desde el Sol, y el tercero en cuanto a tamaño, de menor a mayor. Recibe su nombre en honor a la diosa romana del amor. </pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Planetas</categoria>
+		<nombre>tierra</nombre>
+		<pista_imagen>0x7f02000b</pista_imagen>
+		<pista_categoria>planetas</pista_categoria>
+		<pista_audio>tierra.mp3</pista_audio>
+		<pista_descripcion>Es el tercer planeta del Sistema Solar. Es el más denso y el quinto mayor de los ocho planetas del Sistema Solar. También es el mayor de los cuatro terrestres</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Planetas</categoria>
+		<nombre>marte</nombre>
+		<pista_imagen>0x7f020002</pista_imagen>
+		<pista_categoria>planetas</pista_categoria>
+		<pista_audio>marte.mp3</pista_audio>
+		<pista_descripcion>Planeta rojo. Es el cuarto planeta del Sistema Solar. Recibe su nombre del dios romano de la guerra.</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Planetas</categoria>
+		<nombre>jupiter</nombre>
+		<pista_imagen>0x7f020000</pista_imagen>
+		<pista_categoria>planetas</pista_categoria>
+		<pista_audio>jupiter.mp3</pista_audio>
+		<pista_descripcion>Es el quinto planeta del Sistema Solar. Forma parte de los denominados planetas exteriores o gaseosos. Recibe su nombre del dios romano, padre de dioses y de hombres.</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Planetas</categoria>
+		<nombre>saturno</nombre>
+		<pista_imagen>0x7f02000a</pista_imagen>
+		<pista_categoria>planetas</pista_categoria>
+		<pista_audio>saturno.mp3</pista_audio>
+		<pista_descripcion>Es el sexto planeta del Sistema Solar. Es el único con un sistema de anillos visible desde nuestro planeta. Su nombre proviene del dios romano de la agricultura y la cosecha.</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Planetas</categoria>
+		<nombre>urano</nombre>
+		<pista_imagen>0x7f02000c</pista_imagen>
+		<pista_categoria>planetas</pista_categoria>
+		<pista_audio>urano.mp3</pista_audio>
+		<pista_descripcion>Es el séptimo planeta del Sistema Solar, el tercero en cuanto a mayor tamaño, de mayor a menor, y el cuarto más masivo. Se llama en honor de la divinidad griega del cielo.</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Planetas</categoria>
+		<nombre>neptuno</nombre>
+		<pista_imagen>0x7f020004</pista_imagen>
+		<pista_categoria>planetas</pista_categoria>
+		<pista_audio>neptuno.mp3</pista_audio>
+		<pista_descripcion>Es el octavo planeta en distancia respecto al Sol. Forma parte de los denominados planetas exteriores o gigantes gaseosos. Su nombre se debe al dios romano del mar.</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Planetas</categoria>
+		<nombre>pluton</nombre>
+		<pista_imagen>0x7f020005</pista_imagen>
+		<pista_categoria>planetas</pista_categoria>
+		<pista_audio>pluton.mp3</pista_audio>
+		<pista_descripcion>Es un planeta enano del Sistema Solar, situado a continuación de la órbita de Neptuno. </pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Animales</categoria>
+		<nombre>vaca</nombre>
+		<pista_imagen>/vaca.jpg</pista_imagen>
+		<pista_categoria>animales</pista_categoria>
+		<pista_audio>vaca.mp3</pista_audio>
+		<pista_descripcion>vaca</pista_descripcion>
+	</palabra>
+		<palabra>
+
+		<categoria>Animales</categoria>
+		<nombre>cabra</nombre>
+		<pista_imagen>/cabra.jpg</pista_imagen>
+		<pista_categoria>animales</pista_categoria>
+		<pista_audio>cabra.mp3</pista_audio>
+		<pista_descripcion>cabra</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Animales</categoria>
+		<nombre>gato</nombre>
+		<pista_imagen>/gato.jpg</pista_imagen>
+		<pista_categoria>animales</pista_categoria>
+		<pista_audio>gato.mp3</pista_audio>
+		<pista_descripcion>gato</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Animales</categoria>
+		<nombre>perro</nombre>
+		<pista_imagen>/perro.jpg</pista_imagen>
+		<pista_categoria>animales</pista_categoria>
+		<pista_audio>perro.mp3</pista_audio>
+		<pista_descripcion>perro</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Animales</categoria>
+		<nombre>raton</nombre>
+		<pista_imagen>/raton.jpg</pista_imagen>
+		<pista_categoria>animales</pista_categoria>
+		<pista_audio>raton.mp3</pista_audio>
+		<pista_descripcion>raton</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Animales</categoria>
+		<nombre>toro</nombre>
+		<pista_imagen>/toro.jpg</pista_imagen>
+		<pista_categoria>animales</pista_categoria>
+		<pista_audio>toro.mp3</pista_audio>
+		<pista_descripcion>toro</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Animales</categoria>
+		<nombre>elefante</nombre>
+		<pista_imagen>/elefante.jpg</pista_imagen>
+		<pista_categoria>animales</pista_categoria>
+		<pista_audio>elefante.mp3</pista_audio>
+		<pista_descripcion>elefante</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Animales</categoria>
+		<nombre>tigre</nombre>
+		<pista_imagen>/tigre.jpg</pista_imagen>
+		<pista_categoria>animales</pista_categoria>
+		<pista_audio>tigre.mp3</pista_audio>
+		<pista_descripcion>tigre</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Profesiones</categoria>
+		<nombre>limpiador</nombre>
+		<pista_imagen>/limpiador.jpg</pista_imagen>
+		<pista_categoria>profesion</pista_categoria>
+		<pista_audio>limpiador.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Profesiones</categoria>
+		<nombre>arquitecta</nombre>
+		<pista_imagen>/arquitecta.jpg</pista_imagen>
+		<pista_categoria>profesion</pista_categoria>
+		<pista_audio>arquitecta.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Profesiones</categoria>
+		<nombre>ingeniera</nombre>
+		<pista_imagen>/ingeniero.jpg</pista_imagen>
+		<pista_categoria>profesion</pista_categoria>
+		<pista_audio>ingeniero.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Profesiones</categoria>
+		<nombre>medico</nombre>
+		<pista_imagen>/medico.jpg</pista_imagen>
+		<pista_categoria>profesion</pista_categoria>
+		<pista_audio>medico.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Profesiones</categoria>
+		<nombre>enfermera</nombre>
+		<pista_imagen>/enfermera.jpg</pista_imagen>
+		<pista_categoria>profesion</pista_categoria>
+		<pista_audio>enfermera.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Profesiones</categoria>
+		<nombre>contable</nombre>
+		<pista_imagen>/contable.jpg</pista_imagen>
+		<pista_categoria>profesion</pista_categoria>
+		<pista_audio>contable.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Profesiones</categoria>
+		<nombre>camarero</nombre>
+		<pista_imagen>/camarero.jpg</pista_imagen>
+		<pista_categoria>profesion</pista_categoria>
+		<pista_audio>camarero.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Profesiones</categoria>
+		<nombre>profesora</nombre>
+		<pista_imagen>/profesora.jpg</pista_imagen>
+		<pista_categoria>profesion</pista_categoria>
+		<pista_audio>profesora.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Profesiones</categoria>
+		<nombre>psicologo</nombre>
+		<pista_imagen>/psicologo.jpg</pista_imagen>
+		<pista_categoria>profesion</pista_categoria>
+		<pista_audio>psicologo.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Profesiones</categoria>
+		<nombre>fontanero</nombre>
+		<pista_imagen>/fontanero.jpg</pista_imagen>
+		<pista_categoria>profesion</pista_categoria>
+		<pista_audio>fontanero.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Deportes</categoria>
+		<nombre>futbol</nombre>
+		<pista_imagen>/futbol.jpg</pista_imagen>
+		<pista_categoria>deportes</pista_categoria>
+		<pista_audio>futbol.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Deportes</categoria>
+		<nombre>baloncesto</nombre>
+		<pista_imagen>/baloncesto.jpg</pista_imagen>
+		<pista_categoria>deportes</pista_categoria>
+		<pista_audio>baloncesto.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Deportes</categoria>
+		<nombre>tenis</nombre>
+		<pista_imagen>/tenis.jpg</pista_imagen>
+		<pista_categoria>deportes</pista_categoria>
+		<pista_audio>tenis.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Deportes</categoria>
+		<nombre>petanca</nombre>
+		<pista_imagen>/petanca.jpg</pista_imagen>
+		<pista_categoria>deportes</pista_categoria>
+		<pista_audio>petanca.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Deportes</categoria>
+		<nombre>surf</nombre>
+		<pista_imagen>/surf.jpg</pista_imagen>
+		<pista_categoria>deportes</pista_categoria>
+		<pista_audio>surf.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Deportes</categoria>
+		<nombre>ciclismo</nombre>
+		<pista_imagen>/ciclismo.jpg</pista_imagen>
+		<pista_categoria>deportes</pista_categoria>
+		<pista_audio>ciclismo.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Deportes</categoria>
+		<nombre>atletismo</nombre>
+		<pista_imagen>/atletismo.jpg</pista_imagen>
+		<pista_categoria>deportes</pista_categoria>
+		<pista_audio>atletismo.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Deportes</categoria>
+		<nombre>natacion</nombre>
+		<pista_imagen>/natacion.jpg</pista_imagen>
+		<pista_categoria>deportes</pista_categoria>
+		<pista_audio>natacion.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Deportes</categoria>
+		<nombre>alpinismo</nombre>
+		<pista_imagen>/alpinismo.jpg</pista_imagen>
+		<pista_categoria>deportes</pista_categoria>
+		<pista_audio>alpinismo.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Deportes</categoria>
+		<nombre>vela</nombre>
+		<pista_imagen>/vela.jpg</pista_imagen>
+		<pista_categoria>deportes</pista_categoria>
+		<pista_audio>vela.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Colores</categoria>
+		<nombre>rojo</nombre>
+		<pista_imagen>/rojo.jpg</pista_imagen>
+		<pista_categoria>colores</pista_categoria>
+		<pista_audio>rojo.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Colores</categoria>
+		<nombre>verde</nombre>
+		<pista_imagen>/verde.jpg</pista_imagen>
+		<pista_categoria>colores</pista_categoria>
+		<pista_audio>verde.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Colores</categoria>
+		<nombre>azul</nombre>
+		<pista_imagen>/azul.jpg</pista_imagen>
+		<pista_categoria>colores</pista_categoria>
+		<pista_audio>azul.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Colores</categoria>
+		<nombre>magenta</nombre>
+		<pista_imagen>/magenta.jpg</pista_imagen>
+		<pista_categoria>colores</pista_categoria>
+		<pista_audio>magenta.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Colores</categoria>
+		<nombre>cian</nombre>
+		<pista_imagen>/cian.jpg</pista_imagen>
+		<pista_categoria>colores</pista_categoria>
+		<pista_audio>cian.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Colores</categoria>
+		<nombre>amarillo</nombre>
+		<pista_imagen>/amarillo.jpg</pista_imagen>
+		<pista_categoria>colores</pista_categoria>
+		<pista_audio>amarillo.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Colores</categoria>
+		<nombre>marron</nombre>
+		<pista_imagen>/marron.jpg</pista_imagen>
+		<pista_categoria>colores</pista_categoria>
+		<pista_audio>marron.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Colores</categoria>
+		<nombre>violeta</nombre>
+		<pista_imagen>/violeta.jpg</pista_imagen>
+		<pista_categoria>colores</pista_categoria>
+		<pista_audio>violeta.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Colores</categoria>
+		<nombre>naranja</nombre>
+		<pista_imagen>/naranja.jpg</pista_imagen>
+		<pista_categoria>colores</pista_categoria>
+		<pista_audio>naranja.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Colores</categoria>
+		<nombre>blanco</nombre>
+		<pista_imagen>/blanco.jpg</pista_imagen>
+		<pista_categoria>colores</pista_categoria>
+		<pista_audio>blanco.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Colores</categoria>
+		<nombre>negro</nombre>
+		<pista_imagen>/negro.jpg</pista_imagen>
+		<pista_categoria>colores</pista_categoria>
+		<pista_audio>negro.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+	<palabra>
+
+		<categoria>Colores</categoria>
+		<nombre>gris</nombre>
+		<pista_imagen>/gris.jpg</pista_imagen>
+		<pista_categoria>colores</pista_categoria>
+		<pista_audio>gris.mp3</pista_audio>
+		<pista_descripcion>Descripcion</pista_descripcion>
+	</palabra>
+
+</tema>

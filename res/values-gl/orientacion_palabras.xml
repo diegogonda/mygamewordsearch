@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="orientacion">
+        <item>Horizontal</item>
+        <item>Vertical</item>
+        <item>Horizontal e vertical</item>
+        <item>Diagonais</item>
+        <item>Todas</item>
+    </string-array>
+    <string-array name="orientacion_palabras">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+</resources>

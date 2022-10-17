@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="ISO_idioma">
+
+        <!-- Castellano -->
+        <item>it</item>
+        <!-- Castellano -->
+        <item>fr</item>
+ <!-- Castellano -->
+        <item>es</item>
+        <!-- Castellano -->
+        <item>gl</item>
+        <!-- Castellano -->
+        <item>en</item>
+
+        <!-- Castellano -->
+        <item>de</item>
+    </string-array>
+    <string-array name="idioma">
+        <!-- Castellano -->
+        <item>Italiano</item>
+        <!-- Castellano -->
+        <item>Francese</item>
+        <!-- Castellano -->
+        <item>Spagnolo</item>
+        <!-- Castellano -->
+        <item>Galiziano</item>
+        <!-- Castellano -->
+        <item>Inglese</item>
+
+        <!-- Castellano -->
+        <item>Tedesco</item>
+    </string-array>
+
+</resources>

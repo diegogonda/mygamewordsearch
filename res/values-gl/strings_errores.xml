@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="error_copia_imagen">Error ao copiar a imaxe</string>
+    <string name="error_introducir_imagen">Debes introducir unha imaxe para continuar.</string>
+    <string name="error_nivel_no_superador_gamas">Este nivel está bloqueado todavía.</string>
+    <string name="error_rellenar_ambos_campos">Debes rechear ambolos dous campos para continuar.</string>
+    <string name="error_opcion_incorrecta">Ocorreu un erro na creación do taboleiro. Por favor, téntao de novo.</string>
+    <string name="error_rellenar_campo">Debes introducir unha palabra para continuar.</string>
+    <string name="error_anadir_una_palabra">Debes introducir polo menos unha palabra y unha descrición.</string>
+    <string name="error_introduce_sd">¡É necesario engadir unha tarxeta SD!</string>
+    <string name="error_tipo_partida">Debes seleccionar o tipo de xogo: Partida ou Gama.</string>
+    <string name="error_palabras_invertidas">Debes indicar se queres palabras ao revés ou non.</string>
+    <string name="error_introduce_orientacion">Debes indica-la orientación das palabras no taboleiro.</string>
+    <string name="error_introduce_tamano">Debes indica-lo tamaño do taboleiro.</string>
+    <string name="error_introduce_tipo_pista">Debes indica-lo tipo de pista.</string>
+    <string name="error_rellenar_campo_text_imagen">Debes engadir unha palabra e unha imaxe para continuar</string>
+    <string name="error_categoria_existente">Xa existe un xogo con ese nome</string>
+    <string name="error_introduce_nombre_categoria">Engade un nome para o tema.</string>
+    <string name="error_opcion_juego">Configuración incorrecta. Por favor, revisa a túa configuración.</string>
+    <string name="error_tablero_pequeno">O taboleiro é demasiado pequeno. Por favor, revisa a túa configuración.</string>
+    <string name="error_creacion_partida">No se puido crear o taboleiro.</string>
+    
+</resources>

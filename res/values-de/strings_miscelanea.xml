@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tamano">Größe: </string>
+    <string name="si">Ja</string>
+    <string name="no">Nein</string>
+
+</resources>

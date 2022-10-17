@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- NOMBRE DE LA APLICACIÓN -->
+    <string name="app_name">MyGame WordSearch</string>
+    <string name="action_settings">Les options</string>
+    <string name="descripcion_imagen">Image personnalisée.</string>
+
+</resources>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/es.uvigo.gti.mygamewordsearch"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+<vistas.BannerSuperiorVista
+        android:id="@+id/pantallaPrincipalVista1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:color_linea="#000000"
+        app:largo_linea="245dp"
+        app:padding_fotos="1dp"
+        app:tamano_imagenes="240dp" />
+
+    <TextView
+        android:id="@+id/nueva_palabra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/palabra"
+        android:textSize="@dimen/letra" />
+
+    <EditText
+        android:id="@+id/editText_nuevas_palabras_imagen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:digits="abcdefghijklmnñopqrstuvwxyzáéíóúàèìòùäëïöüâêîôû"
+        android:ems="10"
+        android:inputType="text"
+        android:maxLength="12" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/imageView_anadir_nueva_palabra"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/Imagen_de_la_palabra"
+            android:gravity="right|center_vertical"
+            android:src="@drawable/marco" />
+
+        <Button
+            android:id="@+id/boton_anadir_imagen_imagen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/selecciona_imagen"
+            android:textSize="@dimen/boton" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/boton_anadir_nueva_palabra_imagen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:text="@string/anadir"
+            android:textSize="@dimen/boton" />
+
+        <Button
+            android:id="@+id/boton_terminar_nueva_palabra_imagen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:text="@string/boton_terminar"
+            android:textSize="@dimen/boton" />
+
+        <Button
+            android:id="@+id/boton_agregar_mas_niveles_imagenes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:text="@string/agregar_nuevo_gama"
+            android:textSize="@dimen/boton" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/palabras_agregadas"
+        android:textSize="@dimen/letra" />
+
+    <ListView
+        android:id="@+id/listView_palabras_agregadas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background"
+        android:textSize="@dimen/letra" >
+    </ListView>
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/es.uvigo.gti.mygamewordsearch"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+<vistas.BannerSuperiorVista
+        android:id="@+id/pantallaPrincipalVista1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:color_linea="#000000"
+        app:largo_linea="245dp"
+        app:padding_fotos="1dp"
+        app:tamano_imagenes="240dp" />
+
+    <vistas.ListaPartidasVista
+        android:id="@+id/lista_partidas"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tamano_imagen="200dp"
+        tools:listitem="@layout/lista_partidas"
+        android:background="@drawable/background" />
+
+</LinearLayout>

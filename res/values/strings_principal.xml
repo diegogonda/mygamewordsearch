@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  -->    <string name="que_haces">What do you want to do?</string>
+<!--  -->    <string name="eliminar_juego">Delete game</string>
+<!--  -->    <string name="anadir_nivel">Add level</string>
+<!--  -->    <string name="niveles"> Levels</string>
+
+</resources>

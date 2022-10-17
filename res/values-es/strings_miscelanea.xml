@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- COMUNES A VARIAS ACTIVIDADES -->
+    <string name="tamano">Tamaño: </string>
+    <string name="si">Sí</string>
+    <string name="no">No</string>
+
+</resources>

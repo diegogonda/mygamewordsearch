@@ -1,0 +1,159 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/es.uvigo.gti.mygamewordsearch"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".ConfiguraActivity"
+    tools:ignore="NestedWeights" >
+
+    <vistas.BannerSuperiorVista
+        android:id="@+id/pantallaPrincipalVista1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:color_linea="#000000"
+        app:largo_linea="245dp"
+        app:padding_fotos="1dp"
+        app:tamano_imagenes="240dp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/gris" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gris"
+        android:text="@string/personaliza_tablero"
+        android:textSize="@dimen/letra" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/gris" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_pequeno"
+        android:layout_marginTop="@dimen/margin_pequeno" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5sp"
+                android:text="@string/selecciona_idioma"
+                android:textSize="@dimen/letra" />
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/spinner_idioma"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/letra" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/gris" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gris"
+        android:text="@string/reforzadores"
+        android:textSize="@dimen/letra" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/gris" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_pequeno"
+        android:layout_marginTop="@dimen/margin_pequeno" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5sp"
+                android:text="@string/reforzador_imagen"
+                android:textSize="@dimen/letra" />
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/spinner_visual"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/letra" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/negro" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_marginBottom="@dimen/margin_pequeno"
+        android:layout_marginTop="@dimen/margin_pequeno"
+        android:layout_weight="0.10" >
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.32"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sonido_activado_summary"
+                android:textSize="@dimen/letra" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/checkBoxSonoro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView_texto_legal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+             android:background="@color/gris"
+            android:text="@string/texto_legal"
+            android:textSize="@dimen/letra_sumary" />
+
+    </LinearLayout>
+    
+</LinearLayout>

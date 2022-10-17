@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="personaliza_tablero">Personalisieren Sie Ihre SoupLetter</string>
+    <string name="selecciona_idioma">Sprache: </string>
+  	<string name="reforzadores">Einstellungen der Enhancer</string>
+    <string name="reforzador_imagen">Visuelle: </string>
+    <string name="sonido_activado_summary">Ton</string>
+    <string name="texto_legal">Kostenlose Icons, von www.webdesignerdepot.com heruntergeladen.\nDie für Standardspiele verwendeten Fotos sind frei verfügbar; erstellt und von der NASA verteilt.</string>
+    
+</resources>

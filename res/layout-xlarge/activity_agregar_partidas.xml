@@ -1,0 +1,179 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/es.uvigo.gti.mygamewordsearch"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+<vistas.BannerSuperiorVista
+        android:id="@+id/pantallaPrincipalVista1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:color_linea="#000000"
+        app:largo_linea="245dp"
+        app:padding_fotos="1dp"
+        app:tamano_imagenes="240dp" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView_tema"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tema"
+                android:textSize="@dimen/letra" />
+
+            <EditText
+                android:id="@+id/editText_tema"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text" >
+
+                <requestFocus />
+            </EditText>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="10dp" >
+
+                <TextView
+                    android:id="@+id/textView_tamano_tablero"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/tamano"
+                    android:textSize="@dimen/letra" />
+
+                <Spinner
+                    android:id="@+id/spinner_tamano_tablero"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@android:layout/simple_spinner_item" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="10dp" >
+
+                <TextView
+                    android:id="@+id/textView_orientacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/orientacion"
+                    android:textSize="@dimen/letra" />
+
+                <Spinner
+                    android:id="@+id/spinner_orientacion_palabras"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@android:layout/simple_spinner_item" android:textSize="@dimen/letra"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="10dp" >
+
+                <TextView
+                    android:id="@+id/textView_palabras_invertidas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/invertir_palabras"
+                    android:textSize="@dimen/letra" />
+
+                <RadioGroup
+                    android:id="@+id/palabras_invertidas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radio_boton_si"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:text="@string/si"
+                        android:textSize="@dimen/letra" />
+
+                    <RadioButton
+                        android:id="@+id/radio_boton_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no"
+                        android:textSize="@dimen/boton" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="10dp" >
+
+                <TextView
+                    android:id="@+id/textView_tipo_pista"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/tipo_pista"
+                    android:textSize="@dimen/letra" />
+
+                <Spinner
+                    android:id="@+id/spinner_tipo_pista"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@android:layout/simple_spinner_item" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/texteView_imagenes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/imagen_tema"
+                android:textSize="@dimen/letra" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="10dp" >
+
+                <Button
+                    android:id="@+id/boton_imagen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/boton_imagen"
+                    android:textSize="@dimen/boton" />
+
+                <ImageView
+                    android:id="@+id/agregar_partidas_imagen"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:contentDescription="@string/imagen_tema"
+                    android:src="@drawable/marco" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/boton_agregar_partida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/agregar"
+                android:textSize="@dimen/boton" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="reforzador_imagen">
+        <!-- Color -->
+        <item>color</item>
+        
+        <!-- Que no salga ninguna imagen -->
+        <item>sin_reforzador</item>
+        <!-- Imagen en Blanco y negro -->
+        <item>blanco_negro</item>
+        <!-- Imagen en alto contraste -->
+        <item>alto_contraste</item>
+    </string-array>
+    <string-array name="imagen">
+
+        <!-- Color -->
+        <item>Color</item>
+        <!-- Que no salga ninguna imagen -->
+        <item>No picture</item>
+        <!-- Imagen en Blanco y negro -->
+        <item>Black and white</item>
+        <!-- Imagen en alto contraste -->
+        <item>High contrast</item>
+    </string-array>
+
+</resources>

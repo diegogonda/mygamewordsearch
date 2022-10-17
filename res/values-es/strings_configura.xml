@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="personaliza_tablero">Personaliza tu sopa de letras</string>
+    <string name="selecciona_idioma">Idioma: </string>
+    <string name="reforzadores">Reforzadores visuales y auditivos</string>
+    <string name="reforzador_imagen">Visuales: </string>
+    <string name="sonido_activado_summary">Auditivos</string>
+   	<string name="texto_legal">Iconos gratuitos, descargados de www.webdesignerdepot.com.\nLas fotografías utilizadas para las partidas por defecto son de dominio público; creadas y destribuidas por la NASA.</string>
+    
+</resources>

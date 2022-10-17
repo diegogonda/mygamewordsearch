@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="que_haces">Was würden Sie tun?</string>
+    <string name="eliminar_juego">Spiel löschen</string>
+    <string name="anadir_nivel">hinzufügen Niveau</string>
+    <string name="niveles"> Ebenen</string>
+
+</resources>

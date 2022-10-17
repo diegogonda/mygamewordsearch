@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="error_copia_imagen">Gescheitert, um das Bild zu kopieren.</string>
+    <string name="error_introducir_imagen">Sie müssen ein Bild, um weiter einzuführen.</string>
+    <string name="error_nivel_no_superador_gamas">Diese Ebene ist immer noch gesperrt.</string>
+    <string name="error_rellenar_ambos_campos">Sie müssen in beiden Bereichen weiter zu füllen.</string>
+    <string name="error_opcion_incorrecta">Ein Fehler ist bei der Erstellung des Boards aufgetreten. Bitte versuchen Sie es erneut.</string>
+    <string name="error_rellenar_campo">Sie müssen ein Wort eingeben, um weiterhin.</string>
+    <string name="error_anadir_una_palabra">Sie müssen mindestens ein Wort und eine Beschreibung hinzuzufügen.</string>
+    <string name="error_introduce_sd">Sie müssen eine SD-Karte schreiben!</string>
+    <string name="error_tipo_partida">Teil oder Gamut: Sie müssen die Art des Spiels wählen.</string>
+    <string name="error_palabras_invertidas">Sie müssen angeben, ob Sie Wörter rückwärts wollen oder nicht.</string>
+    <string name="error_introduce_orientacion">Sie müssen angeben, die Ausrichtung der Wörter auf dem Brett.</string>
+    <string name="error_introduce_tamano">Muss zeigen die Größe der Platine</string>
+    <string name="error_introduce_tipo_pista">Sie müssen angeben, welche Art von Ahnung.</string>
+    <string name="error_rellenar_campo_text_imagen">Sie müssen ein Wort und ein Bild weiter hinzuzufügen.</string>
+    <string name="error_categoria_existente">Spiel mit diesem Namen bereits vorhanden ist.</string>
+    <string name="error_introduce_nombre_categoria">Fügen Sie einen Namen Thema</string>
+    <string name="error_opcion_juego">Falsche Konfiguration. Bitte überprüfen Sie Ihre Konfiguration.</string>
+    <string name="error_tablero_pequeno">Das Board ist zu klein. Bitte überprüfen Sie Ihre Einstellungen.</string>
+    <string name="error_creacion_partida">Das Spiel konnte nicht erstellt werden.</string>
+</resources>

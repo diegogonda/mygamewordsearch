@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="error_copia_imagen">Error al copiar la imagen</string>
+    <string name="error_introducir_imagen">Debes introducir una imagen para continuar.</string>
+    <string name="error_nivel_no_superador_gamas">Este nivel está bloqueado todavía.</string>
+    <string name="error_rellenar_ambos_campos">Debes rellenar ambos campos para continuar.</string>
+    <string name="error_opcion_incorrecta">Ha ocurrido un error en la creación del tablero. Por favor, inténtalo de nuevo.</string>
+    <string name="error_rellenar_campo">Debes introducir una palabra para continuar.</string>
+    <string name="error_anadir_una_palabra">Debes introducir al menos una palabra y una descripción.</string>
+    <string name="error_introduce_sd">¡Es necesario añadir una tarjeta SD!</string>
+    <string name="error_tipo_partida">Debes seleccionar el tipo de juego: Partida o Gama.</string>
+    <string name="error_palabras_invertidas">Debes indicar si quieres palabras al revés o no.</string>
+    <string name="error_introduce_orientacion">Debes indicar la orientación de las palabras en el tablero.</string>
+    <string name="error_introduce_tamano">Debes indicar el tamaño del tablero.</string>
+    <string name="error_introduce_tipo_pista">Debes indicar el tipo de pista.</string>
+    <string name="error_rellenar_campo_text_imagen">Debes añadir una palabra y una imagen para continuar</string>
+    <string name="error_categoria_existente">Ya existe un juego con ese nombre</string>
+    <string name="error_introduce_nombre_categoria">Añade un nombre para el tema.</string>
+    <string name="error_opcion_juego">Configuración incorrecta. Por favor, revisa tu configuración.</string>
+    <string name="error_tablero_pequeno">El tablero es demasiado pequeño. Por favor, revisa tu configuración.</string>
+    <string name="error_creacion_partida">No se pudo crear el tablero.</string>
+
+</resources>

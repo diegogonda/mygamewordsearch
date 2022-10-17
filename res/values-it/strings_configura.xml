@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="personaliza_tablero">Personalizza il tuo SoupLetter</string>
+    <string name="selecciona_idioma">Lingua: </string>
+    <string name="reforzadores">Impostazioni di rinforzatori</string>
+    <string name="reforzador_imagen">Visual: </string>
+    <string name="sonido_activado_summary">Suono</string>
+   	<string name="texto_legal">Icone gratis, scaricato da www.webdesignerdepot.com\nLe fotografie utilizzate per i giochi di default sono di dominio pubblico; creato e distribuito dalla NASA.</string>
+    
+</resources>

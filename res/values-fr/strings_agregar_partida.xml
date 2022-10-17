@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Agregar partidas -->
+
+    <string name="tema">Thème du jeu: </string>
+    <string name="orientacion">Orientation: </string>
+    <string name="invertir_palabras">Mots à l\&apos;envers: </string>
+    <string name="tipo_pista">Type de indice: </string>
+    <string name="imagen_tema">L\&apos;image du thème: </string>
+    <string name="boton_imagen">Sélectionnez un fichier</string>
+    <string name="agregar">Ajouter</string>
+    <!-- Agregar palabras -->
+    <string name="agregar_nuevo_gama">Nouveau jeu</string>
+    <string name="quieres_salir">Envie de sortir?</string>
+    <string name="textView_descripcion">Description: </string>
+    <string name="selecciona_imagen">Sélectionnez une image: </string>
+    <string name="palabra">Parole: </string>
+    <string name="anadir">Ajouter</string>
+    <string name="boton_terminar">Fin</string>
+    <string name="Imagen_de_la_palabra">Image du mot que vous allez ajouter</string>
+    <string name="pulsa_boton_terminar">Pour sortir, vous devez appuyer sur la touche de fin.</string>
+    <string name="title_activity_agregar_partidas">Ajouter le jeu</string>
+    <string name="categoria_agregada_correctamente">La catégorie a été ajouté avec succès, ajouter les mots</string>
+    <string name="title_activity_nuevas_palabras">Ajouter les mots: </string>
+    <string name="botonera_deshabilitada">Vous devez utiliser le bouton Terminer pour quitter</string>
+    <string name="palabras_agregadas">Mots ajoutés:</string>
+
+    <string-array name="menu">
+        <item>Modifier</item>
+        <item>Supprimer</item>
+    </string-array>
+</resources>

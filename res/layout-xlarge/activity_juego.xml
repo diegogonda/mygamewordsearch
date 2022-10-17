@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/es.uvigo.gti.mygamewordsearch"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView_Nombre_Partida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/tema"
+        android:textSize="@dimen/letra_grande" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="5dp"
+        android:background="@color/azul" />
+
+    <vistas.TableroVista
+        android:id="@+id/tableroVista1"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.26"
+        android:paddingTop="0dp"
+        app:ajuste_marca_pista="8dp"
+        app:altoLetras="25dp"
+        app:anchoBarra="27dp"
+        app:ancho_grilla="5dp"
+        app:barraPalabraSeleccionadaInclinadaX1="6dp"
+        app:barraPalabraSeleccionadaInclinadaX2="6dp"
+        app:barraPalabraSeleccionadaX="15dp"
+        app:barraPalabraSeleccionadaY="25dp"
+        app:colorLetras="#000000"
+        app:color_grilla="@color/azul"
+        app:color_marca_pista="#0000ff"
+        app:margenSuperiorTablero="150dp"
+        app:radio_marca_pista="15dp"
+        app:sensibilidad="30dp"
+        app:tamano_imagen_reforzadora="250dp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="5dp"
+        android:background="@color/azul" />
+
+    <vistas.PistasVista
+        android:id="@+id/pistasPalabrasVista1"
+        android:layout_width="match_parent"
+        android:layout_height="114dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.22"
+        android:paddingTop="0dp"
+        app:altoPalabras="50sp"
+        app:altura_primera_palabra="50dp"
+        app:cantidad_caracteres_descripcion="20dp"
+        app:numero_columnas="3"
+        app:padding_imagenes="5dp"
+        app:primera_letra_descripcion="100dp"
+        app:tamano_imagenes_pistas="60dp"
+        app:x_Columna_1="100dp" />
+
+</LinearLayout>

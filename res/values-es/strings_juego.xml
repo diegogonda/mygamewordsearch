@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="seguir_jugando">Seguir jugando</string>
+    <string name="has_ganado">¡¡Has Ganado!!</string>
+    <string name="que_quieres_hacer">¿Qué quieres hacer?</string>
+    <string name="salir">Salir</string>
+    <string name="quieres_finalizar_partida">¿Quieres finalizar la partida?</string>
+    <string name="title_activity_juego">¡Juega!</string>
+    <string name="partida_ganada">Felicidades!! Ganaste la partida.</string>
+</resources>

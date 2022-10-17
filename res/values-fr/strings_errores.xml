@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="error_copia_imagen">Impossible de copier l\&apos;image.</string>
+    <string name="error_introducir_imagen">Vous devez saisir une image pour continuer.</string>
+    <string name="error_nivel_no_superador_gamas">Ce niveau est toujours verrouillé.</string>
+    <string name="error_rellenar_ambos_campos">Vous devez remplir les deux champs pour continuer.</string>
+    <string name="error_opcion_incorrecta">Une erreur s\&apos;est produite dans la création de la commission. S\&apos;il vous plaît essayez de nouveau.</string>
+    <string name="error_rellenar_campo">Vous devez entrer un mot de continuer.</string>
+    <string name="error_anadir_una_palabra">Vous devez entrer au moins un mot et une description.</string>
+    <string name="error_introduce_sd">Vous devez ajouter une carte SD!</string>
+    <string name="error_tipo_partida">Vous devez sélectionner le type de jeu:Partie ou Gamut.</string>
+    <string name="error_palabras_invertidas">Vous devez suivants ont mots à l\&apos;envers si vous voulez ou non.</string>
+    <string name="error_introduce_orientacion">Vous devez suivants ont l\&apos;orientation des mots sur le plateau.</string>
+    <string name="error_introduce_tamano">Doit indiquer la taille du bord.</string>
+    <string name="error_introduce_tipo_pista">Vous devez indiquer le type de la moindre idée.</string>
+    <string name="error_rellenar_campo_text_imagen">Vous devez ajouter un mot et une image pour continuer.</string>
+    <string name="error_categoria_existente">Jeu avec ce nom existe déjà.</string>
+    <string name="error_introduce_nombre_categoria">Ajoutez un nom de thème</string>
+    <string name="error_opcion_juego">Une configuration incorrecte. S\&apos;il vous plaît vérifier votre configuration.</string>
+    <string name="error_tablero_pequeno">Le bord est trop petit. S\&apos;il vous plaît vérifier vos paramètres</string>
+    <string name="error_creacion_partida">Impossible de créer le jeu.</string>
+</resources>

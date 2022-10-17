@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="gama">Gama</string>
+        <string name="ganaste_gama">Felicidades! Superaches o reto!</string>
+        <string name="volver_a_jugar_gama">Volver a comezar!</string>
+</resources>

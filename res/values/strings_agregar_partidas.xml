@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Agregar partidas -->
+<!--  -->    <string name="tema">Theme of the game: </string>
+<!--  -->    <string name="orientacion">Orientatión: </string>
+<!--  -->    <string name="invertir_palabras">Words backwards: </string>
+<!--  -->    <string name="tipo_pista">Type of clue: </string>
+<!--  -->    <string name="imagen_tema">Image of theme: </string>
+<!--  -->    <string name="boton_imagen">Select a file</string>
+<!--  -->    <string name="agregar">Add</string>
+
+    <!-- Agregar palabras -->
+<!--  -->    <string name="agregar_nuevo_gama">New level</string>
+<!--  -->    <string name="quieres_salir">Do you want to quit?</string>
+<!--  -->    <string name="textView_descripcion">Description: </string>
+<!--  -->    <string name="selecciona_imagen">Select an image: </string>
+<!--  -->    <string name="palabra">Word: </string>
+<!--  -->    <string name="anadir">Add</string>
+<!--  -->    <string name="boton_terminar">Quit</string>
+<!--  -->    <string name="Imagen_de_la_palabra">Image of word</string>
+<!--  -->    <string name="pulsa_boton_terminar">Para finish the game you have to push the end button.</string>
+<!--  -->    <string name="title_activity_agregar_partidas">Add Games</string>
+<!--  -->    <string name="categoria_agregada_correctamente">The category was successfully added, add the words</string>
+<!--  -->    <string name="title_activity_nuevas_palabras">Add the words: </string>
+<!--  -->    <string name="botonera_deshabilitada">You must use the Finish button to exit</string>
+<!--  -->    <string name="palabras_agregadas">Added words: </string>
+
+    <string-array name="menu">
+<!--  -->        <item>Edit</item>
+<!--  -->        <item>Delete</item>
+    </string-array>
+
+</resources>
