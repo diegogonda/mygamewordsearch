@@ -142,7 +142,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * Metodo que recupera la informaci�n del idioma del archivo SharedPreferences
+	 * Metodo que recupera la informacion del idioma del archivo SharedPreferences
 	 * @return the idioma
 	 */
 	public static String getIdioma(Context contexto) {
@@ -164,7 +164,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * Metodo que recupera la informaci�n de la orientaci�n de las palabras en el archivo SharedPreferences
+	 * Metodo que recupera la informacion de la orientaci�n de las palabras en el archivo SharedPreferences
 	 * @return the orientacionPalabras
 	 */
 	public static String getOrientacionPalabras(Context contexto) {

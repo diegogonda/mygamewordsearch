@@ -77,7 +77,7 @@ public class CreaTablero {
 		 * */
 		tableroJuego = new char[tamanoTablero][tamanoTablero];
 		/**
-		 * Generamos el objeto que contendra la informaci�n de todas las palabras del tablero
+		 * Generamos el objeto que contendra la informacion de todas las palabras del tablero
 		 * */
 		contador = 0;
 		/**
@@ -321,8 +321,8 @@ public class CreaTablero {
 
 			if (funcionControlTamanos(pp.size())) {
 				/**
-				 * Creamos un fichero posiciones_palabras.xml s�lo con la informaci�n que tenemos Para evitar errores en la creaci�n, los valores que todav�a no se han hallado los incializaremos a -1
-				 * El fichero posiciones_palabras.xml contendr� la informaci�n de la partida en juego
+				 * Creamos un fichero posiciones_palabras.xml s�lo con la informacion que tenemos Para evitar errores en la creaci�n, los valores que todav�a no se han hallado los incializaremos a -1
+				 * El fichero posiciones_palabras.xml contendr� la informacion de la partida en juego
 				 */
 				xml = new XMLParser(contexto);
 				xml.escribePosicionesPalabras(pp);

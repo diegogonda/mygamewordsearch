@@ -46,7 +46,7 @@ public class AdapterConfiguracionPartida extends BaseAdapter {
 		// Rellenamos el tamano
 		TextView tamano = (TextView) v.findViewById(R.id.tamano);
 		tamano.setText(contexto.getString(R.string.tamano) + " " + cp.gettamano() + "x" + cp.gettamano());
-		// Rellenamos con la informaci�n de palabras invertidas
+		// Rellenamos con la informacion de palabras invertidas
 		return v;
 	}
 	
