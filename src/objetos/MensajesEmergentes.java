@@ -199,7 +199,7 @@ dialog.cancel();
 			return -1;
 	}
 	/**
-	 * M�todo que lanza la actividad Juego para volver a jugar
+	 * Metodo que lanza la actividad Juego para volver a jugar
 	 */
 	private static void VolverAJugar(final Context contexto, String temaActual, int nivelEnJuego, int ultimoNivelSuperado) {
 		String tipoPartida = Preferencias.getTipoPartida(contexto);

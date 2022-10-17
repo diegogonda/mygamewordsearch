@@ -177,7 +177,7 @@ public class TableroVista extends View {
 	@Override
 	/**
 	 * Recoge los puntos sobre los que estamos pulsando para pintarlos en la pantalla
-	 * Punto tambi�n llama al m�todo que determina si hemos seleccionado o no una palabra
+	 * Punto tambi�n llama al Metodo que determina si hemos seleccionado o no una palabra
 	 */
 	public boolean onTouchEvent(MotionEvent evento) {
 		switch (evento.getAction()) {
@@ -275,8 +275,8 @@ public class TableroVista extends View {
 	}
 
 	/**
-	 * M�todo en el que, una vez se ha terminado la partida, se eval�a si se trata de una gama o no. Si es Gama: 1.- Si eval�a si hemos superado un nivel no superado anteriomente. Si es un nivel no
-	 * superado, se comprueba que no sea el �ltimo nivel del juego, si no lo es se actualiza la informacion del ultimo nivel superado en el archivo opciones_juego.xml y se salta al m�todo
+	 * Metodo en el que, una vez se ha terminado la partida, se eval�a si se trata de una gama o no. Si es Gama: 1.- Si eval�a si hemos superado un nivel no superado anteriomente. Si es un nivel no
+	 * superado, se comprueba que no sea el �ltimo nivel del juego, si no lo es se actualiza la informacion del ultimo nivel superado en el archivo opciones_juego.xml y se salta al Metodo
 	 * constructorAlerta(). Si lo es se sale a la Actividad Gamas 2.- Si es un nivel, se abre un dialogo para pasar al siguiente nivel o salir
 	 * */
 	private void PartidaFinalizada() {
@@ -346,7 +346,7 @@ public class TableroVista extends View {
 	}
 
 	/**
-	 * M�todo que se encarga de quela vista tenga el tamano indicado
+	 * Metodo que se encarga de quela vista tenga el tamano indicado
 	 * @param view
 	 * @param newWidth
 	 * @param newHeight

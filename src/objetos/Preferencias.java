@@ -65,7 +65,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * M�todo que obtiene la configuracion del tipo de reforzador visual que vamos a utilizar
+	 * Metodo que obtiene la configuracion del tipo de reforzador visual que vamos a utilizar
 	 * @return the reforzadorVisual
 	 */
 	public static String getReforzadorVisual(Context contexto) {
@@ -75,7 +75,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * M�todo que modifica la configuracion del tipo de reforzador visual que vamos a utilizar
+	 * Metodo que modifica la configuracion del tipo de reforzador visual que vamos a utilizar
 	 * @param reforzadorVisual
 	 *            the reforzadorVisual to set
 	 */
@@ -120,7 +120,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * M�todo que permite conocer si el tablero tiene o no palabras invertidas
+	 * Metodo que permite conocer si el tablero tiene o no palabras invertidas
 	 * @return the palabrasInvertidas
 	 */
 	public static boolean isPalabrasInvertidas(Context contexto) {
@@ -130,7 +130,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * M�todo que permite modificar para que el tablero tenga o no palabras invertidas
+	 * Metodo que permite modificar para que el tablero tenga o no palabras invertidas
 	 * @param palabrasInvertidas
 	 *            the palabrasInvertidas to set
 	 */
@@ -142,7 +142,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * M�todo que recupera la informaci�n del idioma del archivo SharedPreferences
+	 * Metodo que recupera la informaci�n del idioma del archivo SharedPreferences
 	 * @return the idioma
 	 */
 	public static String getIdioma(Context contexto) {
@@ -152,7 +152,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * M�todo que cambia la configuraci�n del idioma en el archivo SharedPreferences
+	 * Metodo que cambia la configuraci�n del idioma en el archivo SharedPreferences
 	 * @param idioma
 	 *            the idioma to set
 	 */
@@ -164,7 +164,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * M�todo que recupera la informaci�n de la orientaci�n de las palabras en el archivo SharedPreferences
+	 * Metodo que recupera la informaci�n de la orientaci�n de las palabras en el archivo SharedPreferences
 	 * @return the orientacionPalabras
 	 */
 	public static String getOrientacionPalabras(Context contexto) {
@@ -175,7 +175,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * M�todo que cambia la configuraci�n de la orientaci�n de las palabras en el archivo SharedPreferences
+	 * Metodo que cambia la configuraci�n de la orientaci�n de las palabras en el archivo SharedPreferences
 	 * @param orientacionPalabras
 	 *            the orientacionPalabras to set
 	 */
@@ -210,7 +210,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * M�todo que obtiene el tipo de tablero (aleatorio o predefinido)
+	 * Metodo que obtiene el tipo de tablero (aleatorio o predefinido)
 	 * En desuso
 	 * @return tipo de tablero
 	 */
@@ -220,7 +220,7 @@ public class Preferencias {
 		return tipoTablero;
 	}
 	/**
-	 * M�todo que cambiar el tipo de tablero (aleatorio o predefinido)
+	 * Metodo que cambiar el tipo de tablero (aleatorio o predefinido)
 	 * En desuso
 	 */
 	public static void setTipoTablero(String tipoTablero, Context contexto) {
