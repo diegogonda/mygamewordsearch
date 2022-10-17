@@ -25,7 +25,7 @@ import es.uvigo.gti.mygamewordsearch.R;
 
 public class TableroVista extends View {
 	/**
-	 * Variables de las im�genes reforzadoras
+	 * Variables de las imagenes reforzadoras
 	 */
 	private static int tamanoImagenesReforazadoras;
 	/**

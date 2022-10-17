@@ -152,7 +152,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * Metodo que cambia la configuraci�n del idioma en el archivo SharedPreferences
+	 * Metodo que cambia la configuracion del idioma en el archivo SharedPreferences
 	 * @param idioma
 	 *            the idioma to set
 	 */
@@ -164,7 +164,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * Metodo que recupera la informacion de la orientaci�n de las palabras en el archivo SharedPreferences
+	 * Metodo que recupera la informacion de la orientacion de las palabras en el archivo SharedPreferences
 	 * @return the orientacionPalabras
 	 */
 	public static String getOrientacionPalabras(Context contexto) {
@@ -175,7 +175,7 @@ public class Preferencias {
 	}
 
 	/**
-	 * Metodo que cambia la configuraci�n de la orientaci�n de las palabras en el archivo SharedPreferences
+	 * Metodo que cambia la configuracion de la orientacion de las palabras en el archivo SharedPreferences
 	 * @param orientacionPalabras
 	 *            the orientacionPalabras to set
 	 */

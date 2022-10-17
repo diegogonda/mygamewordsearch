@@ -83,7 +83,7 @@ public class CreaTablero {
 		/**
 		 * Por defecto el tablero siempre va a aceptar palabras en Horizontal, mientras que Vertical, Diagonales y palabras del rev�s s�lo si lo pide el jugador.
 		 * 
-		 * La primera palabra cumplir� las siguientes caracter�stica: 1.- Su colocaci�n ser� siempre en Horizontal. 2.- Ser� la primera palabra del Vector Palabras, es decir, la m�s larga
+		 * La primera palabra cumplir� las siguientes caracter�stica: 1.- Su colocacion ser� siempre en Horizontal. 2.- Ser� la primera palabra del Vector Palabras, es decir, la m�s larga
 		 * */
 		rellenaTablero();
 		/**
@@ -294,7 +294,7 @@ public class CreaTablero {
 	}
 
 	/**
-	 * Funciones separadas de CreaTablero Se encargan de controlar qe las palabras que se van a utilizar en el tablero cumplan los requisitos para que no ocurran errores en tiempo de ejecuci�n
+	 * Funciones separadas de CreaTablero Se encargan de controlar qe las palabras que se van a utilizar en el tablero cumplan los requisitos para que no ocurran errores en tiempo de ejecucion
 	 * 
 	 * @param palabras
 	 * @param categoriaJuego
@@ -321,7 +321,7 @@ public class CreaTablero {
 
 			if (funcionControlTamanos(pp.size())) {
 				/**
-				 * Creamos un fichero posiciones_palabras.xml s�lo con la informacion que tenemos Para evitar errores en la creaci�n, los valores que todav�a no se han hallado los incializaremos a -1
+				 * Creamos un fichero posiciones_palabras.xml s�lo con la informacion que tenemos Para evitar errores en la creacion, los valores que todav�a no se han hallado los incializaremos a -1
 				 * El fichero posiciones_palabras.xml contendr� la informacion de la partida en juego
 				 */
 				xml = new XMLParser(contexto);
@@ -437,7 +437,7 @@ public class CreaTablero {
 	}
 
 	/**
-	 * Funci�n que determina si en una cadena de caracteres hay o no caracteres con tilde, de haberlos los elimina
+	 * Funcion que determina si en una cadena de caracteres hay o no caracteres con tilde, de haberlos los elimina
 	 * 
 	 * @param palabra
 	 * @return palabra
