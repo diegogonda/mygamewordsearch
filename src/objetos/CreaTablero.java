@@ -63,7 +63,7 @@ public class CreaTablero {
 		pp = p;
 
 		/**
-		 * Ordenamos las palabras de mayor a menor tama�o
+		 * Ordenamos las palabras de mayor a menor tamano
 		 * */
 		Palabras = new Vector<String>();
 		for (PosicionesPalabras aux : pp) {
@@ -357,7 +357,7 @@ public class CreaTablero {
 		}
 
 		/*
-		 * Eliminamos aquellas palabras que no caben en el tablero por su tama�o
+		 * Eliminamos aquellas palabras que no caben en el tablero por su tamano
 		 */
 		ajusteTamanoPalabras(tamanoPP);
 
