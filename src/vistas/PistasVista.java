@@ -54,7 +54,7 @@ public class PistasVista extends View implements TextToSpeech.OnInitListener {
 	private static boolean primeraIteraccion = true;
 
 	/**
-	 * Variables de las posiciones en que vamos a pintar las im�genes
+	 * Variables de las posiciones en que vamos a pintar las imagenes
 	 */
 	private static int xIni = 0;
 	private static int yIni = 0;
@@ -240,7 +240,7 @@ public class PistasVista extends View implements TextToSpeech.OnInitListener {
 	}
 
 	/**
-	 * Para evitar que haya palabras cortadas en las descripciones del tablero, creamos esta funci�n, que eval�a si una palabra va ser cortada
+	 * Para evitar que haya palabras cortadas en las descripciones del tablero, creamos esta funcion, que eval�a si una palabra va ser cortada
 	 * en caso afirmativo busca el anterior espacio dentro del intervalo, en caso de no encontrar dicho espacio la palabra acabar� cortada.
 	 * 
 	 * @param letraInicial
