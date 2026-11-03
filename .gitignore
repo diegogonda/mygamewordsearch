@@ -1,0 +1,19 @@
+# Gradle
+.gradle/
+build/
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+
+# Legacy Eclipse build leftovers
+/bin/
+/gen/
+/.classpath
+/.project
+/.settings/
+
+# OS noise
+.DS_Store
+Thumbs.db
