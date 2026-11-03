@@ -32,7 +32,7 @@ import es.uvigo.gti.mygamewordsearch.R;
 
 public class XMLParser {
 	/**
-	 * Variables que nos permitir·n abrir los ficheros xml
+	 * Variables que nos permitir√°n abrir los ficheros xml
 	 */
 	private static FileOutputStream fout;
 	private static FileInputStream fin;
@@ -48,7 +48,7 @@ public class XMLParser {
 	}
 
 	/**
-	 * M…TODOS ENCARGADOS DE GENERAR Y LEER EL ARCHIVO /nombre_categoria/categoria/opciones_juego.xml
+	 * M√âTODOS ENCARGADOS DE GENERAR Y LEER EL ARCHIVO /nombre_categoria/categoria/opciones_juego.xml
 	 */
 	public void escribeOpcionesJuego(String ruta, int numeroNiveles, int ultimoSuperado, String gama) {
 		try {
@@ -68,8 +68,8 @@ public class XMLParser {
 	}
 
 	/**
-	 * Devuelve el contenido del fichero /nombre_categoria/categoria/opciones_juego.xml a travÈs de un arrayList en el que se guardan la informaciÛn la siguiente estructura 1.- gamificaciÛn: øEs gama
-	 * o no? 2.- numero niveles: øCu·ntos niveles hay en la categoria? 3.- ultimo nivel ganado: øCu·l es el ˙ltimo nivel superado?
+	 * Devuelve el contenido del fichero /nombre_categoria/categoria/opciones_juego.xml a trav√©s de un arrayList en el que se guardan la informaci√≥n la siguiente estructura 1.- gamificaci√≥n: ¬øEs gama
+	 * o no? 2.- numero niveles: ¬øCu√°ntos niveles hay en la categoria? 3.- ultimo nivel ganado: ¬øCu√°l es el √∫ltimo nivel superado?
 	 * 
 	 * @return
 	 */
@@ -100,7 +100,7 @@ public class XMLParser {
 	}
 
 	/**
-	 * M…TODOS ENCARGADOS DE GENERAR Y LEER EL ARCHIVO partidas_definidas.xml
+	 * M√âTODOS ENCARGADOS DE GENERAR Y LEER EL ARCHIVO partidas_definidas.xml
 	 */
 	public void escribePalabrasPersonalizadas(String nombreFichero, ArrayList<String> arrayPalabras) {
 		try {
@@ -157,7 +157,7 @@ public class XMLParser {
 
 				agregaEtiqueta(serializer, EtiquetasXML.getNodoTipo(), cp.getTipoPartida());
 				agregaEtiqueta(serializer, EtiquetasXML.getNodoTema(), cp.getCategoria());
-				agregaEtiqueta(serializer, EtiquetasXML.getNODO_TAMA—O(), cp.getTamaÒo());
+				agregaEtiqueta(serializer, EtiquetasXML.getNODO_TAMA√ëO(), cp.getTama√±o());
 				agregaEtiqueta(serializer, EtiquetasXML.getNodoOrientacion(), cp.getOrientacion());
 				agregaEtiqueta(serializer, EtiquetasXML.getNodoInvertida(), cp.getInvertida());
 				agregaEtiqueta(serializer, EtiquetasXML.getNodoTipoPista(), cp.getTipoPista());
@@ -189,7 +189,7 @@ public class XMLParser {
 					XmlPullParser aux = xpp;
 					cp.setTipoPartida(getDatosPartida(aux, EtiquetasXML.getNodoTipo()));
 					cp.setCategoria(getDatosPartida(aux, EtiquetasXML.getNodoTema()));
-					cp.setTamaÒo(getDatosPartida(aux, EtiquetasXML.getNODO_TAMA—O()));
+					cp.setTama√±o(getDatosPartida(aux, EtiquetasXML.getNODO_TAMA√ëO()));
 					cp.setOrientacion(getDatosPartida(aux, EtiquetasXML.getNodoOrientacion()));
 					cp.setInvertida(getDatosPartida(aux, EtiquetasXML.getNodoInvertida()));
 					cp.setTipoPista(getDatosPartida(aux, EtiquetasXML.getNodoTipoPista()));
@@ -210,17 +210,17 @@ public class XMLParser {
 	}
 
 	/**
-	 * MÈtodo encargado de generar el archivo partida_en_juego.xml
+	 * M√©todo encargado de generar el archivo partida_en_juego.xml
 	 */
-	public void escribeTableroJuego(char[][] tableroJuego, int tamaÒoTablero) {
+	public void escribeTableroJuego(char[][] tableroJuego, int tama√±oTablero) {
 		try {
 			XmlSerializer serializer = serializerEscrituraMemoriaInterna(partidaJuego);
 			serializer.startTag(null, EtiquetasXML.getNodoTablero());
 
-			for (int i = 0; i < tamaÒoTablero; i++) {
+			for (int i = 0; i < tama√±oTablero; i++) {
 				serializer.startTag(null, EtiquetasXML.getNodoFila());
 				serializer.attribute(null, "fila", String.valueOf(i));
-				for (int j = 0; j < tamaÒoTablero; j++) {
+				for (int j = 0; j < tama√±oTablero; j++) {
 
 					serializer.startTag(null, EtiquetasXML.getNodoLetra());
 					serializer.attribute(null, "columna", String.valueOf(j));
@@ -371,7 +371,7 @@ public class XMLParser {
 
 	public void escribePosicionesPalabras(ArrayList<PosicionesPalabras> pp) {
 		/**
-		 * MÈtodo encargado de escribir el archivo posiciones_palabras.xml
+		 * M√©todo encargado de escribir el archivo posiciones_palabras.xml
 		 */
 		try {
 
@@ -422,7 +422,7 @@ public class XMLParser {
 
 	public void guardaConfiguracionTableros() {
 		/**
-		 * MÈtodo que se encarga de restaurar la copia de seguridad
+		 * M√©todo que se encarga de restaurar la copia de seguridad
 		 */
 		File fichero = new File(rutaSharedPreferences + xmlTexto);
 		if (fichero.exists()) {
@@ -448,7 +448,7 @@ public class XMLParser {
 
 	public int getPalabrasDescripcionesPersonalizadasTemas(String tema) {
 		/**
-		 * MÈtodo que nos permite sÛlo las palabra de un tema determinado
+		 * M√©todo que nos permite s√≥lo las palabra de un tema determinado
 		 */
 		try {
 			XmlPullParser xpp = serializerLecturaTarjetaSD(tema);
@@ -492,7 +492,7 @@ public class XMLParser {
 	}
 
 	/**
-	 * MÈtodo que nos permite sÛlo las palabra de un tema determinado
+	 * M√©todo que nos permite s√≥lo las palabra de un tema determinado
 	 */
 	public ArrayList<PosicionesPalabras> getPalabrasPersonalizadasTemas(String tema) {
 		try {
@@ -535,7 +535,7 @@ public class XMLParser {
 	}
 
 	/**
-	 * M…TODOS DE OBTENCI”N DE LOS DIFERENTES PAR¡METROS NECESARIOS PARA GESTIONAR LOS ARCHIVOS xml
+	 * M√âTODOS DE OBTENCI√ìN DE LOS DIFERENTES PAR√ÅMETROS NECESARIOS PARA GESTIONAR LOS ARCHIVOS xml
 	 */
 	private void agregaEtiqueta(XmlSerializer serializer, String etiqueta, String contenido) {
 		try {
@@ -552,7 +552,7 @@ public class XMLParser {
 	}
 
 	/**
-	 * MÈtodo que nos sirve para generar un parser con el que gestionar el contenido guardado en un fichero xml
+	 * M√©todo que nos sirve para generar un parser con el que gestionar el contenido guardado en un fichero xml
 	 * 
 	 * @param archivo
 	 *            nombre del archivo que se quiere abrir como lectura
@@ -577,7 +577,7 @@ public class XMLParser {
 	}
 
 	/**
-	 * MÈtodo que nos sirve para generar un parser con el que gestionar el contenido guardado en un fichero xml
+	 * M√©todo que nos sirve para generar un parser con el que gestionar el contenido guardado en un fichero xml
 	 * 
 	 * @param archivo
 	 *            nombre del archivo que se quiere abrir como lectura
@@ -618,7 +618,7 @@ public class XMLParser {
 	}
 
 	/**
-	 * MÈtodo que nos permite generar un parser con el que generar un archivo xml
+	 * M√©todo que nos permite generar un parser con el que generar un archivo xml
 	 * 
 	 * @param archivo
 	 *            nombre del archivo que se quiere abrir como escritura

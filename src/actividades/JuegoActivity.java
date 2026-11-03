@@ -34,7 +34,7 @@ public class JuegoActivity extends Activity {
 
 		try {
 			t.setText(Preferencias.getNombrePartida(this));
-			Idioma.CambiaIdioma(this); // Cambiamos el idioma de la aplicación
+			Idioma.CambiaIdioma(this); // Cambiamos el idioma de la aplicaciÃ³n
 		} catch (Exception e) {
 			t.setText("-");
 			Log.e("JuegoActivity -> OnCreate", " " + e.getMessage());
@@ -62,7 +62,7 @@ public class JuegoActivity extends Activity {
 		}
 	}
 	/**
-	 * Eliminamos el botón settings de las pantallas
+	 * Eliminamos el botÃ³n settings de las pantallas
 	 */
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {

@@ -32,13 +32,13 @@ public class CreaTablero {
 	private int intentosMaximos = 100;
 	private int cantidadPalabras;
 	private boolean invierte; // true inverte algunas palabras, false no
-	private int opciones; // = 1 s�lo horizontal, 2 hor + vertical, 3 hor + ver + diagonal1, 4 todos
+	private int opciones; // = 1 sólo horizontal, 2 hor + vertical, 3 hor + ver + diagonal1, 4 todos
 
 	// Objeto Posiciones de las palabras
 	private ArrayList<PosicionesPalabras> pp;
 	private int contador;
 
-	// Datos que guardar� el objeto Posiciones de las palabras
+	// Datos que guardará el objeto Posiciones de las palabras
 	private static int xInicial;
 	private static int yInicial;
 	private static int xFinal;
@@ -63,7 +63,7 @@ public class CreaTablero {
 		pp = p;
 
 		/**
-		 * Ordenamos las palabras de mayor a menor tama�o
+		 * Ordenamos las palabras de mayor a menor tamaño
 		 * */
 		Palabras = new Vector<String>();
 		for (PosicionesPalabras aux : pp) {
@@ -77,17 +77,17 @@ public class CreaTablero {
 		 * */
 		tableroJuego = new char[tamanoTablero][tamanoTablero];
 		/**
-		 * Generamos el objeto que contendra la informaci�n de todas las palabras del tablero
+		 * Generamos el objeto que contendra la información de todas las palabras del tablero
 		 * */
 		contador = 0;
 		/**
-		 * Por defecto el tablero siempre va a aceptar palabras en Horizontal, mientras que Vertical, Diagonales y palabras del rev�s s�lo si lo pide el jugador.
+		 * Por defecto el tablero siempre va a aceptar palabras en Horizontal, mientras que Vertical, Diagonales y palabras del revés sólo si lo pide el jugador.
 		 * 
-		 * La primera palabra cumplir� las siguientes caracter�stica: 1.- Su colocaci�n ser� siempre en Horizontal. 2.- Ser� la primera palabra del Vector Palabras, es decir, la m�s larga
+		 * La primera palabra cumplirá las siguientes característica: 1.- Su colocación será siempre en Horizontal. 2.- Será la primera palabra del Vector Palabras, es decir, la más larga
 		 * */
 		rellenaTablero();
 		/**
-		 * Las clases Horizontal, Diagonal1 y 2 y Vertical Colocan las palabras aleatoriamente en los espacios del tablero. Si si quiere introducir la palabra de rev�s... hay que mand�rsela del rev�s
+		 * Las clases Horizontal, Diagonal1 y 2 y Vertical Colocan las palabras aleatoriamente en los espacios del tablero. Si si quiere introducir la palabra de revés... hay que mandársela del revés
 		 * */
 		try {
 			boolean seguir = true;
@@ -190,7 +190,7 @@ public class CreaTablero {
 				aux.setElegida(false); // Inicializamos como palabra no seleccionada
 				aux.setMostradaPantalla(true); // Inicializamos como palabra mostrada
 				aux.setOrientacion(orientacion); // Guardamos la orientacion de la palabra
-				aux.setInvertida(invierte); // Si est� invertida en el tablero
+				aux.setInvertida(invierte); // Si está invertida en el tablero
 				aux.setxTableroLetras(xVectores); // Los vectores del tablero por donde pasa en x
 				aux.setyTableroLetras(yVectores); // Los vectores del tablero por donde pasa en y
 				pp.set(i, aux); // Guardamos la variable PosicionesPalabras que almacena todo el contenido
@@ -294,7 +294,7 @@ public class CreaTablero {
 	}
 
 	/**
-	 * Funciones separadas de CreaTablero Se encargan de controlar qe las palabras que se van a utilizar en el tablero cumplan los requisitos para que no ocurran errores en tiempo de ejecuci�n
+	 * Funciones separadas de CreaTablero Se encargan de controlar qe las palabras que se van a utilizar en el tablero cumplan los requisitos para que no ocurran errores en tiempo de ejecución
 	 * 
 	 * @param palabras
 	 * @param categoriaJuego
@@ -321,8 +321,8 @@ public class CreaTablero {
 
 			if (funcionControlTamanos(pp.size())) {
 				/**
-				 * Creamos un fichero posiciones_palabras.xml s�lo con la informaci�n que tenemos Para evitar errores en la creaci�n, los valores que todav�a no se han hallado los incializaremos a -1
-				 * El fichero posiciones_palabras.xml contendr� la informaci�n de la partida en juego
+				 * Creamos un fichero posiciones_palabras.xml sólo con la información que tenemos Para evitar errores en la creación, los valores que todavía no se han hallado los incializaremos a -1
+				 * El fichero posiciones_palabras.xml contendrá la información de la partida en juego
 				 */
 				xml = new XMLParser(contexto);
 				xml.escribePosicionesPalabras(pp);
@@ -342,7 +342,7 @@ public class CreaTablero {
 	private boolean funcionControlTamanos(int tamanoPP) {
 		tamanoTablero = Integer.valueOf(Preferencias.getTamanoTablero(contexto));
 		/*
-		 * Contamos cu�ntas palabras caben en nuestro tablero, si son cero, indicamos mediante un mensaje Toast que no se puede generar el tablero requerido
+		 * Contamos cuántas palabras caben en nuestro tablero, si son cero, indicamos mediante un mensaje Toast que no se puede generar el tablero requerido
 		 */
 		int contadorPalabras = 0;
 		int i = 0;
@@ -357,7 +357,7 @@ public class CreaTablero {
 		}
 
 		/*
-		 * Eliminamos aquellas palabras que no caben en el tablero por su tama�o
+		 * Eliminamos aquellas palabras que no caben en el tablero por su tamaño
 		 */
 		ajusteTamanoPalabras(tamanoPP);
 
@@ -437,7 +437,7 @@ public class CreaTablero {
 	}
 
 	/**
-	 * Funci�n que determina si en una cadena de caracteres hay o no caracteres con tilde, de haberlos los elimina
+	 * Función que determina si en una cadena de caracteres hay o no caracteres con tilde, de haberlos los elimina
 	 * 
 	 * @param palabra
 	 * @return palabra

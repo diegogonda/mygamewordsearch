@@ -11,7 +11,7 @@ public class Idioma {
 	}
 
 	/**
-	 * Método que nos permite cambiar el idioma de una actividad
+	 * MÃ©todo que nos permite cambiar el idioma de una actividad
 	 * @param contexto
 	 */
 	public static void CambiaIdioma (Context contexto){	
@@ -24,7 +24,7 @@ public class Idioma {
 	}
 	
 	/**
-	 * Método que devuelve el idioma actualmente activado 
+	 * MÃ©todo que devuelve el idioma actualmente activado 
 	 * @param contexto
 	 * @return idioma activado
 	 */

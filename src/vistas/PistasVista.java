@@ -54,7 +54,7 @@ public class PistasVista extends View implements TextToSpeech.OnInitListener {
 	private static boolean primeraIteraccion = true;
 
 	/**
-	 * Variables de las posiciones en que vamos a pintar las im�genes
+	 * Variables de las posiciones en que vamos a pintar las imágenes
 	 */
 	private static int xIni = 0;
 	private static int yIni = 0;
@@ -63,7 +63,7 @@ public class PistasVista extends View implements TextToSpeech.OnInitListener {
 	private static int filas = 1;
 	private static int columnas = 0;
 	/**
-	 * Variables de las posiciones en que vamos a pintar los audios, qye se utilizar�n para reproducir los sonidos
+	 * Variables de las posiciones en que vamos a pintar los audios, qye se utilizarán para reproducir los sonidos
 	 */
 	private static ArrayList<Integer> xAudiosIni;
 	private static ArrayList<Integer> yAudiosIni;
@@ -128,7 +128,7 @@ public class PistasVista extends View implements TextToSpeech.OnInitListener {
 		if (primeraIteraccion) {
 			for (PosicionesPalabras aux : pp) {
 				String ruta = Rutas.getImagenesPalabras(aux.getPistaCategoria(), aux.getPalabra());
-				// Tenemos que reducir el tamano del Bitmap para evitar que d� problemas a la hora de cerrar la actividad.
+				// Tenemos que reducir el tamano del Bitmap para evitar que dé problemas a la hora de cerrar la actividad.
 				Bitmap myBitmap = Imagenes.getResizedBitmap(BitmapFactory.decodeFile(ruta), getWidth() / columnas, 277 / columnas);
 				bmp.add(new BitmapDrawable(contexto.getResources(), myBitmap));
 			}
@@ -240,8 +240,8 @@ public class PistasVista extends View implements TextToSpeech.OnInitListener {
 	}
 
 	/**
-	 * Para evitar que haya palabras cortadas en las descripciones del tablero, creamos esta funci�n, que eval�a si una palabra va ser cortada
-	 * en caso afirmativo busca el anterior espacio dentro del intervalo, en caso de no encontrar dicho espacio la palabra acabar� cortada.
+	 * Para evitar que haya palabras cortadas en las descripciones del tablero, creamos esta función, que evalúa si una palabra va ser cortada
+	 * en caso afirmativo busca el anterior espacio dentro del intervalo, en caso de no encontrar dicho espacio la palabra acabará cortada.
 	 * 
 	 * @param letraInicial
 	 * @param letraFinal
@@ -324,7 +324,7 @@ public class PistasVista extends View implements TextToSpeech.OnInitListener {
 			scroll.desplazamiento(yInicial, yInicial, true);
 			return true;
 
-		case MotionEvent.ACTION_MOVE: // Se est� moviendo el dedo por la
+		case MotionEvent.ACTION_MOVE: // Se está moviendo el dedo por la
 			yFinal = (int) (evento.getY());
 
 			scroll.desplazamiento(yInicial, yFinal, false);

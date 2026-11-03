@@ -1,6 +1,6 @@
 package objetos;
 /**
- * El objeto Gamas recoge información sobre las posiciones en que se pinta cada cuadrado dentro de la clase gamasVista.class
+ * El objeto Gamas recoge informaciÃ³n sobre las posiciones en que se pinta cada cuadrado dentro de la clase gamasVista.class
  * @author Diego
  *
  */

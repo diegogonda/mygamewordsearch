@@ -14,17 +14,17 @@ public class TarjetaSD {
 	}
 
 	/**
-	 * MÈtodo que nos informa del estado de la tarjeta SD
+	 * M√©todo que nos informa del estado de la tarjeta SD
 	 * 
-	 * @return true si est· conectada
-	 * @return false si est· desconectada
+	 * @return true si est√° conectada
+	 * @return false si est√° desconectada
 	 */
 	public static boolean isSDConectada() {
 		return (estado.equals(Environment.MEDIA_MOUNTED)) ? true : false;
 	}
 
 	/**
-	 * MÈtodo que nos informa si se puede escribir en la tarjeta SD
+	 * M√©todo que nos informa si se puede escribir en la tarjeta SD
 	 * 
 	 * @return true si se puede
 	 * @return false si no
@@ -34,7 +34,7 @@ public class TarjetaSD {
 	}
 
 	/**
-	 * Ruta en que est· montada la tarjeta SD
+	 * Ruta en que est√° montada la tarjeta SD
 	 * 
 	 * @return the rutaSD
 	 */
@@ -61,7 +61,7 @@ public class TarjetaSD {
 	}
 
 	/**
-	 * Este mÈtodo nos permite saber si existe o no un archivo en un ruta determinada
+	 * Este m√©todo nos permite saber si existe o no un archivo en un ruta determinada
 	 * 
 	 * @param ruta
 	 *            es el ruta de la archivo
@@ -79,7 +79,7 @@ public class TarjetaSD {
 	}
 
 	/**
-	 * Esta funciÛn nos permite crear una ruta dentro de la tarjeta SD, si la ruta existe la sobreescribe.
+	 * Esta funci√≥n nos permite crear una ruta dentro de la tarjeta SD, si la ruta existe la sobreescribe.
 	 * Si no existe la crea
 	 * 
 	 * @param ruta
@@ -92,7 +92,7 @@ public class TarjetaSD {
 	}
 
 	/**
-	 * MÈtodo que devuelve el n˙mero de archivos que tiene una ruta determinada
+	 * M√©todo que devuelve el n√∫mero de archivos que tiene una ruta determinada
 	 * 
 	 * @return cantida de archivos de una ruta
 	 */
@@ -101,11 +101,11 @@ public class TarjetaSD {
 	}
 
 	/**
-	 * MÈtodo que elimina el contenido completo de una ruta dada de la tarjeta SD
+	 * M√©todo que elimina el contenido completo de una ruta dada de la tarjeta SD
 	 * 
 	 * @param ruta
 	 *            ruta la cual quiere eliminarse el contenido
-	 * @return false si ocurriÛ alg˙n error eliminando
+	 * @return false si ocurri√≥ alg√∫n error eliminando
 	 * @return true si todo fue correcto
 	 */
 	public static boolean eliminaContenidoCarpeta(String ruta) {
@@ -126,12 +126,12 @@ public class TarjetaSD {
 	}
 
 	/**
-	 * Este mÈtodo sirve para saber quÈ carpetas hay guardados en una determinada tarjeta SD de un terminal
+	 * Este m√©todo sirve para saber qu√© carpetas hay guardados en una determinada tarjeta SD de un terminal
 	 * 
 	 * @param ruta
 	 *            Ruta de la que queremos obtener el contenido
 	 * @return ArrayList con los nombres de las carpetas que hay en la ruta indicada
-	 * @return null en los casos en que la tarjeta SD no estÈ conectada o no haya partidas creadas para jugar
+	 * @return null en los casos en que la tarjeta SD no est√© conectada o no haya partidas creadas para jugar
 	 */
 	public static ArrayList<String> leerCarpetasSD(String ruta) {
 		try {

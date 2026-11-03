@@ -3,7 +3,7 @@ package modelo;
 public class Horizontal {
 	public static char [][] tableroJuego;
 	String Palabra;
-	private static int tamañoTablero;
+	private static int tamaÃ±oTablero;
 	private static char letraRelleno;
 	public static boolean palabraColocada;
 	private int xInicial;
@@ -14,10 +14,10 @@ public class Horizontal {
 	public Horizontal (String palabra, char [][] tblJuego, int tam, char lr){
 		Palabra = palabra;
 		tableroJuego = tblJuego;
-		tamañoTablero = tam;
+		tamaÃ±oTablero = tam;
 		letraRelleno = lr;
 		/**
-		 * El constructor sólo coloca la primera palabra del tablero, del resto se ocuta actualizaDatos
+		 * El constructor sÃ³lo coloca la primera palabra del tablero, del resto se ocuta actualizaDatos
 		 * */
 		colocaPalabra();
 	}
@@ -30,17 +30,17 @@ public class Horizontal {
 		colocaPalabra();
 	}
 	private void colocaPalabra() {
-		int ejeXinicial = tamañoTablero - Palabra.length() + 1;
+		int ejeXinicial = tamaÃ±oTablero - Palabra.length() + 1;
 		
 		int ejeX = (int)(Math.random()*ejeXinicial);
-		int ejeY = (int)(Math.random()*tamañoTablero);
+		int ejeY = (int)(Math.random()*tamaÃ±oTablero);
 		
 		xInicial = ejeX;
 		yInicial = ejeY;
 		
-		int vectorEjeX [] = new int [tamañoTablero];
-		int vectorEjeY [] = new int [tamañoTablero];
-		char vectorLetras [] = new char[tamañoTablero];
+		int vectorEjeX [] = new int [tamaÃ±oTablero];
+		int vectorEjeY [] = new int [tamaÃ±oTablero];
+		char vectorLetras [] = new char[tamaÃ±oTablero];
 		int letrasColocadas = 0;
 		boolean correcto = true;
 		int k = 0;
@@ -54,7 +54,7 @@ public class Horizontal {
 			}
 			else {
 				/**
-				 * Encontró un caracter distinto de la letra de relleno, por lo que vamos a dejar el tablero de juego tal y como 
+				 * EncontrÃ³ un caracter distinto de la letra de relleno, por lo que vamos a dejar el tablero de juego tal y como 
 				 * estaba
 				 * */
 				for (int i = 0; i < letrasColocadas; i++){

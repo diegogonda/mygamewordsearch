@@ -31,7 +31,7 @@ import es.uvigo.gti.mygamewordsearch.R;
 public class ListaPartidasVista extends ListView implements OnClickListener {
 	private ArrayList<ConfiguracionPartida> arraycp;
 	private Context contexto;
-	private int tamañoImagenes;
+	private int tamaÃ±oImagenes;
 	private static String rutaArchivos = Rutas.getRutaArchivos();
 	private final String archivoConfiguracion = Rutas.getConfiguracionPartida();
 	private String categoria;
@@ -42,7 +42,7 @@ public class ListaPartidasVista extends ListView implements OnClickListener {
 		this.contexto = context;
 		float dp = getResources().getDisplayMetrics().density;
 		TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.PistasVista, 0, 0);
-		tamañoImagenes = a.getDimensionPixelSize(R.styleable.ListaPartidasVista_tamano_imagen, (int) (100 * dp));
+		tamaÃ±oImagenes = a.getDimensionPixelSize(R.styleable.ListaPartidasVista_tamano_imagen, (int) (100 * dp));
 
 		ListView lista = (ListView) findViewById(R.id.lista_partidas);
 
@@ -50,7 +50,7 @@ public class ListaPartidasVista extends ListView implements OnClickListener {
 		lista.setAdapter(listaPartidas());
 
 		/***********************************************************************************************************************************************
-		 * PULSACIÓN CORTA SOBRE UN ELEMENTO DEL LISTVIEW
+		 * PULSACIÃ“N CORTA SOBRE UN ELEMENTO DEL LISTVIEW
 		 *********************************************************************************************************************************************** */
 		lista.setOnItemClickListener(new OnItemClickListener() {
 
@@ -61,7 +61,7 @@ public class ListaPartidasVista extends ListView implements OnClickListener {
 
 				// Generamos las condiciones de juego cargando los datos de la partida
 				String categoriaJuego = cp.getCategoria();
-				// Antes de generar el tablero insertamos toda la información necesaria
+				// Antes de generar el tablero insertamos toda la informaciÃ³n necesaria
 				XMLParser xml = new XMLParser(contexto);
 				ArrayList<String> config = new ArrayList<String>();
 				try {
@@ -71,7 +71,7 @@ public class ListaPartidasVista extends ListView implements OnClickListener {
 
 					if (config.get(0).toString().equals(EtiquetasXML.getNo())) { // Es decir, no es una gama
 						Preferencias.setNivelActual(1, contexto);
-						Preferencias.setTamañoTablero(String.valueOf(cp.getTamaño()), contexto);
+						Preferencias.setTamaÃ±oTablero(String.valueOf(cp.getTamaÃ±o()), contexto);
 						Preferencias.setPalabrasInvertidas(cp.getInvertida().equals(EtiquetasXML.getSi()) ? true : false, contexto);
 						Preferencias.setTipoPista(cp.getTipoPista(), contexto);
 
@@ -95,11 +95,11 @@ public class ListaPartidasVista extends ListView implements OnClickListener {
 		});
 
 		/***********************************************************************************************************************************************
-		 * FIN PULSACIÓN CORTA SOBRE UN ELEMENTO DEL LISTVIEW
+		 * FIN PULSACIÃ“N CORTA SOBRE UN ELEMENTO DEL LISTVIEW
 		 *********************************************************************************************************************************************** */
 
 		/***********************************************************************************************************************************************
-		 * PULSACIÓN LARGA SOBRE UN ELEMENTO DEL LISTVIEW
+		 * PULSACIÃ“N LARGA SOBRE UN ELEMENTO DEL LISTVIEW
 		 *********************************************************************************************************************************************** */
 
 		lista.setOnItemLongClickListener(new OnItemLongClickListener() {
@@ -137,7 +137,7 @@ public class ListaPartidasVista extends ListView implements OnClickListener {
 			}
 		});
 		/***********************************************************************************************************************************************
-		 * FIN PULSACIÓN LARGA SOBRE UN ELEMENTO DEL LISTVIEW
+		 * FIN PULSACIÃ“N LARGA SOBRE UN ELEMENTO DEL LISTVIEW
 		 *********************************************************************************************************************************************** */
 	}
 
@@ -161,7 +161,7 @@ public class ListaPartidasVista extends ListView implements OnClickListener {
 			// Entramos en las carpetas para recuperar el contenido del archivo configuracion_partida.xml
 			String ruta = rutaArchivos + aux + Rutas.getNivel() + 1 + archivoConfiguracion;
 			XMLParser xml = new XMLParser(contexto);
-			ConfiguracionPartida cp = xml.leerPartidasDefinidas(ruta, tamañoImagenes, tamañoImagenes);
+			ConfiguracionPartida cp = xml.leerPartidasDefinidas(ruta, tamaÃ±oImagenes, tamaÃ±oImagenes);
 			arraycp.add(cp);
 
 		}
@@ -174,11 +174,11 @@ public class ListaPartidasVista extends ListView implements OnClickListener {
 	}
 
 	/***********************************************************************************************************************************************
-	 * ALERTA PULSACIÓN LARGA SOBRE UN ELEMENTO DEL LISTVIEW
+	 * ALERTA PULSACIÃ“N LARGA SOBRE UN ELEMENTO DEL LISTVIEW
 	 *********************************************************************************************************************************************** */
 
 	/***********************************************************************************************************************************************
-	 * FIN ALERTA PULSACIÓN LARGA SOBRE UN ELEMENTO DEL LISTVIEW
+	 * FIN ALERTA PULSACIÃ“N LARGA SOBRE UN ELEMENTO DEL LISTVIEW
 	 *********************************************************************************************************************************************** */
 
 }

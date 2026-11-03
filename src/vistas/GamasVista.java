@@ -28,16 +28,16 @@ public class GamasVista extends View {
 	private Context contexto; // Contexto de la aplicacion
 
 	/*
-	 * Variables que nos proporcionan informaciÛn sobre el estado del juego
+	 * Variables que nos proporcionan informaci√≥n sobre el estado del juego
 	 */
 	private static String temaActual; // Nombre del tema que se va a jugar
 	private int cantidadNiveles; // Cantidad de niveles que tiene el tema que se va a jugar
 	private int ultimoNivelSuperado;// Ultimo nivel superado en el tema que se va a jugar
 
 	/*
-	 * Diferentes m·rgenes entre las im·genes de la vista
+	 * Diferentes m√°rgenes entre las im√°genes de la vista
 	 */
-	private static int tamaÒoImagenesNumeros;
+	private static int tama√±oImagenesNumeros;
 	private static int paddingSuperiorNumeros;
 	private static int paddingLateralNumeros;
 
@@ -48,7 +48,7 @@ public class GamasVista extends View {
 	private TypedArray a;
 
 	/*
-	 * Variable que nos permite guarda la informaciÛn de entre que pÌxeles est· cada partida referenciada en la vista
+	 * Variable que nos permite guarda la informaci√≥n de entre que p√≠xeles est√° cada partida referenciada en la vista
 	 */
 	Gamas gamas[];
 
@@ -67,27 +67,27 @@ public class GamasVista extends View {
 
 		gamas = new Gamas[cantidadNiveles];
 		/**
-		 * Opciones de estÈtica de la vista
+		 * Opciones de est√©tica de la vista
 		 */
 		float dp = getResources().getDisplayMetrics().density;
 		a = contexto.getTheme().obtainStyledAttributes(attrs, R.styleable.GamasVista, 0, 0);
-		tamaÒoImagenesNumeros = a.getDimensionPixelOffset(R.styleable.GamasVista_tamano_numeros, (int) (60 * dp));
+		tama√±oImagenesNumeros = a.getDimensionPixelOffset(R.styleable.GamasVista_tamano_numeros, (int) (60 * dp));
 		paddingSuperiorNumeros = a.getDimensionPixelOffset(R.styleable.GamasVista_padding_superior_numeros, (int) (50 * dp));
 		paddingLateralNumeros = a.getDimensionPixelOffset(R.styleable.GamasVista_padding_lateral_numeros, (int) (50 * dp));
 	}
 
 	/**
-	 * MÈtodo OnDraw. Se encarga de pintar en la pantalla la matriz de n˙meros que representan cada partida por separado
+	 * M√©todo OnDraw. Se encarga de pintar en la pantalla la matriz de n√∫meros que representan cada partida por separado
 	 */
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 
 		int xIni = paddingLateralNumeros;
-		int xFin = xIni + tamaÒoImagenesNumeros;
+		int xFin = xIni + tama√±oImagenesNumeros;
 		int yIni = paddingSuperiorNumeros;
-		int yFin = yIni + tamaÒoImagenesNumeros;
-		int bordesImagenesCentrales = (getWidth() - tamaÒoImagenesNumeros * 3 + paddingLateralNumeros * 2) / 4;
+		int yFin = yIni + tama√±oImagenesNumeros;
+		int bordesImagenesCentrales = (getWidth() - tama√±oImagenesNumeros * 3 + paddingLateralNumeros * 2) / 4;
 
 		for (int i = 0; i < cantidadNiveles; i++) {
 			Drawable aux = (i < ultimoNivelSuperado) ? Imagenes.getIdImagenes(i, contexto) : Imagenes.getIdImagenes(-1, contexto);
@@ -95,19 +95,19 @@ public class GamasVista extends View {
 			cargaGamas(i, xIni, xFin, yIni, yFin);
 			aux.draw(canvas);
 			xIni = xFin + bordesImagenesCentrales;
-			xFin = xIni + tamaÒoImagenesNumeros;
+			xFin = xIni + tama√±oImagenesNumeros;
 
 			if (i == 2 || i == 5) {
 				yIni = yFin + bordesImagenesCentrales;
-				yFin = yIni + tamaÒoImagenesNumeros;
+				yFin = yIni + tama√±oImagenesNumeros;
 				xIni = paddingLateralNumeros;
-				xFin = xIni + tamaÒoImagenesNumeros;
+				xFin = xIni + tama√±oImagenesNumeros;
 			}
 		}
 	}
 
 	/**
-	 * Metodo que guarda los vectores en los que est· representada cada juego dentro de la vista de juego
+	 * Metodo que guarda los vectores en los que est√° representada cada juego dentro de la vista de juego
 	 * 
 	 * @param i
 	 * @param xIni
@@ -126,9 +126,9 @@ public class GamasVista extends View {
 	}
 
 	/**
-	 * MÈtodo onTouchEvent. Calcula que partida hemos seleccionado.
-	 * Si la partida seleccionada no se ha superado envia un mensaje de error a travÈs de un Toast
-	 * Si la partida es jugable, lanza su ejecuciÛn
+	 * M√©todo onTouchEvent. Calcula que partida hemos seleccionado.
+	 * Si la partida seleccionada no se ha superado envia un mensaje de error a trav√©s de un Toast
+	 * Si la partida es jugable, lanza su ejecuci√≥n
 	 * @param evento
 	 * @return true
 	 */
@@ -155,7 +155,7 @@ public class GamasVista extends View {
 	}
 
 	/**
-	 * MÈtodo que crea el entorno para una partida nueva.
+	 * M√©todo que crea el entorno para una partida nueva.
 	 * Recibe el nivel de juego y carga los valores con los que crear el nuevo juego
 	 * 
 	 * @param nivel
@@ -166,7 +166,7 @@ public class GamasVista extends View {
 		XMLParser xml = new XMLParser(contexto);
 		ConfiguracionPartida cp = xml.leerPartidasDefinidas(ruta, 100, 100);
 
-		Preferencias.setTamaÒoTablero(String.valueOf(cp.getTamaÒo()), contexto);
+		Preferencias.setTama√±oTablero(String.valueOf(cp.getTama√±o()), contexto);
 		Preferencias.setPalabrasInvertidas(cp.getInvertida().equals(EtiquetasXML.getSi()) ? true : false, contexto);
 		Preferencias.setTipoPista(cp.getTipoPista(), contexto);
 		Preferencias.setOrientacionPalabras(cp.getOrientacion(), contexto);

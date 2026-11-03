@@ -3,7 +3,7 @@ package modelo;
 public class Diagonal2 {
 	public static char [][] tableroJuego;
 	String Palabra;
-	private static int tamañoTablero;
+	private static int tamaÃ±oTablero;
 	private static char letraRelleno;
 	public static boolean palabraColocada;
 	private int xInicial;
@@ -15,10 +15,10 @@ public class Diagonal2 {
 	public Diagonal2 (String palabra, char [][] tblJuego, int tam, char lr){
 		Palabra = palabra;
 		tableroJuego = tblJuego;
-		tamañoTablero = tam;
+		tamaÃ±oTablero = tam;
 		letraRelleno = lr;
 		/**
-		 * El constructor sólo coloca la primera palabra del tablero, del resto se ocuta actualizaDatos
+		 * El constructor sÃ³lo coloca la primera palabra del tablero, del resto se ocuta actualizaDatos
 		 * */
 		colocaPalabra();
 	}
@@ -28,7 +28,7 @@ public class Diagonal2 {
 		colocaPalabra();
 	}
 	private void colocaPalabra() {
-		int espacioValido = tamañoTablero - Palabra.length() + 1;
+		int espacioValido = tamaÃ±oTablero - Palabra.length() + 1;
 	
 		int ejeX = (int)(Math.random() * espacioValido);
 		int ejeY = (int)(Math.random() * espacioValido + Palabra.length() - 1);
@@ -53,7 +53,7 @@ public class Diagonal2 {
 			}
 			else {
 				/**
-				 * Encontró un caracter distinto de la letra de relleno, por lo que vamos a dejar el tablero de juego tal y como 
+				 * EncontrÃ³ un caracter distinto de la letra de relleno, por lo que vamos a dejar el tablero de juego tal y como 
 				 * estaba
 				 * */
 				for (int i = 0; i < letrasColocadas; i++){

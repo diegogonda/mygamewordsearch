@@ -39,8 +39,8 @@ public class Rutas {
 	}
 
 	/**
-	 * Devuelve la ruta de un archivo imagen guardado en la memoria SD. Sólo válido para palabras en juego, no para las imágenes de las categorías.
-	 * La ruta genérica será:
+	 * Devuelve la ruta de un archivo imagen guardado en la memoria SD. SÃ³lo vÃ¡lido para palabras en juego, no para las imÃ¡genes de las categorÃ­as.
+	 * La ruta genÃ©rica serÃ¡:
 	 * "/sdcar/MyGameSoupLetter/categoria/Nivel x/imagenes/palabra.jpg"
 	 * 
 	 * @return the imagenes

@@ -3,7 +3,7 @@ package modelo;
 public class Diagonal1 {
 	public static char [][] tableroJuego;
 	String Palabra;
-	private static int tamañoTablero;
+	private static int tamaÃ±oTablero;
 	private static char letraRelleno;
 	public static boolean palabraColocada;
 	private int xInicial;
@@ -14,7 +14,7 @@ public class Diagonal1 {
 	public Diagonal1 (String palabra, char [][] tblJuego, int tam, char lr){
 		Palabra = palabra;
 		tableroJuego = tblJuego;
-		tamañoTablero = tam;
+		tamaÃ±oTablero = tam;
 		letraRelleno = lr;
 		colocaPalabra();
 	}
@@ -25,16 +25,16 @@ public class Diagonal1 {
 	}
 	private void colocaPalabra() {
 
-		int espacioValido = tamañoTablero - Palabra.length() + 1;
+		int espacioValido = tamaÃ±oTablero - Palabra.length() + 1;
 		/**
-		 * Lo primero que hacemos es determinar en que espacio del vector irá alojada la última letra de la palabra
+		 * Lo primero que hacemos es determinar en que espacio del vector irÃ¡ alojada la Ãºltima letra de la palabra
 		 * */
 		int ejeX = (int)(Math.random() * espacioValido + Palabra.length() -1);
 		xInicial = ejeX;
 		int ejeY = (int)(Math.random() * espacioValido + Palabra.length() -1);
 		yInicial = ejeY;
 		/**
-		 * Una vez lo hemos hallado, determinamos donde irá alojada la primera letra
+		 * Una vez lo hemos hallado, determinamos donde irÃ¡ alojada la primera letra
 		 * */
 
 		int vectorEjeX [] = new int [Palabra.length()];
@@ -54,7 +54,7 @@ public class Diagonal1 {
 			}
 			else {
 				/**
-				 * Encontró un caracter distinto de la letra de relleno, por lo que vamos a dejar el tablero de juego tal y como 
+				 * EncontrÃ³ un caracter distinto de la letra de relleno, por lo que vamos a dejar el tablero de juego tal y como 
 				 * estaba
 				 * */
 				for (int i = 0; i < letrasColocadas; i++){

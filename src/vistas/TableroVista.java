@@ -25,7 +25,7 @@ import es.uvigo.gti.mygamewordsearch.R;
 
 public class TableroVista extends View {
 	/**
-	 * Variables de las im�genes reforzadoras
+	 * Variables de las imágenes reforzadoras
 	 */
 	private static int tamanoImagenesReforazadoras;
 	/**
@@ -43,9 +43,9 @@ public class TableroVista extends View {
 	private int yFinal;
 	private TableroCanvas tc;
 	private boolean seleccionando = false;
-	// TIPO DE SELECCION: PULSANDO LA PRIMERA LETRA Y LA �LTIMA
+	// TIPO DE SELECCION: PULSANDO LA PRIMERA LETRA Y LA ÚLTIMA
 	/**
-	 * Variables cuyo valores ser�n cargados desde la vista XML
+	 * Variables cuyo valores serán cargados desde la vista XML
 	 * */
 	private int anchoBarra;
 	private int barraPalabraSeleccionadaX;
@@ -101,7 +101,7 @@ public class TableroVista extends View {
 
 		try {
 			/**
-			 * En primer lugar, para crear el tablero, recogemos el contenido del fichero Posiciones_palabras.xml y generamos con �l, el contenido la variable pp
+			 * En primer lugar, para crear el tablero, recogemos el contenido del fichero Posiciones_palabras.xml y generamos con él, el contenido la variable pp
 			 */
 
 			xml = new XMLParser(contexto);
@@ -177,7 +177,7 @@ public class TableroVista extends View {
 	@Override
 	/**
 	 * Recoge los puntos sobre los que estamos pulsando para pintarlos en la pantalla
-	 * Punto tambi�n llama al m�todo que determina si hemos seleccionado o no una palabra
+	 * Punto también llama al método que determina si hemos seleccionado o no una palabra
 	 */
 	public boolean onTouchEvent(MotionEvent evento) {
 		switch (evento.getAction()) {
@@ -187,7 +187,7 @@ public class TableroVista extends View {
 			xFinal = (int) evento.getX();
 			yFinal = (int) evento.getY();
 			break;
-		case MotionEvent.ACTION_MOVE: // Se est� moviendo el dedo por la pantalla
+		case MotionEvent.ACTION_MOVE: // Se está moviendo el dedo por la pantalla
 			xFinal = (int) (evento.getX());
 			yFinal = (int) (evento.getY());
 			seleccionando = true;
@@ -240,7 +240,7 @@ public class TableroVista extends View {
 	private int palabraSeleccionada() {
 		int k = 0;
 		for (PosicionesPalabras aux : pp) {
-			// Si se selecciona de adelante a atr�s
+			// Si se selecciona de adelante a atrás
 			double xMaxInicial = aux.getxPixelInicial() + anchoGrillas / 2;
 			double xMinInicial = aux.getxPixelInicial() - anchoGrillas / 2;
 			double yMaxInicial = aux.getyPixelInicial() + anchoGrillas / 2;
@@ -275,8 +275,8 @@ public class TableroVista extends View {
 	}
 
 	/**
-	 * M�todo en el que, una vez se ha terminado la partida, se eval�a si se trata de una gama o no. Si es Gama: 1.- Si eval�a si hemos superado un nivel no superado anteriomente. Si es un nivel no
-	 * superado, se comprueba que no sea el �ltimo nivel del juego, si no lo es se actualiza la informacion del ultimo nivel superado en el archivo opciones_juego.xml y se salta al m�todo
+	 * Método en el que, una vez se ha terminado la partida, se evalúa si se trata de una gama o no. Si es Gama: 1.- Si evalúa si hemos superado un nivel no superado anteriomente. Si es un nivel no
+	 * superado, se comprueba que no sea el último nivel del juego, si no lo es se actualiza la informacion del ultimo nivel superado en el archivo opciones_juego.xml y se salta al método
 	 * constructorAlerta(). Si lo es se sale a la Actividad Gamas 2.- Si es un nivel, se abre un dialogo para pasar al siguiente nivel o salir
 	 * */
 	private void PartidaFinalizada() {
@@ -346,7 +346,7 @@ public class TableroVista extends View {
 	}
 
 	/**
-	 * M�todo que se encarga de quela vista tenga el tamano indicado
+	 * Método que se encarga de quela vista tenga el tamano indicado
 	 * @param view
 	 * @param newWidth
 	 * @param newHeight

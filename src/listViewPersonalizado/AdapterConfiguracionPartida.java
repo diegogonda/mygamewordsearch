@@ -44,9 +44,9 @@ public class AdapterConfiguracionPartida extends BaseAdapter {
 		String str = (config.get(0).toString().equals(EtiquetasXML.getSi())? " (" + config.get(1).toString() + " " + contexto.getResources().getString(R.string.niveles) + ")":"");		
 		nombre.setText(cp.getCategoria() + str);
 		// Rellenamos el tamano
-		TextView tama�o = (TextView) v.findViewById(R.id.tamano);
-		tama�o.setText(contexto.getString(R.string.tamano) + " " + cp.getTama�o() + "x" + cp.getTama�o());
-		// Rellenamos con la informaci�n de palabras invertidas
+		TextView tamaño = (TextView) v.findViewById(R.id.tamano);
+		tamaño.setText(contexto.getString(R.string.tamano) + " " + cp.getTamaño() + "x" + cp.getTamaño());
+		// Rellenamos con la información de palabras invertidas
 		return v;
 	}
 	

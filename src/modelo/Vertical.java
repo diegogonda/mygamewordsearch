@@ -3,7 +3,7 @@ package modelo;
 public class Vertical {
 	public static char [][] tableroJuego;
 	String Palabra;
-	private static int tamañoTablero;
+	private static int tamaÃ±oTablero;
 	private static char letraRelleno;
 	private static boolean palabraColocada;
 	private int xInicial;
@@ -26,10 +26,10 @@ public class Vertical {
 	public Vertical (String palabra, char [][] tblJuego, int tam, char lr){
 		Palabra = palabra;
 		tableroJuego = tblJuego;
-		tamañoTablero = tam;
+		tamaÃ±oTablero = tam;
 		letraRelleno = lr;
 		/**
-		 * El constructor sólo coloca la primera palabra del tablero, del resto se ocuta actualizaDatos
+		 * El constructor sÃ³lo coloca la primera palabra del tablero, del resto se ocuta actualizaDatos
 		 * */
 		colocaPalabra();
 	}
@@ -42,15 +42,15 @@ public class Vertical {
 		colocaPalabra();
 	}
 	private void colocaPalabra() {
-		int ejeYinicial = tamañoTablero - Palabra.length() + 1;
-		int ejeX = (int)(Math.random()*tamañoTablero);
+		int ejeYinicial = tamaÃ±oTablero - Palabra.length() + 1;
+		int ejeX = (int)(Math.random()*tamaÃ±oTablero);
 		int ejeY = (int)(Math.random()*ejeYinicial);
 		
 		xInicial = ejeX;
 		yInicial = ejeY;
 				
-		int vectorEjeX [] = new int [tamañoTablero];
-		int vectorEjeY [] = new int [tamañoTablero];
+		int vectorEjeX [] = new int [tamaÃ±oTablero];
+		int vectorEjeY [] = new int [tamaÃ±oTablero];
 		int letrasColocadas = 0;
 		boolean correcto = true;
 		int k = 0;
@@ -63,7 +63,7 @@ public class Vertical {
 			}
 			else {
 				/**
-				 * Encontró un caracter distinto de la letra de relleno, por lo que vamos a dejar el tablero de juego tal y como 
+				 * EncontrÃ³ un caracter distinto de la letra de relleno, por lo que vamos a dejar el tablero de juego tal y como 
 				 * estaba
 				 * */
 				for (int i = 0; i < letrasColocadas; i++){

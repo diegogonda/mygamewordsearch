@@ -31,7 +31,7 @@ public class QuickSort {
 			 * */
 			_Quicksort(matrix, 0, tamano-1);
 //			Como Quicksort devuelve la lista ordenada de menor a mayor la invertimos
-//				pues a nosotros nos interesa introducir primero las palabras m·s largas
+//				pues a nosotros nos interesa introducir primero las palabras m√°s largas
 			for (int j =0, k = tamano-1 ; j < tamano/2; j++,k--){
 				int aux = matrix[k];
 				matrix[k] = matrix[j];

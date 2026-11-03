@@ -5,7 +5,7 @@ public class EtiquetasXML {
 	/* VARIABLES DE LAS ETIQUETAS XML */
 	/*************************************************************************************************************************************************************************************************/
 	/**
-	 * Etiquetas de la configuraci�n de la partida
+	 * Etiquetas de la configuración de la partida
 	 * */
 	private static String NODO_TEMA = "tema";
 	private static String NODO_PALABRA = "palabra";
@@ -549,7 +549,7 @@ public class EtiquetasXML {
 	}
 
 	/**
-	 * @return the iSOEspa�ol
+	 * @return the iSOEspañol
 	 */
 	public static String getISOEspanol() {
 		return ISOEspanol;

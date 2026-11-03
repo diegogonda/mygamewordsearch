@@ -14,7 +14,7 @@ public class Actividades {
 
 	}
 	/**
-	 * MÈtodo que nos permite abrir una nueva actividad. No permite pasar valores a travÈs de Bundle
+	 * M√©todo que nos permite abrir una nueva actividad. No permite pasar valores a trav√©s de Bundle
 	 * @param clase Actividad que queremos abrir
 	 * @param contexto Contexto de la actividad actual
 	 */
@@ -25,7 +25,7 @@ public class Actividades {
 		((Activity) contexto).overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 	}
 	/**
-	 * MÈtodo que permite abrir una nueva actividad a la que se pasar·n valores a travÈs de Bundle 
+	 * M√©todo que permite abrir una nueva actividad a la que se pasar√°n valores a trav√©s de Bundle 
 	 * @param clase Actividad que queremos abrir
 	 * @param contexto Contexto de la actividad actual
 	 * @param clave Etiqueta asociada a un valor
@@ -43,7 +43,7 @@ public class Actividades {
 		
 	}
 	/**
-	 * MÈtodo que permite abrir la actividad NuevaPartidaActivity a la que se pasar·n valores a travÈs de Bundle 
+	 * M√©todo que permite abrir la actividad NuevaPartidaActivity a la que se pasar√°n valores a trav√©s de Bundle 
 	 * @param clase Actividad que queremos abrir
 	 * @param contexto Contexto de la actividad actual
 	 * @param clave Etiqueta se va a pasar por Bundle

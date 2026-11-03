@@ -59,7 +59,7 @@ public class MensajesEmergentes {
 	 * @return true or false
 	 */
 	private static boolean Atras (final Context contexto, int titulo, int positivo, int negativo, final Class<?> clase){
-		// Esto es lo que hace mi bot�n al pulsar ir a atr�s
+		// Esto es lo que hace mi botón al pulsar ir a atrás
 		AlertDialog.Builder builder = new AlertDialog.Builder(contexto);
 		builder.setTitle("¿Quieres volver al menú principal?");
 		builder.setPositiveButton("Si", new OnClickListener() {
@@ -199,7 +199,7 @@ dialog.cancel();
 			return -1;
 	}
 	/**
-	 * M�todo que lanza la actividad Juego para volver a jugar
+	 * Método que lanza la actividad Juego para volver a jugar
 	 */
 	private static void VolverAJugar(final Context contexto, String temaActual, int nivelEnJuego, int ultimoNivelSuperado) {
 		String tipoPartida = Preferencias.getTipoPartida(contexto);

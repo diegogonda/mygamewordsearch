@@ -37,7 +37,7 @@ import android.widget.Toast;
 import es.uvigo.gti.mygamewordsearch.R;
 
 public class NuevasPalabrasActivity extends Activity implements OnClickListener {
-	private Button bAÒadir;
+	private Button bA√±adir;
 	private Button bTerminar;
 	private Button bImagen;
 	private Button bNueva;
@@ -48,7 +48,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 	private ArrayList<String> arrayDescripcion;
 	private String nombreFichero;
 	/**
-	 * Variables de los ficheros de Im·genes
+	 * Variables de los ficheros de Im√°genes
 	 */
 	private String rutaImagenes = Rutas.getRutaArchivos();
 	private String direccionImagen;
@@ -64,13 +64,13 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 	private ListView listView;
 	private String rutaCarpetaImagenes;
 	private int nivel;
-	private boolean seguirAÒadiendo = false;
+	private boolean seguirA√±adiendo = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		Idioma.CambiaIdioma(this); // Cambiamos el idioma de la aplicaciÛn
+		Idioma.CambiaIdioma(this); // Cambiamos el idioma de la aplicaci√≥n
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		Bundle bundle = getIntent().getExtras();
@@ -88,7 +88,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 			setContentView(R.layout.activity_nuevas_palabras);
 
 			ePalabra = (EditText) findViewById(R.id.editText_nueva_palabra);
-			bAÒadir = (Button) findViewById(R.id.boton_anadir_nueva_palabra);
+			bA√±adir = (Button) findViewById(R.id.boton_anadir_nueva_palabra);
 			bTerminar = (Button) findViewById(R.id.boton_terminar_nueva_palabra);
 			bNueva = (Button) findViewById(R.id.boton_agregar_mas_niveles);
 
@@ -98,7 +98,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 			setContentView(R.layout.activity_nuevas_palabras_descripcion);
 
 			ePalabra = (EditText) findViewById(R.id.editText_nueva_palabra_descripcion);
-			bAÒadir = (Button) findViewById(R.id.boton_anadir_nueva_palabra_descripcion);
+			bA√±adir = (Button) findViewById(R.id.boton_anadir_nueva_palabra_descripcion);
 			bTerminar = (Button) findViewById(R.id.boton_terminar_nueva_palabra_descripcion);
 			bNueva = (Button) findViewById(R.id.boton_agregar_mas_niveles_descripcion);
 			arrayDescripcion = new ArrayList<String>();
@@ -108,7 +108,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 			setContentView(R.layout.activity_nuevas_palabras_imagen);
 
 			ePalabra = (EditText) findViewById(R.id.editText_nuevas_palabras_imagen);
-			bAÒadir = (Button) findViewById(R.id.boton_anadir_nueva_palabra_imagen);
+			bA√±adir = (Button) findViewById(R.id.boton_anadir_nueva_palabra_imagen);
 			bTerminar = (Button) findViewById(R.id.boton_terminar_nueva_palabra_imagen);
 			bImagen = (Button) findViewById(R.id.boton_anadir_imagen_imagen);
 			eligeImageView = (ImageView) this.findViewById(R.id.imageView_anadir_nueva_palabra);
@@ -123,7 +123,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 		}
 		if (panel != -1) {
 			/**
-			 * Limitamos el tamaÒo del edittext al tamaÒo del tablero, cualquier palabra mayor no se podr· escribir
+			 * Limitamos el tama√±o del edittext al tama√±o del tablero, cualquier palabra mayor no se podr√° escribir
 			 */
 			int maxLength = Integer.parseInt(tamano);
 			InputFilter[] FilterArray = new InputFilter[1];
@@ -133,7 +133,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 		}
 		if (TarjetaSD.isSDConectada()) {
 			TarjetaSD.crearRutaSD(rutaImagenes);
-			bAÒadir.setOnClickListener(this);
+			bA√±adir.setOnClickListener(this);
 			bTerminar.setOnClickListener(this);
 			bNueva.setOnClickListener(this);
 			if (panel == 3)
@@ -162,14 +162,14 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 			panelDos(v);
 		} else if (panel == 3) {
 			/*
-			 * BotÛn imagen
+			 * Bot√≥n imagen
 			 */
 			if (v.getId() == findViewById(R.id.boton_anadir_imagen_imagen).getId()) {
 				if (ePalabra.getText().toString().equals("")) {
 					Toast.makeText(this, R.string.error_introducir_imagen, Toast.LENGTH_LONG).show();
 					return;
 				}
-				Imagenes.dialogoGaleriaImagenes(this); // Creamos una llamada a la galerÌa
+				Imagenes.dialogoGaleriaImagenes(this); // Creamos una llamada a la galer√≠a
 			}
 			panelTres(v);
 		}
@@ -180,7 +180,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 	/************************************************************************************************************************************/
 
 	/**
-	 * EL PANEL UNO ES EL QUE CONTIENE SOLO EL EDITTEXT PARA A—ADIR PALABRAS
+	 * EL PANEL UNO ES EL QUE CONTIENE SOLO EL EDITTEXT PARA A√ëADIR PALABRAS
 	 */
 	private void panelUno(View v) {
 		if (v.getId() == findViewById(R.id.boton_anadir_nueva_palabra).getId()) {
@@ -200,11 +200,11 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 		} else if (v.getId() == findViewById(R.id.boton_agregar_mas_niveles).getId()) {
 			if (!EditTextVacio(ePalabra)) {
 				if (agregaPalabras(ePalabra.getText().toString())) {
-					seguirAÒadiendo = true;
+					seguirA√±adiendo = true;
 					AgregarPalabrasXml();
 				}
 			} else if (!estaArrayPalabrasVacio()) {
-				seguirAÒadiendo = true;
+				seguirA√±adiendo = true;
 				AgregarPalabrasXml();
 			} else {
 				Toast.makeText(this, R.string.error_anadir_una_palabra, Toast.LENGTH_LONG).show();
@@ -238,12 +238,12 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 		} else if (v.getId() == findViewById(R.id.boton_agregar_mas_niveles_descripcion).getId()) {
 			if (!EditTextVacio(ePalabra) && !EditTextVacio(eDescripcion)) { // Es decir, si ambos tienen contenido
 				if (agregaPalabras(ePalabra.getText().toString())) {
-					seguirAÒadiendo = true;
+					seguirA√±adiendo = true;
 					agregaDescripciones(eDescripcion.getText().toString());
 					AgregarPalabraDescripcionXml();
 				}
 			} else if (!estaArrayPalabrasVacio() && !estaArrayDescripcionesVacio()) { // Es decir, se introdujo al menos una palabra y una descripcion
-				seguirAÒadiendo = true;
+				seguirA√±adiendo = true;
 				AgregarPalabraDescripcionXml();
 			} else {
 				Toast.makeText(this, R.string.error_anadir_una_palabra, Toast.LENGTH_LONG).show();
@@ -278,12 +278,12 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 			if (!EditTextVacio(ePalabra) && imagenSubida) { // Es decir, ambos tienen contenido
 				copiaPegaImagenes(direccionImagen);
 				if (agregaPalabras(ePalabra.getText().toString())){
-					seguirAÒadiendo = true;
+					seguirA√±adiendo = true;
 					AgregarPalabrasXml();
 				}
 
 			} else if (!estaArrayPalabrasVacio()) {
-				seguirAÒadiendo = true;
+				seguirA√±adiendo = true;
 				AgregarPalabrasXml();
 			} else {
 				Toast.makeText(this, R.string.error_anadir_una_palabra, Toast.LENGTH_LONG).show();
@@ -295,7 +295,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 	/* / CONFIGURACIONES DE LOS PANELES */
 	/************************************************************************************************************************************/
 	/**
-	 * FunciÛn que guarda las palabras que vamos agregando al juego y actualiza el contenido del ListView
+	 * Funci√≥n que guarda las palabras que vamos agregando al juego y actualiza el contenido del ListView
 	 * 
 	 * @param palabra
 	 *            Palabra que vamos a guardar para en un futuro poder jugar con ella
@@ -328,7 +328,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 
 	private void restauraImagenOriginal() {
 		imagenSubida = false;
-		// Vaciamos las imÈgenes de la mamoria antes de insertar la imagen marco, para evitar que ocurra un problema en tiempo de ejecucion
+		// Vaciamos las im√©genes de la mamoria antes de insertar la imagen marco, para evitar que ocurra un problema en tiempo de ejecucion
 		Drawable drawable = eligeImageView.getDrawable();
 		if (drawable instanceof BitmapDrawable) {
 			BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
@@ -344,7 +344,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 	}
 
 	/**
-	 * Funciones que guardan las im·genes en la carpeta especificada
+	 * Funciones que guardan las im√°genes en la carpeta especificada
 	 */
 
 	@Override
@@ -383,7 +383,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-			// Esto es lo que hace mi botÛn al pulsar ir a atr·s
+			// Esto es lo que hace mi bot√≥n al pulsar ir a atr√°s
 			Toast.makeText(this, R.string.pulsa_boton_terminar, Toast.LENGTH_LONG).show();
 			return true;
 		}
@@ -391,7 +391,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 	}
 
 	/**
-	 * Eliminamos el botÛn settings de las pantallas
+	 * Eliminamos el bot√≥n settings de las pantallas
 	 */
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
@@ -412,7 +412,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 	private void AgregarPalabrasXml() {
 		XMLParser xml = new XMLParser(this);
 		xml.escribePalabrasPersonalizadas(nombreFichero, arrayPalabras);
-		if (seguirAÒadiendo) {
+		if (seguirA√±adiendo) {
 			Actividades.iniciarActividadAgregarPartidasDosParametros(AgregarPartidasActivity.class, this, categoria, true);
 		} else {
 			Actividades.iniciarActividad(MainActivity.class, this);
@@ -426,7 +426,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 	private void AgregarPalabraDescripcionXml() {
 		XMLParser xml = new XMLParser(this);
 		xml.escribePalabrasDescripcionPersonalizadas(nombreFichero, arrayPalabras, arrayDescripcion);
-		if (seguirAÒadiendo) {
+		if (seguirA√±adiendo) {
 			Actividades.iniciarActividadAgregarPartidasDosParametros(AgregarPartidasActivity.class, this, categoria, true);
 		} else {
 			Actividades.iniciarActividad(MainActivity.class, this);
@@ -434,10 +434,10 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 	}
 
 	/***********************************************************************************************************************************************
-	 * PULSACI”N LARGA SOBRE UN ELEMENTO DEL LISTVIEW
+	 * PULSACI√ìN LARGA SOBRE UN ELEMENTO DEL LISTVIEW
 	 *********************************************************************************************************************************************** */
 	/**
-	 * Habilitamos el escuchador para que cuando se realice una pulsaciÛn larga se pueda modificar o eliminar una palabra de la lista agregada
+	 * Habilitamos el escuchador para que cuando se realice una pulsaci√≥n larga se pueda modificar o eliminar una palabra de la lista agregada
 	 */
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
@@ -452,7 +452,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 	}
 
 	/**
-	 * Habilitamos el mÈtodo que nos permite determinar si se seleccionÛ borrar o modificar
+	 * Habilitamos el m√©todo que nos permite determinar si se seleccion√≥ borrar o modificar
 	 */
 
 	@Override
@@ -465,7 +465,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 			arrayPalabras.remove(info.position);
 			ActualizaListView();
 
-		} else if (menuItemName.equals("Edit") || menuItemName.equals("Editar") || menuItemName.equals("Modifier") || menuItemName.equals("Ver‰nderung") || menuItemName.equals("Modifica")) {
+		} else if (menuItemName.equals("Edit") || menuItemName.equals("Editar") || menuItemName.equals("Modifier") || menuItemName.equals("Ver√§nderung") || menuItemName.equals("Modifica")) {
 			ePalabra.setText(arrayPalabras.get(info.position));
 			if (panel == 2) {
 				eDescripcion.setText(arrayDescripcion.get(info.position));
@@ -473,7 +473,7 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 			}
 			if (panel == 3) {
 				String ruta = Rutas.getImagenesPalabras(categoria + Rutas.getNivel() + nivel + "", arrayPalabras.get(info.position));
-				// Tenemos que reducir el tamaÒo del Bitmap para evitar que dÈ
+				// Tenemos que reducir el tama√±o del Bitmap para evitar que d√©
 				// problemas a la hora de cerrar la actividad. Reducimos de 8/1
 				Bitmap myBitmap = BitmapFactory.decodeFile(ruta);
 
@@ -495,6 +495,6 @@ public class NuevasPalabrasActivity extends Activity implements OnClickListener 
 		registerForContextMenu(listView);
 	}
 	/***********************************************************************************************************************************************
-	 * FIN PULSACI”N LARGA SOBRE UN ELEMENTO DEL LISTVIEW
+	 * FIN PULSACI√ìN LARGA SOBRE UN ELEMENTO DEL LISTVIEW
 	 *********************************************************************************************************************************************** */
 }

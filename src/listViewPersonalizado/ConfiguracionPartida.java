@@ -8,7 +8,7 @@ public class ConfiguracionPartida {
 	protected String tipoPartida;
 	protected Drawable foto;
 	protected String categoria;
-	protected String tamaño;
+	protected String tamaÃ±o;
 	protected String orientacion;
 	protected String invertida;
 	protected String tipoPista;
@@ -34,7 +34,7 @@ public class ConfiguracionPartida {
 	}
 
 	/**
-	 * Devuelve el tipo de partida (Gama o Rápida) utilizada en el tablero
+	 * Devuelve el tipo de partida (Gama o RÃ¡pida) utilizada en el tablero
 	 * @return the tipo
 	 */
 	public String getTipoPartida() {
@@ -42,7 +42,7 @@ public class ConfiguracionPartida {
 	}
 
 	/**
-	 * Inserta el tipo de partida (Gama o Rápida) utilizada en el tablero
+	 * Inserta el tipo de partida (Gama o RÃ¡pida) utilizada en el tablero
 	 * @param tipo the tipo to set
 	 */
 	public void setTipoPartida(String tipoPartida) {
@@ -98,23 +98,23 @@ public class ConfiguracionPartida {
 	}
 
 	/**
-	 * Obtener el tamaño del tablero en juego
-	 * @return the tamaño
+	 * Obtener el tamaÃ±o del tablero en juego
+	 * @return the tamaÃ±o
 	 */
-	public String getTamaño() {
-		return tamaño;
+	public String getTamaÃ±o() {
+		return tamaÃ±o;
 	}
 
 	/**
-	 * Insertar el tamaño del tablero en juego
-	 * @param tamaño the tamaño to set
+	 * Insertar el tamaÃ±o del tablero en juego
+	 * @param tamaÃ±o the tamaÃ±o to set
 	 */
-	public void setTamaño(String tamaño) {
-		this.tamaño = tamaño;
+	public void setTamaÃ±o(String tamaÃ±o) {
+		this.tamaÃ±o = tamaÃ±o;
 	}
 
 	/**
-	 * Obtener la orientación de las palabras en el tablero de juego
+	 * Obtener la orientaciÃ³n de las palabras en el tablero de juego
 	 * @return the orientacion
 	 */
 	public String getOrientacion() {
@@ -122,7 +122,7 @@ public class ConfiguracionPartida {
 	}
 
 	/**
-	 * Insertar la orientación de las palabras en el tablero de juego
+	 * Insertar la orientaciÃ³n de las palabras en el tablero de juego
 	 * @param orientacion the orientacion to set
 	 */
 	public void setOrientacion(String orientacion) {

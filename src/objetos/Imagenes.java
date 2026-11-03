@@ -18,7 +18,7 @@ import android.util.Log;
 
 public class Imagenes {
 
-	private static int tamañoPantalla;
+	private static int tamaÃ±oPantalla;
 	private static Context contexto;
 	private static int SELECT_IMAGE = 237487;
 
@@ -27,34 +27,34 @@ public class Imagenes {
 	}
 
 	/**
-	 * @return the tamañoPantalla
+	 * @return the tamaÃ±oPantalla
 	 */
-	public int getTamañoPantalla() {
+	public int getTamaÃ±oPantalla() {
 		int screenSize = getContexto().getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
 		switch (screenSize) {
 		case Configuration.SCREENLAYOUT_SIZE_XLARGE:
-			tamañoPantalla = 4; // Pantalla Extra-Large
+			tamaÃ±oPantalla = 4; // Pantalla Extra-Large
 		case Configuration.SCREENLAYOUT_SIZE_LARGE:
-			tamañoPantalla = 3; // Pantalla larga
+			tamaÃ±oPantalla = 3; // Pantalla larga
 			break;
 		case Configuration.SCREENLAYOUT_SIZE_NORMAL:
-			tamañoPantalla = 2; // Pantalla Normal
+			tamaÃ±oPantalla = 2; // Pantalla Normal
 			break;
 		case Configuration.SCREENLAYOUT_SIZE_SMALL:
-			tamañoPantalla = 1; // Pantalla pequeña
+			tamaÃ±oPantalla = 1; // Pantalla pequeÃ±a
 			break;
 		default:
-			tamañoPantalla = 2; // si no es ninguna de las anteriores, asumimos que es normal
+			tamaÃ±oPantalla = 2; // si no es ninguna de las anteriores, asumimos que es normal
 		}
-		return tamañoPantalla;
+		return tamaÃ±oPantalla;
 	}
 
 	/**
-	 * @param tamañoPantalla
-	 *            the tamañoPantalla to set
+	 * @param tamaÃ±oPantalla
+	 *            the tamaÃ±oPantalla to set
 	 */
-	public static void setTamañoPantalla(int tamañoPantalla) {
-		Imagenes.tamañoPantalla = tamañoPantalla;
+	public static void setTamaÃ±oPantalla(int tamaÃ±oPantalla) {
+		Imagenes.tamaÃ±oPantalla = tamaÃ±oPantalla;
 	}
 
 	public static Context getContexto() {
@@ -66,7 +66,7 @@ public class Imagenes {
 	}
 
 	/**
-	 * Método que nos devuelve una imagen adaptada a un nuevo alto y ancho
+	 * MÃ©todo que nos devuelve una imagen adaptada a un nuevo alto y ancho
 	 * 
 	 * @param bm
 	 *            bitmap que queremos modificar
@@ -76,16 +76,16 @@ public class Imagenes {
 	 *            nuevo ancho
 	 * @return
 	 */
-	public static Bitmap getResizedBitmap(Bitmap bm, int tamañoCuadrado, int borrar) {
+	public static Bitmap getResizedBitmap(Bitmap bm, int tamaÃ±oCuadrado, int borrar) {
 		int base = bm.getWidth();
 		int altura = bm.getHeight();
 		if (base >= altura) {
-			int x = altura * tamañoCuadrado / base;
-			base = tamañoCuadrado;
+			int x = altura * tamaÃ±oCuadrado / base;
+			base = tamaÃ±oCuadrado;
 			altura = x;
 		} else {
-			int x = base * tamañoCuadrado / base;
-			altura = tamañoCuadrado;
+			int x = base * tamaÃ±oCuadrado / base;
+			altura = tamaÃ±oCuadrado;
 			base = x;
 		}
 		return Bitmap.createScaledBitmap(bm, base, altura, false);
@@ -112,7 +112,7 @@ public class Imagenes {
 	}
 
 	/**
-	 * Método que nos permite verificar si existe o no un determinado fichero
+	 * MÃ©todo que nos permite verificar si existe o no un determinado fichero
 	 * 
 	 * @param rutaImagen
 	 *            ruta del archivo que queremos verificar si existe
@@ -125,8 +125,8 @@ public class Imagenes {
 	}
 
 	/**
-	 * Método que recibe la ruta de una imagen y la copia en la ruta especificada
-	 * OJO! Pese a que si comprueba si el fichero original existe, esta función
+	 * MÃ©todo que recibe la ruta de una imagen y la copia en la ruta especificada
+	 * OJO! Pese a que si comprueba si el fichero original existe, esta funciÃ³n
 	 * sobrescribe la imagen en el destino, por lo tanto hay que verificar antes si no se quiere
 	 * sobreescribir
 	 * 
@@ -135,10 +135,10 @@ public class Imagenes {
 	 * @param rutaImagen
 	 *            ruta destino donde queremos copiar la imagen
 	 * @param contexto
-	 *            contexto de la actividad desde la cual se llama al método
+	 *            contexto de la actividad desde la cual se llama al mÃ©todo
 	 * 
 	 * @return true si todas las operaciones se realizaron correctamente
-	 * @return false si en el proceso hubo algún error
+	 * @return false si en el proceso hubo algÃºn error
 	 * */
 	public static boolean guardaImagenes(String rutaOriginal, String rutaDestino) {
 		try {

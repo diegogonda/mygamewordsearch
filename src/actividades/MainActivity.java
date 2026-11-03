@@ -11,7 +11,7 @@ import android.view.Window;
 import es.uvigo.gti.mygamewordsearch.R;
 
 public class MainActivity extends Activity {
-	int tamañoImagenes;
+	int tamaÃ±oImagenes;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 			UnZIP.unzipFromAssets(this, "Planets.zip", Rutas.getRutaArchivos());
 			Preferencias.setCreaPartidasDefecto(this, false);
 		}
-		Idioma.CambiaIdioma(this); //Cambiamos el idioma de la aplicación
+		Idioma.CambiaIdioma(this); //Cambiamos el idioma de la aplicaciÃ³n
 
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);		
@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * Eliminamos el botón settings de las pantallas
+	 * Eliminamos el botÃ³n settings de las pantallas
 	 */
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {

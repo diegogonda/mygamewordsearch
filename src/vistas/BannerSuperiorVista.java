@@ -32,7 +32,7 @@ public class BannerSuperiorVista extends View {
 	private int paddingImagenes;
 	private int paddingLateralIzquierdo;
 	private int ajusteEsquinas;
-	private int tamañoImagenes;
+	private int tamaÃ±oImagenes;
 	private Context contexto;
 	private int largoLinea;
 
@@ -49,7 +49,7 @@ public class BannerSuperiorVista extends View {
 			lineaPaint.setColor(a.getColor(R.styleable.BannerSuperiorVista_color_linea, Color.BLACK));
 			lineaPaint.setStrokeWidth(3);
 			paddingImagenes = a.getDimensionPixelSize(R.styleable.BannerSuperiorVista_padding_fotos, 4);
-			tamañoImagenes = a.getDimensionPixelSize(R.styleable.BannerSuperiorVista_tamano_imagenes, 4);
+			tamaÃ±oImagenes = a.getDimensionPixelSize(R.styleable.BannerSuperiorVista_tamano_imagenes, 4);
 			largoLinea = a.getDimensionPixelSize(R.styleable.BannerSuperiorVista_largo_linea, (int) (100 * dp));
 			paddingLateralIzquierdo = a.getDimensionPixelSize(R.styleable.BannerSuperiorVista_padding_lateral_izquierdo, (int) (10 * dp));
 			if (contexto.getClass() == MainActivity.class)
@@ -116,8 +116,8 @@ public class BannerSuperiorVista extends View {
 		if (bmpBar != null && bmpGears != null && bmpPad != null) {
 			int xIni = 0 + paddingImagenes + paddingLateralIzquierdo;
 			int yIni = 0 + paddingImagenes;
-			int xFin = tamañoImagenes - paddingImagenes + paddingLateralIzquierdo;
-			int yFin = tamañoImagenes - paddingImagenes;
+			int xFin = tamaÃ±oImagenes - paddingImagenes + paddingLateralIzquierdo;
+			int yFin = tamaÃ±oImagenes - paddingImagenes;
 			canvas.drawBitmap(bmpPad, null, new Rect(xIni, yIni, xFin, yFin), null);
 
 			xIni = ancho / 3 + paddingImagenes;

@@ -15,7 +15,7 @@ public class PosicionesPalabras {
 	private int orientacion;
 	private boolean invertida = false;
 	
-	//posición en la pantalla
+	//posiciÃ³n en la pantalla
 	private int xPixelInicial;
 	private int yPixelInicial;
 	private int xPixelFinal;
@@ -23,7 +23,7 @@ public class PosicionesPalabras {
 	private int xPixelesLetras[];
 	private int yPixelesLetras[];
 	
-	//posición en la matriz
+	//posiciÃ³n en la matriz
 	private int xTableroFinal;
 	private int yTableroFinal;
 	private int xTableroInicial;
@@ -87,7 +87,7 @@ public class PosicionesPalabras {
 		this.yTableroLetras = yTableroLetras;
 	}
 
-	//Color de la línea que marca la palabra seleccionada
+	//Color de la lÃ­nea que marca la palabra seleccionada
 	private int color;
 	
 	
