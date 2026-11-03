@@ -14,6 +14,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.util.Log;
 
 public class Imagenes {
@@ -91,16 +92,63 @@ public class Imagenes {
 		return Bitmap.createScaledBitmap(bm, base, altura, false);
 	}
 
+	/**
+	 * Abre la galería de imágenes del sistema.
+	 *
+	 * Se usa ACTION_OPEN_DOCUMENT porque desde Android 10 las imágenes ya no
+	 * tienen una ruta de fichero accesible: el sistema devuelve un Uri con
+	 * permiso de lectura temporal.
+	 *
+	 * @param contexto
+	 *            contexto de la actividad desde la cual se llama al método
+	 */
 	public static void dialogoGaleriaImagenes(Context contexto) {
 		try {
-			Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+			Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+			intent.addCategory(Intent.CATEGORY_OPENABLE);
 			intent.setType("image/*");
 			Activity activity = (Activity) contexto;
 			activity.startActivityForResult(intent, SELECT_IMAGE);
 		}
 		catch (OutOfMemoryError e){
 			Actividades.iniciarActividad(MainActivity.class, contexto);
-			
+
+		}
+	}
+
+	/**
+	 * Copia la imagen elegida en la galería al almacenamiento interno de la
+	 * aplicación y devuelve la ruta del fichero copiado.
+	 *
+	 * @param contexto
+	 *            contexto de la actividad
+	 * @param uri
+	 *            Uri de la imagen elegida
+	 * @return la ruta de la imagen copiada
+	 * @return null si no se pudo copiar
+	 */
+	public static String copiaImagenSeleccionada(Context contexto, Uri uri) {
+		if (contexto == null || uri == null) {
+			return null;
+		}
+		try {
+			File destino = new File(contexto.getCacheDir(), "imagen_seleccionada.jpg");
+			InputStream in = contexto.getContentResolver().openInputStream(uri);
+			if (in == null) {
+				return null;
+			}
+			OutputStream out = new FileOutputStream(destino);
+			byte[] buf = new byte[1024];
+			int len;
+			while ((len = in.read(buf)) > 0) {
+				out.write(buf, 0, len);
+			}
+			in.close();
+			out.close();
+			return destino.getAbsolutePath();
+		} catch (Exception e) {
+			Log.e("Error: Imagenes -> copiaImagenSeleccionada", e.getMessage());
+			return null;
 		}
 	}
 
@@ -120,6 +168,9 @@ public class Imagenes {
 	 * @return false si el archivo no existe
 	 */
 	public static boolean existeArchivo(String rutaArchivo) {
+		if (rutaArchivo == null) {
+			return false;
+		}
 		File file = new File(rutaArchivo);
 		return (file.exists()) ? true : false;
 	}

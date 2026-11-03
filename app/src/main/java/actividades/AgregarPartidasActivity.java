@@ -345,12 +345,12 @@ public class AgregarPartidasActivity extends Activity implements OnClickListener
 	}
 
 	private String getPath(Uri uri) {
-		String[] projection = { android.provider.MediaStore.Images.Media.DATA };
-		@SuppressWarnings("deprecation")
-		Cursor cursor = managedQuery(uri, projection, null, null, null);
-		int column_index = cursor.getColumnIndexOrThrow(android.provider.MediaStore.Images.Media.DATA);
-		cursor.moveToFirst();
-		return cursor.getString(column_index);
+		/*
+		 * Desde Android 10 la imagen elegida no tiene una ruta de fichero
+		 * accesible, así que se copia al almacenamiento interno de la
+		 * aplicación y se devuelve la ruta de esa copia.
+		 */
+		return Imagenes.copiaImagenSeleccionada(this, uri);
 	}
 
 	private void copiaPegaImagenes(String ruta) {
