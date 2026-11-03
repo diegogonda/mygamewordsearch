@@ -8,4 +8,5 @@
     <string name="sonido_activado_summary">Suono</string>
    	<string name="texto_legal">Icone gratis, scaricato da www.webdesignerdepot.com\nLe fotografie utilizzate per i giochi di default sono di dominio pubblico; creato e distribuito dalla NASA.</string>
     
+    <string name="title_activity_configura">Configura</string>
 </resources>

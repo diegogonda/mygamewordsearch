@@ -3,4 +3,5 @@
         <string name="gama">Gama</string>
         <string name="ganaste_gama">Felicidades! Superaches o reto!</string>
         <string name="volver_a_jugar_gama">Volver a comezar!</string>
+    <string name="title_activity_gamas">Gama</string>
 </resources>

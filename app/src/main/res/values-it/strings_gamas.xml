@@ -5,4 +5,5 @@
     <string name="ganaste_gama">Congratulazioni! Hai superato la sfida!</string>
     <string name="volver_a_jugar_gama">Ricomincia!</string>
 
+    <string name="title_activity_gamas">Gama</string>
 </resources>
