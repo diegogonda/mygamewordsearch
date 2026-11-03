@@ -6,7 +6,7 @@ import java.util.Vector;
 import modelo.Diagonal1;
 import modelo.Diagonal2;
 import modelo.Horizontal;
-import modelo.QuickSort;
+import modelo.OrdenadorPalabras;
 import modelo.Vertical;
 import xml.XMLParser;
 import actividades.MainActivity;
@@ -70,7 +70,7 @@ public class CreaTablero {
 			Palabras.add(aux.getPalabra());
 			aux.setMostradaPantalla(false);
 		}
-		QuickSort QS = new QuickSort(Palabras);
+		OrdenadorPalabras QS = new OrdenadorPalabras(Palabras);
 		Palabras = QS.devuelveVectorOrdenado();
 		/**
 		 * Generamos un Tablero de Juego
