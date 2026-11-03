@@ -1,12 +1,15 @@
 package objetos;
 
+import android.content.Context;
+
 public class Rutas {
 	private static String carpetaMyGameWordSearch = "/MyGameWordSearch/";
-	private static String rutaArchivos = TarjetaSD.getRutaSD() + carpetaMyGameWordSearch;
+	private static String rutaArchivos;
 	private static String imagenes = "/imagenes/";
 	private static String nombrePaquete = "es.uvigo.gti.mygamewordsearch";
-	private static String dataData = "/data/data/";
-	private static String rutaArchivoPreferencias = dataData + nombrePaquete + "/shared_prefs/";
+	private static String carpetaPreferencias = "/preferencias/";
+	private static Context contexto;
+	private static String rutaArchivoPreferencias;
 	private static String archivoSharedPreferences = "preferencias.xml";
 	private static String configuracionNiveles = "niveles.xml";
 	private static String posicionesPalabras = "posiciones_palabras.xml";
@@ -25,6 +28,20 @@ public class Rutas {
 	}
 
 	/**
+	 * Inicializa el sistema de rutas. Debe llamarse una única vez, desde
+	 * {@link Aplicacion#onCreate()}, antes de resolver cualquier ruta.
+	 *
+	 * @param contexto
+	 *            contexto de la aplicación
+	 */
+	public static void inicializar(Context c) {
+		contexto = c.getApplicationContext();
+		TarjetaSD.inicializar(contexto);
+		rutaArchivos = TarjetaSD.getRutaSD() + carpetaMyGameWordSearch;
+		rutaArchivoPreferencias = contexto.getFilesDir().getAbsolutePath() + carpetaPreferencias;
+	}
+
+	/**
 	 * @return the nivel
 	 */
 	public static String getNivel() {
@@ -32,17 +49,25 @@ public class Rutas {
 	}
 
 	/**
+	 * Ruta donde se guardan las partidas, los niveles, las palabras y las
+	 * imágenes de cada categoría.
+	 *
 	 * @return the rutaArchivos
 	 */
 	public static String getRutaArchivos() {
+		if (rutaArchivos == null) {
+			throw new IllegalStateException("Rutas sin inicializar: llame a Rutas.inicializar(contexto) desde Application.onCreate()");
+		}
 		return rutaArchivos;
 	}
 
 	/**
-	 * Devuelve la ruta de un archivo imagen guardado en la memoria SD. Sólo válido para palabras en juego, no para las imágenes de las categorías.
+	 * Devuelve la ruta de un archivo imagen guardado en el almacenamiento de la
+	 * aplicación. Sólo válido para palabras en juego, no para las imágenes de las
+	 * categorías.
 	 * La ruta genérica será:
-	 * "/sdcar/MyGameSoupLetter/categoria/Nivel x/imagenes/palabra.jpg"
-	 * 
+	 * "<directorio de la aplicación>/MyGameWordSearch/categoria/Nivel x/imagenes/palabra.jpg"
+	 *
 	 * @return the imagenes
 	 */
 	public static String getImagenesPalabras(String categoria, String palabra) {
@@ -57,6 +82,9 @@ public class Rutas {
 	}
 
 	public static String getRutaArchivoPreferencias() {
+		if (rutaArchivoPreferencias == null) {
+			throw new IllegalStateException("Rutas sin inicializar: llame a Rutas.inicializar(contexto) desde Application.onCreate()");
+		}
 		return rutaArchivoPreferencias;
 	}
 

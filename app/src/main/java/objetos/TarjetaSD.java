@@ -2,43 +2,71 @@ package objetos;
 
 import java.io.File;
 import java.util.ArrayList;
+import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 
 public class TarjetaSD {
-	private static String rutaSD = Environment.getExternalStorageDirectory().toString();
-	private static String estado = Environment.getExternalStorageState();
+	private static String rutaSD;
+	private static String estado;
 
 	public TarjetaSD() {
 
 	}
 
 	/**
+	 * Inicializa el almacenamiento de la aplicación.
+	 *
+	 * Desde Android 10 la raíz del almacenamiento externo no es escribible por
+	 * las aplicaciones, así que se usa el directorio externo reservado a la
+	 * aplicación (Android/data/<paquete>/files), que no necesita permisos y
+	 * sobrevive a la reinstalación de la aplicación.
+	 *
+	 * @param contexto
+	 *            contexto de la aplicación
+	 */
+	public static void inicializar(Context contexto) {
+		File directorio = contexto.getExternalFilesDir(null);
+		if (directorio == null) {
+			// Sin almacenamiento externo disponible se usa el interno.
+			directorio = contexto.getFilesDir();
+		}
+		rutaSD = directorio.getAbsolutePath();
+		estado = Environment.getExternalStorageState();
+	}
+
+	/**
 	 * Método que nos informa del estado de la tarjeta SD
-	 * 
+	 *
 	 * @return true si está conectada
 	 * @return false si está desconectada
 	 */
 	public static boolean isSDConectada() {
-		return (estado.equals(Environment.MEDIA_MOUNTED)) ? true : false;
+		return (estado != null && estado.equals(Environment.MEDIA_MOUNTED)) ? true : false;
 	}
 
 	/**
 	 * Método que nos informa si se puede escribir en la tarjeta SD
-	 * 
+	 *
 	 * @return true si se puede
 	 * @return false si no
 	 */
 	public static boolean isPermisoEscritura() {
-		return (estado.equals(Environment.MEDIA_MOUNTED_READ_ONLY)) ? false : true;
+		if (rutaSD == null) {
+			return false;
+		}
+		return new File(rutaSD).canWrite();
 	}
 
 	/**
-	 * Ruta en que está montada la tarjeta SD
-	 * 
+	 * Ruta en la que se guardan los datos de la aplicación
+	 *
 	 * @return the rutaSD
 	 */
 	public static String getRutaSD() {
+		if (rutaSD == null) {
+			throw new IllegalStateException("Almacenamiento sin inicializar: llame a TarjetaSD.inicializar(contexto)");
+		}
 		return rutaSD;
 	}
 

@@ -428,6 +428,10 @@ public class XMLParser {
 		if (fichero.exists()) {
 			File salida = new File(rutaSharedPreferences + EtiquetasXML.getCopia() + xmlTexto);
 			try {
+				File padre = salida.getParentFile();
+				if (padre != null) {
+					padre.mkdirs();
+				}
 				InputStream in = new FileInputStream(fichero);
 				OutputStream out = new FileOutputStream(salida);
 				byte[] buf = new byte[1024];
