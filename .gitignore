@@ -14,6 +14,11 @@ local.properties
 /.project
 /.settings/
 
+# Signing credentials, the keystore never lives in the repository
+keystore.properties
+*.jks
+*.keystore
+
 # OS noise
 .DS_Store
 Thumbs.db

@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id 'com.android.application'
 }
@@ -5,6 +7,34 @@ plugins {
 dependencies {
     testImplementation 'junit:junit:4.13.2'
 }
+
+/*
+ * Signing of the release build.
+ *
+ * The keystore never lives in the repository. The credentials are read from
+ * keystore.properties in the root of the project, which is ignored by git, or
+ * from the environment when the file is not present (continuous integration).
+ */
+def keystorePropertiesFile = rootProject.file('keystore.properties')
+def keystoreProperties = new Properties()
+def credentials = [:]
+if (keystorePropertiesFile.exists()) {
+    keystorePropertiesFile.withInputStream { keystoreProperties.load(it) }
+    credentials = [
+        storeFile    : keystoreProperties['storeFile'],
+        storePassword: keystoreProperties['storePassword'],
+        keyAlias     : keystoreProperties['keyAlias'],
+        keyPassword  : keystoreProperties['keyPassword'],
+    ]
+} else {
+    credentials = [
+        storeFile    : System.getenv('KEYSTORE_FILE'),
+        storePassword: System.getenv('KEYSTORE_PASSWORD'),
+        keyAlias     : System.getenv('KEY_ALIAS'),
+        keyPassword  : System.getenv('KEY_PASSWORD'),
+    ]
+}
+def hasSigningCredentials = credentials.values().every { it != null && !it.toString().isEmpty() }
 
 android {
     namespace 'es.uvigo.gti.mygamewordsearch'
@@ -24,8 +54,27 @@ android {
         encoding = 'UTF-8'
     }
 
+    signingConfigs {
+        if (hasSigningCredentials) {
+            release {
+                storeFile file(credentials['storeFile'])
+                storePassword credentials['storePassword']
+                keyAlias credentials['keyAlias']
+                keyPassword credentials['keyPassword']
+            }
+        }
+    }
+
     buildTypes {
         release {
+            if (hasSigningCredentials) {
+                signingConfig signingConfigs.release
+            }
+            /*
+             * The resources are shrunk on purpose. The board loads its images
+             * with getIdentifier(), which the resource shrinker cannot see, so
+             * shrinking would remove drawables that are still in use.
+             */
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
