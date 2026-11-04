@@ -1,0 +1,24 @@
+# Gradle
+.gradle/
+build/
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+
+# Legacy Eclipse build leftovers
+/bin/
+/gen/
+/.classpath
+/.project
+/.settings/
+
+# Signing credentials, the keystore never lives in the repository
+keystore.properties
+*.jks
+*.keystore
+
+# OS noise
+.DS_Store
+Thumbs.db

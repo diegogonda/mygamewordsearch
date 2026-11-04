@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="que_haces">¿Que queres facer?</string>
+    <string name="eliminar_juego">Eliminar xogo</string>
+    <string name="anadir_nivel">Engadir nivel</string>
+    <string name="niveles"> Niveis</string>
+
+</resources>

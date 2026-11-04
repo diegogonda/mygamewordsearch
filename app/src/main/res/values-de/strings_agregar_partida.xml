@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Agregar partidas -->
+
+    <string name="tema">Thema des Spiels: </string>
+    <string name="orientacion">Ausrichtung: </string>
+    <string name="invertir_palabras">Wörter rückwärts: </string>
+    <string name="tipo_pista">Art der Anhaltspunkt: </string>
+    <string name="imagen_tema">Bild Thema: </string>
+    <string name="boton_imagen">Wählen Sie eine Datei</string>
+    <string name="agregar">Hinzufügen</string>
+    <!-- Agregar palabras -->
+    <string name="agregar_nuevo_gama">neues Spiel</string>
+    <string name="quieres_salir">Wollen Sie aufhören wollen?</string>
+    <string name="textView_descripcion">Beschreibung: </string>
+    <string name="selecciona_imagen">Wählen Sie ein Bild: </string>
+    <string name="palabra">Wort: </string>
+    <string name="anadir">Hinzufügen</string>
+    <string name="boton_terminar">Verlassen</string>
+    <string name="Imagen_de_la_palabra">Bild von Wort</string>
+    <string name="pulsa_boton_terminar">Um zu beenden, müssen Sie die Ziel unten zu drücken.</string>
+    <string name="title_activity_agregar_partidas">Elemente hinzufügen</string>
+    <string name="categoria_agregada_correctamente">Die Kategorie wurde erfolgreich hinzugefügt wurde, fügen Sie die Wörter</string>
+    <string name="title_activity_nuevas_palabras">Fügen Sie die Wörter: </string>
+    <string name="botonera_deshabilitada">Sie müssen auf die Schaltfläche Fertig verwenden, um zu beenden</string>
+    <string name="palabras_agregadas">Hinzugefügten Wörtern: </string>
+
+    <string-array name="menu">
+        <item>Veränderung</item>
+        <item>Entfernen</item>
+    </string-array>
+
+</resources>

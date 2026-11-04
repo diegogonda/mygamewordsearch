@@ -1,0 +1,12 @@
+# Normalize line endings: check out LF on every platform, keep binary assets intact.
+* text=auto eol=lf
+
+# Build outputs and third-party binaries
+*.bat text eol=crlf
+*.jar binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.gif binary
+*.dex binary
+*.class binary

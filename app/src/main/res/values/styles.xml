@@ -1,0 +1,16 @@
+<resources>
+
+    <!--
+        Base application theme. The app targets API 23 and above, so there is a
+        single theme for every supported device.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- Theme customizations can go here. -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+</resources>

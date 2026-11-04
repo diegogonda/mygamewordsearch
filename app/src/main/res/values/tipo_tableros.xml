@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="tipo">
+
+        <!--  -->
+        <item>Aleatory</item>
+        <!--  -->
+        <item>Predefined</item>
+    </string-array>
+    <string-array name="tipo_tablero">
+
+        <!--  -->
+        <item>aleatorios</item>
+        <!--  -->
+        <item>predefinidos</item>
+    </string-array>
+
+</resources>

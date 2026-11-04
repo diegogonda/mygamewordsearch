@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="error_copia_imagen">Impossibile copiare l\&apos;immagine.</string>
+    <string name="error_introducir_imagen">Devi inserire un\&apos;immagine per continuare.</string>
+    <string name="error_nivel_no_superador_gamas">Questo livello è ancora bloccato.</string>
+    <string name="error_rellenar_ambos_campos">È necessario compilare entrambi i campi per continuare.</string>
+    <string name="error_opcion_incorrecta">Si è verificato un errore nella creazione del consiglio di amministrazione. Riprova.</string>
+    <string name="error_rellenar_campo">È necessario inserire una parola per continuare.</string>
+    <string name="error_anadir_una_palabra">È necessario inserire almeno una parola e una descrizione.</string>
+    <string name="error_introduce_sd">È necessario aggiungere una scheda SD!</string>
+    <string name="error_tipo_partida">È necessario selezionare il tipo di gioco: Part o Gama.</string>
+    <string name="error_palabras_invertidas">È necessario indicare se si desidera parole indietro o no.</string>
+    <string name="error_introduce_orientacion">È necessario indicare l\&apos;orientamento delle parole alla lavagna.</string>
+    <string name="error_introduce_tamano">Deve indicare la dimensione del scheda.</string>
+    <string name="error_introduce_tipo_pista">È necessario indicare il tipo di pista.</string>
+    <string name="error_rellenar_campo_text_imagen">È necessario aggiungere una parola e un\&apos;immagine per continuare.</string>
+    <string name="error_categoria_existente">È già un gioco con quel nome</string>
+    <string name="error_introduce_nombre_categoria">Aggiungere un nome per il tema.</string>
+    <string name="error_opcion_juego">Configurazione errata. Si prega di verificare le impostazioni.</string>
+    <string name="error_tablero_pequeno">El scheda è troppo piccolo. Si prega di verificare la configurazione..</string>
+    <string name="error_creacion_partida">Impossibile creare il gioco</string>
+
+</resources>

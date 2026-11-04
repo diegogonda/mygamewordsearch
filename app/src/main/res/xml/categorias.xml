@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<categorias>
+		<categoria>Planetas</categoria>
+		<categoria>Animales</categoria>
+<!-- 	<categoria>Profesiones</categoria> -->
+		<categoria>Deportes</categoria>
+<!-- 		<categoria>Colores</categoria> -->
+
+</categorias>

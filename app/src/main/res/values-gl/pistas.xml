@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pistas">
+
+        <!-- Pista nombre -->
+        <item>Nome</item>
+        <!-- Pista imagen -->
+        <item>Imaxe</item>
+        <!-- <item>Categoria</item> -->
+        <!-- Pista Audio -->
+        <item>Audio</item>
+        <!-- Pista Descripción -->
+        <item>Descrición</item>
+        <!-- Pista Marcar la primera letr -->
+        <item>Marcar a primeira letra</item>
+        <!-- Sin pistas -->
+        <item>Sen pistas</item>
+    </string-array>
+    <string-array name="pistas_tipos">
+
+        <!-- Pista Audio -->
+        <item>nombre</item>
+        <!-- Pista imagen -->
+        <item>pista_imagen</item>
+        <!-- <item>pista_categoria</item> -->
+        <!-- Pista Audio -->
+        <item>pista_audio</item>
+        <!-- Pista Descripción -->
+        <item>pista_descripcion</item>
+        <!-- Pista Marcar la primera letr -->
+        <item>pista_marca</item>
+        <!-- SIn pista -->
+        <item>sin_pista</item>
+    </string-array>
+</resources>

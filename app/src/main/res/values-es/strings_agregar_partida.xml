@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Agregar partidas -->
+    <string name="tema">Tema de la partida: </string>
+    <string name="orientacion">Orientación: </string>
+    <string name="invertir_palabras">Palabras invertidas: </string>
+    <string name="tipo_pista">Tipo de pista: </string>
+    <string name="imagen_tema">Imagen del tema: </string>
+    <string name="boton_imagen">Selecciona un archivo</string>
+    <string name="agregar">Agregar</string>
+    <!-- Agregar palabras -->
+    <string name="agregar_nuevo_gama">Nuevo nivel</string>
+    <string name="quieres_salir">¿Quieres salir?</string>
+    <string name="textView_descripcion">Descripción: </string>
+    <string name="selecciona_imagen">Selecciona una imagen: </string>
+    <string name="palabra">Palabra: </string>
+    <string name="anadir">Añadir</string>
+    <string name="boton_terminar">Terminar</string>
+    <string name="Imagen_de_la_palabra">Imagen de la palabra que vas a añadir</string>
+    <string name="pulsa_boton_terminar">Para salir tienes que pulsar el botón terminar.</string>
+    <string name="title_activity_agregar_partidas">Agregar Partidas</string>
+    <string name="categoria_agregada_correctamente">La categoría se agregó correctamente, agrega las palabras</string>
+    <string name="title_activity_nuevas_palabras">Agrega las palabras: </string>
+    <string name="botonera_deshabilitada">Debes usar el botón Terminar para salir</string>
+    <string name="palabras_agregadas">Palabras agregadas: </string>
+
+    <string-array name="menu">
+        <item>Editar</item>
+        <item>Borrar</item>
+    </string-array>
+
+</resources>

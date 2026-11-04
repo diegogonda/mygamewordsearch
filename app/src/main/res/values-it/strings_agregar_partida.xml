@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Agregar partidas -->
+    <string name="tema">Tema del gioco: </string>
+    <string name="orientacion">Orientazione: </string>
+    <string name="invertir_palabras">Parole invertito: </string>
+    <string name="tipo_pista">Tipo di brano: </string>
+    <string name="imagen_tema">Tema Immagine: </string>
+    <string name="boton_imagen">Selezionare un file</string>
+    <string name="agregar">Aggiungere</string>
+    <!-- Agregar palabras -->
+    <string name="agregar_nuevo_gama">Nuovo gioco</string>
+    <string name="quieres_salir">Vuoi uscire?</string>
+    <string name="textView_descripcion">Descrizione: </string>
+    <string name="selecciona_imagen">Selezionare un\&apos;immagine: </string>
+    <string name="palabra">Parola: </string>
+    <string name="anadir">Aggiungere</string>
+    <string name="boton_terminar">Fine</string>
+    <string name="Imagen_de_la_palabra">Immagine della parola che si sta andando ad aggiungere</string>
+    <string name="pulsa_boton_terminar">Per uscire devi premere il tasto fine..</string>
+    <string name="title_activity_agregar_partidas">Aggiungi giochi: </string>
+    <string name="categoria_agregada_correctamente">La categoria è stata inserita correttamente, aggiungere le parole</string>
+    <string name="title_activity_nuevas_palabras">Aggiungi parole: </string>
+    <string name="botonera_deshabilitada">È necessario utilizzare il pulsante Fine per uscire</string>
+    <string name="palabras_agregadas">Parole aggiunte: </string>
+
+    <string-array name="menu">
+        <item>Modifica</item>
+        <item>Chiaro</item>
+    </string-array>
+
+</resources>

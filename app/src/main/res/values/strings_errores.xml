@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--  -->    <string name="error_copia_imagen">Error copying the image</string>
+<!--  -->    <string name="error_introducir_imagen">You must introduce an image to continue.</string>
+<!--  -->    <string name="error_nivel_no_superador_gamas">This level is still locked.</string>
+<!--  -->    <string name="error_rellenar_ambos_campos">You must fill in both fields to continue.</string>
+<!--  -->    <string name="error_opcion_incorrecta">An error has occurred in the creation of the board. Please try again.</string>
+<!--  -->    <string name="error_rellenar_campo">You must enter a word to continue.</string>
+<!--  -->    <string name="error_anadir_una_palabra">You must enter at least one word and a description. </string>
+<!--  -->    <string name="error_introduce_sd">You need to add an SD card!</string>
+<!--  -->    <string name="error_tipo_partida">You must select the type of game: Part or Gamut..</string>
+<!--  -->    <string name="error_palabras_invertidas">You must indicate whether you want words backwards or not.</string>
+<!--  -->    <string name="error_introduce_orientacion">You must indicate the orientation of the words on the board.</string>
+<!--  -->    <string name="error_introduce_tamano">Must indicate the size of the board.</string>
+<!--  -->    <string name="error_introduce_tipo_pista">You must indicate the type of clue.</string>
+<!--  -->    <string name="error_rellenar_campo_text_imagen">You must add a word and a picture to continue.</string>
+<!--  -->    <string name="error_categoria_existente">Game with this name already exist.</string>
+<!--  -->    <string name="error_introduce_nombre_categoria">Add a name of theme</string>
+<!--  -->    <string name="error_opcion_juego">Incorrect configuration. Please check your configuration.</string>
+<!--  -->    <string name="error_tablero_pequeno">The board is too small. Please check your settings.</string>
+<!--  -->    <string name="error_creacion_partida">Error creating the game.</string>
+    
+</resources>

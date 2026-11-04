@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="TableroVista">
+        <attr name="altoLetras" format="dimension" />
+        <attr name="colorLetras" format="color" />
+        <attr name="anchoBarra" format="dimension" />
+        <attr name="sensibilidad" format="dimension" />
+        <attr name="barraPalabraSeleccionadaX" format="dimension" />
+        <attr name="barraPalabraSeleccionadaY" format="dimension" />
+        <attr name="barraPalabraSeleccionadaInclinadaX1" format="dimension" />
+        <attr name="barraPalabraSeleccionadaInclinadaX2" format="dimension" />
+        <attr name="margenDerechoTablero" format="dimension" />
+        <attr name="margenIzquierdoTablero" format="dimension" />
+        <attr name="margenSuperiorTablero" format="dimension" />
+        <attr name="margenInferiorTablero" format="dimension" />
+        <attr name="color_marca_pista" format="color" />
+        <attr name="radio_marca_pista" format="dimension" />
+        <attr name="ajuste_marca_pista" format="dimension" />
+        <attr name="tamano_imagen_reforzadora" format="dimension"/>
+        <attr name="color_grilla" format="color"/>
+        <attr name="ancho_grilla" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="PistasVista">
+        <attr name="altoPalabras" format="dimension" />
+        <attr name="colorPalabras" format="color" />
+        <attr name="paddingTopPalabras" format="dimension" />
+        <attr name="x_Columna_1" format="dimension" />
+        <attr name="x_Columna_2" format="dimension" />
+        <attr name="separacion_filas" format="dimension" />
+        <attr name="tamano_imagenes_pistas" format="dimension" />
+        <attr name="padding_imagenes" format="dimension" />
+        <attr name="cantidad_caracteres_descripcion" format="dimension" />
+        <attr name="primera_letra_descripcion" format="dimension" />
+        <attr name="altura_primera_palabra" format="dimension"/>
+        <attr name="numero_columnas" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="BannerSuperiorVista">
+        <attr name="padding_fotos" format="dimension" />
+ 	    <attr name="tamano_imagenes" format="dimension" />
+        <attr name="color_linea" format="color" />
+        <attr name="largo_linea" format="dimension"/>
+        <attr name="padding_lateral_izquierdo" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="ConfiguracionVista">
+        <attr name="alto_letras" format="dimension" />
+        <attr name="margen_superior" format="dimension" />
+        <attr name="margen_lateral" format="dimension" />
+        <attr name="ajuste_palabras" format="dimension" />
+        <attr name="alto_boton" format="dimension" />
+        <attr name="color_letras" format="color" />
+        <attr name="color_boton" format="color" />
+    </declare-styleable>
+    <declare-styleable name="GamasVista">
+        <attr name="tamano_numeros" format="dimension" />
+        <attr name="padding_superior_numeros" format="dimension" />
+        <attr name="padding_lateral_numeros" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="ListaPartidasVista">
+        <attr name="tamano_imagen" format="dimension"/>
+    </declare-styleable>    
+</resources>

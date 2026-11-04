@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ 
+    <item name="azul" type="color">#FF33B5E5</item>
+    <item name="violeta" type="color">#FFAA66CC</item>
+    <item name="verde" type="color">#FF99CC00</item>
+    <item name="naranja" type="color">#FFFFBB33</item>
+    <item name="rojo" type="color">#FFFF4444</item>
+    <item name="azuloscuro" type="color">#FF0099CC</item>
+    <item name="violetaoscuro" type="color">#FF9933CC</item>
+    <item name="verdeoscuro" type="color">#FF669900</item>
+    <item name="naranjaoscuro" type="color">#FFFF8800</item>
+    <item name="rojooscuro" type="color">#FFCC0000</item>
+  	 <item name="negro" type="color">#FF000000</item>
+  	 <item name="gris" type="color">#FFCCCCCC</item>
+    
+    <integer-array name="androidcolors">
+        <item>@color/azul</item>
+        <item>@color/violeta</item>
+        <item>@color/verde</item>
+        <item>@color/naranja</item>
+        <item>@color/rojo</item>
+        <item>@color/azuloscuro</item>
+        <item>@color/violetaoscuro</item>
+        <item>@color/verdeoscuro</item>
+        <item>@color/naranjaoscuro</item>
+        <item>@color/rojooscuro</item>
+        <item>@color/negro</item>
+        </integer-array>
+    <color name="transparente">#00000000</color>
+ 
+</resources> 
