@@ -1,0 +1,31 @@
+/*
+ * La capa de aplicación: los casos de uso del juego y los puertos que
+ * necesitan para hablar con el mundo exterior.
+ *
+ * También es Java puro. Los puertos (las interfaces) se definen aquí, que es
+ * quien los necesita, y los implementa la infraestructura de la app.
+ */
+plugins {
+    id 'java-library'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+dependencies {
+    api project(':domain')
+    testImplementation 'junit:junit:4.13.2'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('test') {
+    testLogging {
+        events 'failed'
+        exceptionFormat 'full'
+    }
+}

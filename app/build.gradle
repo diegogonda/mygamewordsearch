@@ -5,6 +5,8 @@ plugins {
 }
 
 dependencies {
+    implementation project(':domain')
+    implementation project(':application')
     testImplementation 'junit:junit:4.13.2'
 }
 
