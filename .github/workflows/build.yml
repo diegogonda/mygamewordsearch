@@ -27,9 +27,11 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
-
-      - name: Install the platform and the build tools
-        run: sdkmanager "platforms;android-37.0" "build-tools;36.0.0"
+        with:
+          # The action installs the "tools" package by default, and that
+          # package no longer exists in the SDK repository, so the build would
+          # fail before it even started. Ask for what the project needs.
+          packages: 'platforms;android-37.0 build-tools;36.0.0'
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
