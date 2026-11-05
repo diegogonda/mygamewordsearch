@@ -17,12 +17,12 @@ Runner: `./gradlew testDebugUnitTest` (JUnit en la JVM) y `./gradlew lintDebug`.
 
 ## Tasks
 
-- T1 (S2, S3) Adaptador `modelo` → presentación, con test RED primero. Route: inline. Estado: pendiente.
-- T2 (S4) Tablero parcial en el motor y en `TableroException`, con test RED primero. Route: inline. Estado: pendiente.
-- T3 (S1, S2, S3) `CreaTablero` delega en el motor y en el adaptador. Route: inline. Estado: pendiente.
-- T4 (S5, S6, S7) Tests de caracterización de preferencias y tildes. Route: inline. Estado: pendiente.
-- T5 (S1) Borrar el motor legacy y sus tests. Route: inline. Estado: pendiente.
-- T6 (S8) Verificación: suite, lint, differential contra el motor legacy del commit base y emulador. Route: inline. Estado: pendiente.
+- T1 (S2, S3) Adaptador `modelo` → presentación, con test RED primero. Route: inline. Estado: hecho en `46f5a0f`.
+- T2 (S4) Tablero parcial en el motor y en `TableroException`, con test RED primero. Route: inline. Estado: hecho en `43006cb`.
+- T3 (S1, S2, S3) `CreaTablero` delega en el motor y en el adaptador. Route: inline. Estado: hecho en el commit de cierre.
+- T4 (S5, S6, S7) Tests de caracterización de preferencias y tildes. Route: inline. Estado: hecho en `43006cb`.
+- T5 (S1) Borrar el motor legacy y sus tests. Route: inline. Estado: hecho en el commit de cierre.
+- T6 (S8) Verificación: suite, lint, differential contra el motor legacy del commit base y emulador. Route: inline. Estado: suite y lint en verde; differential en verde; emulador pendiente.
 
 ## Log
 
@@ -30,3 +30,7 @@ Runner: `./gradlew testDebugUnitTest` (JUnit en la JVM) y `./gradlew lintDebug`.
 - L2 (2026-11-05): "adoptamos" — se adopta la semántica del motor nuevo: "cruces permitidos, invertidas operativas".
 - L3 (2026-11-05): El análisis del código legacy corrige una afirmación anterior: el motor legacy **sí** permite cruces en horizontal, diagonal principal y diagonal secundaria; sólo la vertical los prohíbe. `modelo.Orientacion.permiteCruce` reproduce esa misma regla. Lo que realmente cambia el juego es que las palabras invertidas pasan a funcionar (en el legacy el flag se reiniciaba a `false` en cada vuelta del bucle) y que `ó` se convierte en `o` (en el legacy no había bloque para `ó`).
 - L4 (2026-11-05): Decisión tomada sin consultar: si el motor no consigue un tablero razonable, se usa el mejor tablero parcial en lugar de dejar la aplicación colgada. El legacy regeneraba el tablero en bucle infinito cuando el número de palabras quedaba fuera del rango válido.
+- L5 (2026-11-05): La normalización de tildes pasa del motor legacy al motor nuevo. El invariant "el tablero sólo tiene las 26 letras del abecedario" vive ahora en el dominio y no depende de quien llame al motor.
+- L6 (2026-11-05): Differential contra el motor legacy del commit base `04d3de5`, con el mismo generador de números aleatorios por semilla y 100 tableros por modo de orientación (1 a 5), validando el contrato observable de cada tablero: todas las celdas del abecedario, cada palabra legible en su orientación y cruces coherentes. Resultado: legacy 500/500 tableros válidos, nuevo 500/500 válidos, mismo número de palabras colocadas (8 de 8) en los cinco modos, 0 fallos de contrato. Con palabras acentuadas, el legacy deja la `ó` en el tablero (100 de 100 tableros) y el nuevo no (0 de 100). Con palabras invertidas, 91 de 160 colocaciones van del revés y todas se leen correctamente.
+- L7 (2026-11-05): Bug del legacy detectado por el differential: cuando el número de palabras quedaba fuera del rango válido, el legacy reiniciaba el tablero pero conservaba las posiciones ya registradas, que quedaban apuntando a un tablero que ya no existía. El motor nuevo no tiene ese problema porque cada intento usa un tablero y una lista de posiciones nuevos.
+
