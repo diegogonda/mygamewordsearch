@@ -13,13 +13,16 @@ import org.junit.Test;
 
 import dominio.Celda;
 import dominio.Orientacion;
-import dominio.PosicionPalabra;
+import dominio.Palabra;
+import dominio.PalabraColocada;
+import dominio.Partida;
+import dominio.PartidaIncoherenteException;
+import dominio.Pista;
 import dominio.Tablero;
-import dominio.TableroGenerado;
 
 /**
- * Tests del adaptador entre el motor de tableros y los datos que consume la
- * presentación. No depende de Android, así que se ejecuta en la JVM.
+ * Tests del adaptador entre el dominio y los datos que consume la
+ * presentación. No depende de Android, así que corre en la JVM.
  */
 public class AdaptadorTableroTest {
 
@@ -35,19 +38,39 @@ public class AdaptadorTableroTest {
 		return lista;
 	}
 
-	private TableroGenerado tablero(PosicionPalabra... posiciones) {
-		return new TableroGenerado(new Tablero(TAMANO), Arrays.asList(posiciones));
+	private PalabraColocada colocada(String texto, Orientacion orientacion, boolean invertida, Celda... celdas) {
+		return new PalabraColocada(new Palabra(texto, Pista.nombre(texto)), orientacion, Arrays.asList(celdas), invertida);
 	}
 
-	private PosicionPalabra posicion(String palabra, Orientacion orientacion, Celda... celdas) {
-		return new PosicionPalabra(palabra, orientacion, Arrays.asList(celdas), false);
+	/**
+	 * Construye una partida, escribiendo en el tablero las palabras que se le
+	 * pasan.
+	 */
+	private Partida partidaDe(PalabraColocada... colocadas) throws PartidaIncoherenteException {
+		Tablero tablero = new Tablero(TAMANO);
+		for (PalabraColocada colocada : colocadas) {
+			List<Celda> celdas = colocada.getCeldas();
+			String escrito = colocada.isInvertida() ? colocada.getPalabra().getTextoEnTableroInvertido() : colocada.getPalabra().getTextoEnTablero();
+			for (int i = 0; i < celdas.size(); i++) {
+				tablero.setCelda(celdas.get(i).getX(), celdas.get(i).getY(), escrito.charAt(i));
+			}
+		}
+		return Partida.crea(tablero, Arrays.asList(colocadas));
+	}
+
+	private Celda[] enFila(int y, int desde, int cantidad) {
+		Celda[] celdas = new Celda[cantidad];
+		for (int i = 0; i < cantidad; i++) {
+			celdas[i] = new Celda(desde + i, y);
+		}
+		return celdas;
 	}
 
 	@Test
-	public void escribeDondeEmpiezaYDondeAcabaCadaPalabra() {
+	public void escribeDondeEmpiezaYDondeAcabaCadaPalabra() throws PartidaIncoherenteException {
 		List<PosicionesPalabras> lista = palabras("SOL");
 
-		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(tablero(posicion("SOL", Orientacion.HORIZONTAL, new Celda(2, 3), new Celda(3, 3), new Celda(4, 3))), lista);
+		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(partidaDe(colocada("SOL", Orientacion.HORIZONTAL, false, enFila(3, 2, 3))), lista);
 
 		PosicionesPalabras sol = preparado.getPalabras().get(0);
 		assertEquals("columna de la primera letra", 2, sol.getxTableroInicial());
@@ -57,10 +80,10 @@ public class AdaptadorTableroTest {
 	}
 
 	@Test
-	public void escribeElVectorDeLasLetrasDeLaPalabra() {
+	public void escribeElVectorDeLasLetrasDeLaPalabra() throws PartidaIncoherenteException {
 		List<PosicionesPalabras> lista = palabras("SOL");
 
-		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(tablero(posicion("SOL", Orientacion.HORIZONTAL, new Celda(2, 3), new Celda(3, 3), new Celda(4, 3))), lista);
+		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(partidaDe(colocada("SOL", Orientacion.HORIZONTAL, false, enFila(3, 2, 3))), lista);
 
 		PosicionesPalabras sol = preparado.getPalabras().get(0);
 		assertArrayEquals("columnas de las letras", new int[] { 2, 3, 4 }, sol.getxTableroLetras());
@@ -68,13 +91,15 @@ public class AdaptadorTableroTest {
 	}
 
 	@Test
-	public void elCodigoDeOrientacionEsElQueUsaLaPresentacion() {
-		List<PosicionesPalabras> lista = palabras("A", "B", "C", "D");
+	public void elCodigoDeOrientacionEsElQueUsaLaPresentacion() throws PartidaIncoherenteException {
+		List<PosicionesPalabras> lista = palabras("AB", "CD", "EF", "GH");
 
-		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(tablero(posicion("A", Orientacion.HORIZONTAL, new Celda(0, 0)),
-				posicion("B", Orientacion.VERTICAL, new Celda(1, 0)),
-				posicion("C", Orientacion.DIAGONAL_1, new Celda(2, 0)),
-				posicion("D", Orientacion.DIAGONAL_2, new Celda(3, 0))), lista);
+		Partida partida = partidaDe(colocada("AB", Orientacion.HORIZONTAL, false, enFila(0, 0, 2)),
+				colocada("CD", Orientacion.VERTICAL, false, new Celda(2, 0), new Celda(2, 1)),
+				colocada("EF", Orientacion.DIAGONAL_1, false, new Celda(3, 0), new Celda(4, 1)),
+				colocada("GH", Orientacion.DIAGONAL_2, false, new Celda(5, 1), new Celda(4, 2)));
+
+		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(partida, lista);
 
 		assertEquals("horizontal", 0, preparado.getPalabras().get(0).getOrientacion());
 		assertEquals("vertical", 1, preparado.getPalabras().get(1).getOrientacion());
@@ -83,23 +108,23 @@ public class AdaptadorTableroTest {
 	}
 
 	@Test
-	public void marcaLaPalabraComoInvertidaCuandoVaDelReves() {
+	public void marcaLaPalabraComoInvertidaCuandoVaDelReves() throws PartidaIncoherenteException {
 		List<PosicionesPalabras> lista = palabras("SOL");
 
-		PosicionPalabra invertida = new PosicionPalabra("SOL", Orientacion.HORIZONTAL, Arrays.asList(new Celda(4, 3), new Celda(3, 3), new Celda(2, 3)), true);
-
-		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(tablero(invertida), lista);
+		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(partidaDe(colocada("SOL", Orientacion.HORIZONTAL, true, enFila(3, 2, 3))), lista);
 
 		assertTrue("la palabra va del revés", preparado.getPalabras().get(0).isInvertida());
 	}
 
 	@Test
-	public void conservaElOrdenDeLasPalabrasDeLaPartida() {
+	public void conservaElOrdenDeLasPalabrasDeLaPartida() throws PartidaIncoherenteException {
 		List<PosicionesPalabras> lista = palabras("mercurio", "venus", "tierra");
 
-		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(tablero(posicion("tierra", Orientacion.HORIZONTAL, new Celda(0, 0)),
-				posicion("mercurio", Orientacion.HORIZONTAL, new Celda(0, 1)),
-				posicion("venus", Orientacion.HORIZONTAL, new Celda(0, 2))), lista);
+		Partida partida = partidaDe(colocada("tierra", Orientacion.HORIZONTAL, false, enFila(0, 0, 6)),
+				colocada("mercurio", Orientacion.HORIZONTAL, false, enFila(1, 0, 8)),
+				colocada("venus", Orientacion.HORIZONTAL, false, enFila(2, 0, 5)));
+
+		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(partida, lista);
 
 		assertEquals("mercurio", preparado.getPalabras().get(0).getPalabra());
 		assertEquals("venus", preparado.getPalabras().get(1).getPalabra());
@@ -107,21 +132,23 @@ public class AdaptadorTableroTest {
 	}
 
 	@Test
-	public void dejaFueraLasPalabrasQueNoHanCabido() {
+	public void dejaFueraLasPalabrasQueNoHanCabido() throws PartidaIncoherenteException {
 		List<PosicionesPalabras> lista = palabras("tierra", "marte");
 
-		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(tablero(posicion("tierra", Orientacion.HORIZONTAL, new Celda(0, 0))), lista);
+		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(partidaDe(colocada("tierra", Orientacion.HORIZONTAL, false, enFila(0, 0, 6))), lista);
 
 		assertEquals("sólo quedan las palabras colocadas", 1, preparado.getPalabras().size());
 		assertEquals("tierra", preparado.getPalabras().get(0).getPalabra());
 	}
 
 	@Test
-	public void cadaCopiaDeUnaPalabraVaASuPropioSitio() {
+	public void cadaCopiaDeUnaPalabraVaASuPropioSitio() throws PartidaIncoherenteException {
 		List<PosicionesPalabras> lista = palabras("SOL", "SOL");
 
-		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(tablero(posicion("SOL", Orientacion.HORIZONTAL, new Celda(0, 0), new Celda(1, 0)),
-				posicion("SOL", Orientacion.HORIZONTAL, new Celda(0, 1), new Celda(1, 1))), lista);
+		Partida partida = partidaDe(colocada("SOL", Orientacion.HORIZONTAL, false, enFila(0, 0, 3)),
+				colocada("SOL", Orientacion.HORIZONTAL, false, enFila(1, 0, 3)));
+
+		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(partida, lista);
 
 		assertEquals("las dos copias se colocan", 2, preparado.getPalabras().size());
 		assertEquals("la primera copia", 0, preparado.getPalabras().get(0).getyTableroInicial());
@@ -129,11 +156,11 @@ public class AdaptadorTableroTest {
 	}
 
 	@Test
-	public void lasPalabrasColocadasQuedanMarcadasComoMostradas() {
+	public void lasPalabrasColocadasQuedanMarcadasComoMostradas() throws PartidaIncoherenteException {
 		List<PosicionesPalabras> lista = palabras("SOL", "LUNA");
 		lista.get(0).setMostradaPantalla(true);
 
-		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(tablero(posicion("SOL", Orientacion.HORIZONTAL, new Celda(0, 0))), lista);
+		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(partidaDe(colocada("SOL", Orientacion.HORIZONTAL, false, enFila(0, 0, 3))), lista);
 
 		assertTrue("la palabra colocada se muestra", preparado.getPalabras().get(0).getMostradaPantalla());
 		assertFalse("la palabra que no ha cabido no se muestra", lista.get(1).getMostradaPantalla());

@@ -9,12 +9,12 @@ import java.util.Map;
 
 import dominio.Celda;
 import dominio.Orientacion;
-import dominio.PosicionPalabra;
-import dominio.TableroGenerado;
+import dominio.PalabraColocada;
+import dominio.Partida;
 
 /**
- * Traduce el resultado del motor de tableros a los datos que necesita la
- * presentación: las letras del tablero y la posición de cada palabra.
+ * Traduce la partida del dominio a los datos que necesita la presentación: las
+ * letras del tablero y la posición de cada palabra.
  *
  * No depende de Android, así que se puede probar en la JVM.
  */
@@ -24,7 +24,7 @@ public final class AdaptadorTablero {
 	}
 
 	/**
-	 * Resultado de adaptar un tablero: las letras del tablero y las palabras
+	 * Resultado de adaptar una partida: las letras del tablero y las palabras
 	 * que han quedado colocadas, con su posición ya rellenada.
 	 */
 	public static final class TableroPreparado {
@@ -54,28 +54,28 @@ public final class AdaptadorTablero {
 	}
 
 	/**
-	 * Aplica las posiciones de un tablero generado sobre la lista de palabras
-	 * de la partida.
+	 * Aplica las posiciones de una partida sobre la lista de palabras de la
+	 * partida en curso.
 	 *
 	 * Las palabras que el motor no ha podido colocar se quedan fuera del
 	 * resultado. Las que sí quedan conservan el orden de la lista original, y
 	 * si una palabra está repetida cada copia va a su propio sitio.
 	 *
-	 * @param generado
-	 *            resultado del motor de tableros
+	 * @param partida
+	 *            la partida generada por el motor
 	 * @param palabras
-	 *            palabras de la partida
+	 *            palabras de la partida en curso
 	 * @return las letras del tablero y las palabras colocadas
 	 */
-	public static TableroPreparado adapta(TableroGenerado generado, List<PosicionesPalabras> palabras) {
+	public static TableroPreparado adapta(Partida partida, List<PosicionesPalabras> palabras) {
 		Map<String, Deque<PosicionesPalabras>> porPalabra = indexa(palabras);
 
-		for (PosicionPalabra posicion : generado.getPosiciones()) {
-			Deque<PosicionesPalabras> candidatas = porPalabra.get(posicion.getPalabra());
+		for (PalabraColocada colocada : partida.getPalabras()) {
+			Deque<PosicionesPalabras> candidatas = porPalabra.get(colocada.getTexto());
 			if (candidatas == null || candidatas.isEmpty()) {
 				continue;
 			}
-			coloca(candidatas.remove(), posicion);
+			coloca(candidatas.remove(), colocada);
 		}
 
 		List<PosicionesPalabras> colocadas = new ArrayList<PosicionesPalabras>();
@@ -85,7 +85,7 @@ public final class AdaptadorTablero {
 			}
 		}
 
-		return new TableroPreparado(generado.getTablero().getCeldas(), colocadas);
+		return new TableroPreparado(partida.getTablero().getCeldas(), colocadas);
 	}
 
 	/**
@@ -109,8 +109,8 @@ public final class AdaptadorTablero {
 	/**
 	 * Rellena la posición de una palabra colocada.
 	 */
-	private static void coloca(PosicionesPalabras destino, PosicionPalabra posicion) {
-		List<Celda> celdas = posicion.getCeldas();
+	private static void coloca(PosicionesPalabras destino, PalabraColocada colocada) {
+		List<Celda> celdas = colocada.getCeldas();
 		Celda inicio = celdas.get(0);
 		Celda fin = celdas.get(celdas.size() - 1);
 
@@ -127,10 +127,39 @@ public final class AdaptadorTablero {
 		destino.setyTableroFinal(fin.getY());
 		destino.setxTableroLetras(xLetras);
 		destino.setyTableroLetras(yLetras);
-		destino.setOrientacion(codigoOrientacion(posicion.getOrientacion()));
-		destino.setInvertida(posicion.isInvertida());
+		destino.setOrientacion(codigoOrientacion(colocada.getOrientacion()));
+		destino.setInvertida(colocada.isInvertida());
 		destino.setElegida(false);
 		destino.setMostradaPantalla(true);
+		copiaPista(destino, colocada);
+	}
+
+	/**
+	 * Copia la pista de la palabra al formato que guarda el fichero de la
+	 * partida. Los tipos de pista que no tienen valor no tocan nada, para no
+	 * perder lo que ya había.
+	 */
+	private static void copiaPista(PosicionesPalabras destino, PalabraColocada colocada) {
+		String valor = colocada.getPista().getValor();
+		if (valor.isEmpty()) {
+			return;
+		}
+		switch (colocada.getPista().getTipo()) {
+		case DESCRIPCION:
+			destino.setPistaDescripcion(valor);
+			break;
+		case IMAGEN:
+			destino.setPistaImagen(valor);
+			break;
+		case AUDIO:
+			destino.setPistaAudio(valor);
+			break;
+		case CATEGORIA:
+			destino.setPistaCategoria(valor);
+			break;
+		default:
+			break;
+		}
 	}
 
 	/**

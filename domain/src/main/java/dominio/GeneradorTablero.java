@@ -47,30 +47,30 @@ public class GeneradorTablero {
 	 *            tamaño del tablero, orientaciones permitidas y si las palabras
 	 *            van del revés
 	 * @param palabras
-	 *            palabras de la partida
-	 * @return el tablero con las palabras colocadas
+	 *            palabras de la partida, con su pista
+	 * @return la partida con el tablero y las palabras colocadas
 	 * @throws TableroException
 	 *             si no se ha podido generar un tablero con esas palabras
 	 */
-	public TableroGenerado genera(ConfiguracionJuego configuracion, List<String> palabras) throws TableroException {
+	public Partida genera(ConfiguracionJuego configuracion, List<Palabra> palabras) throws TableroException {
 		int tamano = configuracion.getTamanoTablero();
-		List<String> ordenadas = ordenaPorLongitud(palabras);
+		List<Palabra> ordenadas = ordenaPorLongitud(palabras);
 		List<Orientacion> permitidas = configuracion.getModoOrientacion().orientacionesPermitidas();
 
-		TableroGenerado mejor = null;
+		Partida mejor = null;
 		int mejoresColocadas = -1;
 
 		for (int intento = 0; intento < TABLEROS_MAXIMOS; intento++) {
 			Tablero tablero = new Tablero(tamano);
-			List<PosicionPalabra> posiciones = new ArrayList<PosicionPalabra>();
+			List<PalabraColocada> colocadas = new ArrayList<PalabraColocada>();
 
-			int colocadas = colocaPalabras(ordenadas, permitidas, configuracion.isPalabrasInvertidas(), tablero, posiciones);
+			int numero = colocaPalabras(ordenadas, permitidas, configuracion.isPalabrasInvertidas(), tablero, colocadas);
 
-			boolean todasColocadas = colocadas == ordenadas.size();
-			boolean numeroRazonable = colocadas >= minimoPalabras(tamano) && colocadas <= maximoPalabras(tamano);
+			boolean todasColocadas = numero == ordenadas.size();
+			boolean numeroRazonable = numero >= minimoPalabras(tamano) && numero <= maximoPalabras(tamano);
 			if (todasColocadas || numeroRazonable) {
 				completa(tablero);
-				return new TableroGenerado(tablero, posiciones);
+				return creaPartida(tablero, colocadas);
 			}
 
 			/*
@@ -78,14 +78,14 @@ public class GeneradorTablero {
 			 * colocado por si no sale ninguno bueno: es mejor jugar con un
 			 * tablero incompleto que dejar la aplicación colgada.
 			 */
-			if (colocadas > mejoresColocadas) {
-				mejoresColocadas = colocadas;
-				mejor = new TableroGenerado(tablero, posiciones);
+			if (numero > mejoresColocadas) {
+				mejoresColocadas = numero;
+				mejor = creaPartida(tablero, colocadas);
 			}
 		}
 
 		if (mejor == null) {
-			mejor = new TableroGenerado(new Tablero(tamano), new ArrayList<PosicionPalabra>());
+			mejor = creaPartida(new Tablero(tamano), new ArrayList<PalabraColocada>());
 		}
 		completa(mejor.getTablero());
 
@@ -93,25 +93,34 @@ public class GeneradorTablero {
 	}
 
 	/**
+	 * Crea la partida a partir del tablero generado.
+	 *
+	 * El motor se encarga de colocar las palabras, así que la partida sale
+	 * coherente. Si no lo fuera, es un fallo del motor y no del juego.
+	 */
+	private Partida creaPartida(Tablero tablero, List<PalabraColocada> palabras) throws TableroException {
+		try {
+			return Partida.crea(tablero, palabras);
+		} catch (PartidaIncoherenteException e) {
+			throw new TableroException("El motor ha generado un tablero incoherente: " + e.getMessage(), null, e);
+		}
+	}
+
+	/**
 	 * Coloca las palabras en el tablero. Si una palabra no cabe, se vuelve a
 	 * intentarlo; si tampoco cabe después de varios intentos, se abandona el
 	 * tablero y se devuelve cuántas palabras se han podido colocar.
 	 */
-	private int colocaPalabras(List<String> palabras, List<Orientacion> permitidas, boolean invertidas, Tablero tablero, List<PosicionPalabra> posiciones) {
+	private int colocaPalabras(List<Palabra> palabras, List<Orientacion> permitidas, boolean invertidas, Tablero tablero, List<PalabraColocada> colocadas) {
 		int intentos = 0;
 
 		for (int i = 0; i < palabras.size(); i++) {
-			String palabra = palabras.get(i);
-			/*
-			 * El tablero sólo tiene las 26 letras del abecedario, así que la
-			 * palabra se escribe sin tildes. La palabra que se informa es la
-			 * original, con sus tildes.
-			 */
-			String aColocar = Palabras.sinTildes(palabra);
+			Palabra palabra = palabras.get(i);
+			String aColocar = palabra.getTextoEnTablero();
 			boolean palabraInvertida = false;
 
 			if (invertidas && aleatorio.nextBoolean()) {
-				aColocar = Palabras.invertida(aColocar);
+				aColocar = palabra.getTextoEnTableroInvertido();
 				palabraInvertida = true;
 			}
 
@@ -121,7 +130,7 @@ public class GeneradorTablero {
 			if (celdas == null) {
 				intentos++;
 				if (intentos >= INTENTOS_MAXIMOS) {
-					return posiciones.size();
+					return colocadas.size();
 				}
 				i--;
 			} else {
@@ -130,22 +139,22 @@ public class GeneradorTablero {
 				 * Se guarda la palabra tal y como aparece en la lista de
 				 * palabras. Si va del revés, lo indica la marca de invertida.
 				 */
-				posiciones.add(new PosicionPalabra(palabra, orientacion, celdas, palabraInvertida));
+				colocadas.add(new PalabraColocada(palabra, orientacion, celdas, palabraInvertida));
 			}
 		}
 
-		return posiciones.size();
+		return colocadas.size();
 	}
 
 	/**
 	 * Ordena las palabras de la más larga a la más corta, manteniendo el orden
 	 * relativo de las que tienen la misma longitud.
 	 */
-	private List<String> ordenaPorLongitud(List<String> palabras) {
-		List<String> ordenadas = new ArrayList<String>(palabras);
-		Collections.sort(ordenadas, new Comparator<String>() {
-			public int compare(String primera, String segunda) {
-				return segunda.length() - primera.length();
+	private List<Palabra> ordenaPorLongitud(List<Palabra> palabras) {
+		List<Palabra> ordenadas = new ArrayList<Palabra>(palabras);
+		Collections.sort(ordenadas, new Comparator<Palabra>() {
+			public int compare(Palabra primera, Palabra segunda) {
+				return segunda.getTexto().length() - primera.getTexto().length();
 			}
 		});
 		return ordenadas;

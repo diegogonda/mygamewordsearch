@@ -7,10 +7,12 @@ import java.util.Random;
 import dominio.ConfiguracionJuego;
 import dominio.GeneradorTablero;
 import dominio.ModoOrientacion;
-import dominio.PosicionPalabra;
+import dominio.Palabra;
+import dominio.Pista;
 import dominio.Tablero;
 import dominio.TableroException;
-import dominio.TableroGenerado;
+import dominio.TipoPista;
+import dominio.Partida;
 import xml.XMLParser;
 import actividades.MainActivity;
 import android.content.Context;
@@ -45,19 +47,20 @@ public class CreaTablero {
 		pp = p;
 
 		/**
-		 * Las palabras de la partida. El motor se encarga de escribirlas sin
-		 * tildes, porque el tablero sólo tiene las 26 letras del abecedario. La
-		 * palabra que ve el jugador es la de la lista, con sus tildes.
+		 * Las palabras de la partida, cada una con su pista. El motor se
+		 * encarga de escribirlas sin tildes, porque el tablero sólo tiene las
+		 * 26 letras del abecedario. La palabra que ve el jugador es la de la
+		 * lista, con sus tildes.
 		 * */
-		List<String> palabras = new ArrayList<String>();
+		List<Palabra> palabras = new ArrayList<Palabra>();
 		for (PosicionesPalabras aux : pp) {
-			palabras.add(aux.getPalabra());
+			palabras.add(new Palabra(aux.getPalabra(), pistaDe(aux)));
 		}
 
 		ConfiguracionJuego configuracion = new ConfiguracionJuego(tamanoTablero, ModoOrientacion.desdeValor(opciones), invierte);
 
-		TableroGenerado generado = generaTablero(configuracion, palabras);
-		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(generado, pp);
+		Partida partida = generaTablero(configuracion, palabras);
+		AdaptadorTablero.TableroPreparado preparado = AdaptadorTablero.adapta(partida, pp);
 
 		tableroJuego = preparado.getLetras();
 		pp = new ArrayList<PosicionesPalabras>(preparado.getPalabras());
@@ -87,27 +90,50 @@ public class CreaTablero {
 	 * Genera el tablero de la partida con el motor de tableros.
 	 *
 	 * Si el motor no consigue un tablero con un número razonable de palabras,
-	 * se usa el mejor tablero parcial que ha encontrado: es mejor jugar con un
+	 * se usa la mejor partida parcial que ha encontrado: es mejor jugar con un
 	 * tablero incompleto que dejar la aplicación colgada.
 	 */
-	private TableroGenerado generaTablero(ConfiguracionJuego configuracion, List<String> palabras) {
+	private Partida generaTablero(ConfiguracionJuego configuracion, List<Palabra> palabras) {
 		try {
 			return new GeneradorTablero().genera(configuracion, palabras);
 		} catch (TableroException e) {
 			Log.w("CreaTablero -> generaTablero", " " + e.getMessage());
-			TableroGenerado parcial = e.getTableroParcial();
+			Partida parcial = e.getPartidaParcial();
 			if (parcial != null) {
 				return parcial;
 			}
-			return tableroSinPalabras(configuracion.getTamanoTablero());
+			return partidaSinPalabras(configuracion.getTamanoTablero());
 		}
 	}
 
 	/**
-	 * Tablero con letras al azar y sin ninguna palabra, para el caso de que el
+	 * La pista de una palabra, según el tipo de pista que ha elegido el
+	 * jugador y lo que trae la palabra.
+	 */
+	private Pista pistaDe(PosicionesPalabras palabra) {
+		switch (TipoPista.desdeValor(tipoPista)) {
+		case DESCRIPCION:
+			return Pista.descripcion(palabra.getPistaDescripcion());
+		case IMAGEN:
+			return Pista.imagen(palabra.getPistaImagen());
+		case AUDIO:
+			return Pista.audio(palabra.getPistaAudio());
+		case CATEGORIA:
+			return Pista.categoria(palabra.getPistaCategoria());
+		case MARCA:
+			return Pista.marca();
+		case NOMBRE:
+			return Pista.nombre(palabra.getPalabra());
+		default:
+			return Pista.sinPista();
+		}
+	}
+
+	/**
+	 * Partida con letras al azar y sin ninguna palabra, para el caso de que el
 	 * motor no haya podido colocar ni una.
 	 */
-	private TableroGenerado tableroSinPalabras(int tamano) {
+	private Partida partidaSinPalabras(int tamano) {
 		Tablero tablero = new Tablero(tamano);
 		Random aleatorio = new Random();
 		for (int y = 0; y < tamano; y++) {
@@ -115,7 +141,7 @@ public class CreaTablero {
 				tablero.setCelda(x, y, (char) (aleatorio.nextInt(26) + 'a'));
 			}
 		}
-		return new TableroGenerado(tablero, new ArrayList<PosicionPalabra>());
+		return Partida.vacia(tablero);
 	}
 
 	private void cargaValoresJuego() {

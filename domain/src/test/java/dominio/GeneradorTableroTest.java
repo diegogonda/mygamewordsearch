@@ -30,14 +30,26 @@ public class GeneradorTableroTest {
 		return new ConfiguracionJuego(TAMANO, modo, false);
 	}
 
-	private List<String> palabrasPlanetas() {
-		return new ArrayList<String>(Arrays.asList("mercurio", "venus", "tierra", "marte", "jupiter", "saturno", "urano", "neptuno"));
+	private List<Palabra> palabrasPlanetas() {
+		List<Palabra> palabras = new ArrayList<Palabra>();
+		for (String texto : Arrays.asList("mercurio", "venus", "tierra", "marte", "jupiter", "saturno", "urano", "neptuno")) {
+			palabras.add(new Palabra(texto, Pista.nombre(texto)));
+		}
+		return palabras;
+	}
+
+	private List<Palabra> palabras(String... textos) {
+		List<Palabra> palabras = new ArrayList<Palabra>();
+		for (String texto : textos) {
+			palabras.add(new Palabra(texto, Pista.nombre(texto)));
+		}
+		return palabras;
 	}
 
 	/**
 	 * Lee la palabra del tablero siguiendo la orientación en la que está.
 	 */
-	private String leer(Tablero tablero, PosicionPalabra posicion) {
+	private String leer(Tablero tablero, PalabraColocada posicion) {
 		StringBuilder palabra = new StringBuilder();
 		for (Celda celda : posicion.getCeldas()) {
 			palabra.append(tablero.getCelda(celda.getX(), celda.getY()));
@@ -47,45 +59,56 @@ public class GeneradorTableroTest {
 
 	@Test
 	public void colocaTodasLasPalabrasEnElTablero() throws TableroException {
-		TableroGenerado generado = generador(42).genera(configuracion(ModoOrientacion.TODAS), palabrasPlanetas());
+		Partida partida = generador(42).genera(configuracion(ModoOrientacion.TODAS), palabrasPlanetas());
 
-		assertEquals("todas las palabras deben caber en el tablero", 8, generado.getPosiciones().size());
+		assertEquals("todas las palabras deben caber en el tablero", 8, partida.getPalabras().size());
 	}
 
 	@Test
 	public void lasPalabrasQuedanEscritasEnElTablero() throws TableroException {
-		TableroGenerado generado = generador(7).genera(configuracion(ModoOrientacion.TODAS), palabrasPlanetas());
+		Partida partida = generador(7).genera(configuracion(ModoOrientacion.TODAS), palabrasPlanetas());
 
-		for (PosicionPalabra posicion : generado.getPosiciones()) {
-			assertEquals("la palabra debe estar escrita en el tablero", posicion.getPalabra(), leer(generado.getTablero(), posicion));
+		for (PalabraColocada posicion : partida.getPalabras()) {
+			assertEquals("la palabra debe estar escrita en el tablero", posicion.getTexto(), leer(partida.getTablero(), posicion));
 		}
 	}
 
 	@Test
+	public void laPalabraConservaSuPista() throws TableroException {
+		List<Palabra> palabras = new ArrayList<Palabra>();
+		palabras.add(new Palabra("mercurio", Pista.descripcion("el más cercano al sol")));
+
+		Partida partida = generador(5).genera(configuracion(ModoOrientacion.TODAS), palabras);
+
+		assertEquals(TipoPista.DESCRIPCION, partida.getPalabras().get(0).getPista().getTipo());
+		assertEquals("el más cercano al sol", partida.getPalabras().get(0).getPista().getValor());
+	}
+
+	@Test
 	public void respetaElModoDeOrientacion() throws TableroException {
-		TableroGenerado horizontal = generador(3).genera(configuracion(ModoOrientacion.HORIZONTAL), palabrasPlanetas());
-		for (PosicionPalabra posicion : horizontal.getPosiciones()) {
+		Partida horizontal = generador(3).genera(configuracion(ModoOrientacion.HORIZONTAL), palabrasPlanetas());
+		for (PalabraColocada posicion : horizontal.getPalabras()) {
 			assertEquals(Orientacion.HORIZONTAL, posicion.getOrientacion());
 		}
 
-		TableroGenerado vertical = generador(3).genera(configuracion(ModoOrientacion.VERTICAL), palabrasPlanetas());
-		for (PosicionPalabra posicion : vertical.getPosiciones()) {
+		Partida vertical = generador(3).genera(configuracion(ModoOrientacion.VERTICAL), palabrasPlanetas());
+		for (PalabraColocada posicion : vertical.getPalabras()) {
 			assertEquals(Orientacion.VERTICAL, posicion.getOrientacion());
 		}
 
-		TableroGenerado diagonales = generador(3).genera(configuracion(ModoOrientacion.DIAGONALES), palabrasPlanetas());
-		for (PosicionPalabra posicion : diagonales.getPosiciones()) {
+		Partida diagonales = generador(3).genera(configuracion(ModoOrientacion.DIAGONALES), palabrasPlanetas());
+		for (PalabraColocada posicion : diagonales.getPalabras()) {
 			assertTrue(posicion.getOrientacion() == Orientacion.DIAGONAL_1 || posicion.getOrientacion() == Orientacion.DIAGONAL_2);
 		}
 	}
 
 	@Test
 	public void elTableroNoQuedanCeldasVacias() throws TableroException {
-		TableroGenerado generado = generador(11).genera(configuracion(ModoOrientacion.TODAS), palabrasPlanetas());
+		Partida partida = generador(11).genera(configuracion(ModoOrientacion.TODAS), palabrasPlanetas());
 
 		for (int y = 0; y < TAMANO; y++) {
 			for (int x = 0; x < TAMANO; x++) {
-				assertFalse("no puede quedar ninguna celda vacía", generado.getTablero().getCelda(x, y) == Tablero.LETRA_RELLENO);
+				assertFalse("no puede quedar ninguna celda vacía", partida.getTablero().getCelda(x, y) == Tablero.LETRA_RELLENO);
 			}
 		}
 	}
@@ -96,11 +119,11 @@ public class GeneradorTableroTest {
 
 		boolean algunaInvertida = false;
 		for (int semilla = 0; semilla < 20 && !algunaInvertida; semilla++) {
-			TableroGenerado generado = generador(semilla).genera(configuracion, palabrasPlanetas());
-			for (PosicionPalabra posicion : generado.getPosiciones()) {
+			Partida partida = generador(semilla).genera(configuracion, palabrasPlanetas());
+			for (PalabraColocada posicion : partida.getPalabras()) {
 				if (posicion.isInvertida()) {
 					algunaInvertida = true;
-					assertEquals("la palabra del tablero va del revés", Palabras.invertida(posicion.getPalabra()), leer(generado.getTablero(), posicion));
+					assertEquals("la palabra del tablero va del revés", posicion.getPalabra().getTextoEnTableroInvertido(), leer(partida.getTablero(), posicion));
 				}
 			}
 		}
@@ -109,18 +132,18 @@ public class GeneradorTableroTest {
 
 	@Test
 	public void sinPalabrasInvertidasNingunaLoEsta() throws TableroException {
-		TableroGenerado generado = generador(5).genera(configuracion(ModoOrientacion.TODAS), palabrasPlanetas());
+		Partida partida = generador(5).genera(configuracion(ModoOrientacion.TODAS), palabrasPlanetas());
 
-		for (PosicionPalabra posicion : generado.getPosiciones()) {
+		for (PalabraColocada posicion : partida.getPalabras()) {
 			assertFalse(posicion.isInvertida());
 		}
 	}
 
 	@Test
 	public void fallaSiLasPalabrasNoCabenEnElTablero() {
-		List<String> demasiadas = new ArrayList<String>();
+		List<Palabra> demasiadas = new ArrayList<Palabra>();
 		for (int i = 0; i < 40; i++) {
-			demasiadas.add("palabra" + i);
+			demasiadas.add(new Palabra("palabra" + i, Pista.nombre("palabra" + i)));
 		}
 
 		try {
@@ -133,10 +156,10 @@ public class GeneradorTableroTest {
 
 	@Test
 	public void elTableroEsElMismoConLaMismaSemilla() throws TableroException {
-		TableroGenerado primero = generador(99).genera(configuracion(ModoOrientacion.TODAS), palabrasPlanetas());
-		TableroGenerado segundo = generador(99).genera(configuracion(ModoOrientacion.TODAS), palabrasPlanetas());
+		Partida primera = generador(99).genera(configuracion(ModoOrientacion.TODAS), palabrasPlanetas());
+		Partida segunda = generador(99).genera(configuracion(ModoOrientacion.TODAS), palabrasPlanetas());
 
-		assertTrue("con la misma semilla el tablero debe ser el mismo", Arrays.deepEquals(primero.getTablero().getCeldas(), segundo.getTablero().getCeldas()));
+		assertTrue("con la misma semilla el tablero debe ser el mismo", Arrays.deepEquals(primera.getTablero().getCeldas(), segunda.getTablero().getCeldas()));
 	}
 
 	@Test
@@ -155,23 +178,19 @@ public class GeneradorTableroTest {
 		 * posiciones: si apareciesen, el jugador buscaría una palabra que no
 		 * está en el tablero.
 		 */
-		List<String> palabras = new ArrayList<String>(Arrays.asList("luna", "casa", "gato", "mesa", "paz"));
+		Partida partida = generador(13).genera(new ConfiguracionJuego(4, ModoOrientacion.TODAS, false), palabras("luna", "casa", "gato", "mesa", "paz"));
 
-		TableroGenerado generado = generador(13).genera(new ConfiguracionJuego(4, ModoOrientacion.TODAS, false), palabras);
-
-		for (PosicionPalabra posicion : generado.getPosiciones()) {
-			assertEquals("la palabra debe estar en el tablero", posicion.getPalabra(), leer(generado.getTablero(), posicion));
+		for (PalabraColocada posicion : partida.getPalabras()) {
+			assertEquals("la palabra debe estar en el tablero", posicion.getTexto(), leer(partida.getTablero(), posicion));
 		}
-		assertTrue("debe haber al menos un par de palabras", generado.getPosiciones().size() >= 2);
-		assertTrue("no pueden caber todas", generado.getPosiciones().size() <= 4);
+		assertTrue("debe haber al menos un par de palabras", partida.getPalabras().size() >= 2);
+		assertTrue("no pueden caber todas", partida.getPalabras().size() <= 4);
 	}
 
 	@Test
 	public void fallaSiUnaPalabraNoCabeEnElTablero() {
-		List<String> palabras = new ArrayList<String>(Arrays.asList("tierra"));
-
 		try {
-			generador(1).genera(new ConfiguracionJuego(4, ModoOrientacion.TODAS, false), palabras);
+			generador(1).genera(new ConfiguracionJuego(4, ModoOrientacion.TODAS, false), palabras("tierra"));
 			assertTrue("se esperaba un error de dominio", false);
 		} catch (TableroException e) {
 			assertTrue("el error debe explicar el motivo", e.getMessage().contains("4"));
@@ -184,15 +203,15 @@ public class GeneradorTableroTest {
 		 * Las palabras de la misma longitud se colocan en el mismo orden que
 		 * vienen en la lista de la partida.
 		 */
-		List<String> palabras = new ArrayList<String>(Arrays.asList("luna", "gato", "casa", "mesa"));
+		List<Palabra> palabras = palabras("luna", "gato", "casa", "mesa");
 
-		TableroGenerado generado = generador(21).genera(new ConfiguracionJuego(TAMANO, ModoOrientacion.TODAS, false), palabras);
+		Partida partida = generador(21).genera(new ConfiguracionJuego(TAMANO, ModoOrientacion.TODAS, false), palabras);
 
 		List<String> colocadas = new ArrayList<String>();
-		for (PosicionPalabra posicion : generado.getPosiciones()) {
-			colocadas.add(posicion.getPalabra());
+		for (PalabraColocada posicion : partida.getPalabras()) {
+			colocadas.add(posicion.getTexto());
 		}
-		assertEquals("el orden de las palabras debe respetarse", palabras, colocadas);
+		assertEquals("el orden de las palabras debe respetarse", Arrays.asList("luna", "gato", "casa", "mesa"), colocadas);
 	}
 
 	@Test
@@ -201,41 +220,39 @@ public class GeneradorTableroTest {
 		 * El tablero sólo tiene las 26 letras del abecedario, así que una
 		 * palabra con tilde se escribe sin ella.
 		 */
-		List<String> palabras = new ArrayList<String>(Arrays.asList("corazón", "árbol", "miel"));
+		Partida partida = generador(11).genera(new ConfiguracionJuego(TAMANO, ModoOrientacion.TODAS, false), palabras("corazón", "árbol", "miel"));
 
-		TableroGenerado generado = generador(11).genera(new ConfiguracionJuego(TAMANO, ModoOrientacion.TODAS, false), palabras);
-
-		for (PosicionPalabra posicion : generado.getPosiciones()) {
-			assertEquals("la palabra debe estar escrita sin tildes", Palabras.sinTildes(posicion.getPalabra()), leer(generado.getTablero(), posicion));
+		for (PalabraColocada posicion : partida.getPalabras()) {
+			assertEquals("la palabra debe estar escrita sin tildes", posicion.getPalabra().getTextoEnTablero(), leer(partida.getTablero(), posicion));
 		}
-		for (int y = 0; y < generado.getTablero().getTamano(); y++) {
-			for (int x = 0; x < generado.getTablero().getTamano(); x++) {
-				char letra = generado.getTablero().getCelda(x, y);
+		for (int y = 0; y < partida.getTablero().getTamano(); y++) {
+			for (int x = 0; x < partida.getTablero().getTamano(); x++) {
+				char letra = partida.getTablero().getCelda(x, y);
 				assertTrue("el tablero sólo puede contener las 26 letras del abecedario", letra >= 'a' && letra <= 'z');
 			}
 		}
 	}
 
 	@Test
-	public void elErrorLlevaElMejorTableroParcial() {
+	public void elErrorLlevaLaMejorPartidaParcial() {
 		/*
 		 * En un tablero de 4x4 sólo caben dos diagonales, así que de estas
 		 * cuatro palabras sólo se pueden colocar dos: la tercera y la cuarta
 		 * chocan con las letras que ya están escritas. El número de palabras
-		 * queda por debajo del mínimo y el motor da el tablero con más
+		 * queda por debajo del mínimo y el motor da la partida con más
 		 * palabras que ha encontrado, para que la partida siga siendo jugable.
 		 */
-		List<String> palabras = new ArrayList<String>(Arrays.asList("abcd", "wxyz", "pqrs", "tuvw"));
+		List<Palabra> palabras = palabras("abcd", "wxyz", "pqrs", "tuvw");
 
 		try {
 			generador(3).genera(new ConfiguracionJuego(4, ModoOrientacion.DIAGONALES, false), palabras);
 			assertTrue("se esperaba un error de dominio", false);
 		} catch (TableroException e) {
-			TableroGenerado parcial = e.getTableroParcial();
-			assertNotNull("el error debe llevar el mejor tablero parcial", parcial);
-			assertEquals("el tablero parcial debe tener las dos palabras colocadas", 2, parcial.getPosiciones().size());
-			for (PosicionPalabra posicion : parcial.getPosiciones()) {
-				assertEquals("la palabra debe estar en el tablero parcial", posicion.getPalabra(), leer(parcial.getTablero(), posicion));
+			Partida parcial = e.getPartidaParcial();
+			assertNotNull("el error debe llevar la mejor partida parcial", parcial);
+			assertEquals("la partida parcial debe tener las dos palabras colocadas", 2, parcial.getPalabras().size());
+			for (PalabraColocada posicion : parcial.getPalabras()) {
+				assertEquals("la palabra debe estar en el tablero parcial", posicion.getTexto(), leer(parcial.getTablero(), posicion));
 			}
 			for (int y = 0; y < parcial.getTablero().getTamano(); y++) {
 				for (int x = 0; x < parcial.getTablero().getTamano(); x++) {
