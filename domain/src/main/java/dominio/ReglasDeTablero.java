@@ -2,7 +2,7 @@ package dominio;
 
 /**
  * Las reglas de un tablero de un tamaño dado: cuántas palabras necesita una
- * partida para tener sentido y cuántas caben en un tablero de ese tamaño.
+ * partida para tener sentido y qué palabras caben en un tablero de ese tamaño.
  *
  * Antes de que existiera esta clase, estos números eran un {@code switch} sin
  * explicación dentro del motor. Ahora son una regla con nombre, y sus tests
@@ -78,46 +78,20 @@ public final class ReglasDeTablero {
 	}
 
 	/**
-	 * El número máximo de palabras que se consideran razonables en un tablero
-	 * de este tamaño.
-	 *
-	 * @return el número máximo de palabras
-	 */
-	public int maximoPalabras() {
-		switch (tamano) {
-		case 4:
-			return 4;
-		case 5:
-			return 5;
-		case 6:
-			return 6;
-		case 7:
-			return 7;
-		case 8:
-			return 8;
-		case 9:
-			return 9;
-		case 10:
-			return 11;
-		case 11:
-			return 12;
-		case 12:
-			return 14;
-		default:
-			return 4;
-		}
-	}
-
-	/**
 	 * Indica si un tablero con este número de palabras da una partida
 	 * jugable.
+	 *
+	 * Sólo hay un mínimo, no un máximo: un tablero no es malo por tener muchas
+	 * palabras. El máximo que había antes estaba calculado para un motor que
+	 * no dejaba cruzar palabras, y con los cruces un tablero puede tener
+	 * muchas más de las que ese máximo permitía.
 	 *
 	 * @param numeroPalabras
 	 *            las palabras colocadas en el tablero
 	 * @return true si la partida es jugable
 	 */
 	public boolean esJugable(int numeroPalabras) {
-		return numeroPalabras >= minimoPalabras() && numeroPalabras <= maximoPalabras();
+		return numeroPalabras >= minimoPalabras();
 	}
 
 	/**

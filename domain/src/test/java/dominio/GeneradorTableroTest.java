@@ -246,6 +246,30 @@ public class GeneradorTableroTest {
 	}
 
 	@Test
+	public void unTableroConMasPalabrasDeLasMinimasNoSeRechaza() throws TableroException {
+		/*
+		 * Un tablero no es malo por tener muchas palabras. Con los cruces, un
+		 * tablero de 9x9 admite muchas más de las nueve palabras que el
+		 * máximo de tamaño cinegita.
+		 *
+		 * Con veinte palabras distintas el motor coloca más de nueve, así que
+		 * antes el tablero se rechazaba, se regeneraba cincuenta veces y se
+		 * acababa usando el tablero parcial, que era justo el que se había
+		 * rechazado.
+		 */
+		List<Palabra> muchas = new ArrayList<Palabra>();
+		String abecedario = "abcdefghijklmnopqrstuvwxyz";
+		for (int i = 0; i < 20; i++) {
+			String texto = "" + abecedario.charAt(i % 26) + abecedario.charAt((i + 1) % 26) + abecedario.charAt((i + 2) % 26) + abecedario.charAt((i + 3) % 26);
+			muchas.add(new Palabra(texto, Pista.nombre(texto)));
+		}
+
+		Partida partida = generador(0).genera(new ConfiguracionJuego(TAMANO, ModoOrientacion.TODAS, false), muchas);
+
+		assertTrue("el tablero tiene que tener al menos el mínimo de palabras", partida.getCantidadPalabras() >= GeneradorTablero.minimoPalabras(TAMANO));
+	}
+
+	@Test
 	public void elErrorLlevaLaMejorPartidaParcial() {
 		/*
 		 * En un tablero de 4x4 sólo caben dos diagonales, así que de estas

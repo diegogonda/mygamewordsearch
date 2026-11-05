@@ -29,27 +29,24 @@ public class ReglasDeTableroTest {
 	}
 
 	@Test
-	public void elMaximoEsElLadoDelTableroHastaNueve() {
-		for (int tamano = ReglasDeTablero.TAMANO_MINIMO; tamano <= 9; tamano++) {
-			assertEquals("el máximo de un tablero de " + tamano, tamano, ReglasDeTablero.paraTamano(tamano).maximoPalabras());
-		}
-	}
-
-	@Test
-	public void aPartirDeUnTableroDeDiezElMaximoDejaMargen() {
-		assertEquals(11, ReglasDeTablero.paraTamano(10).maximoPalabras());
-		assertEquals(12, ReglasDeTablero.paraTamano(11).maximoPalabras());
-		assertEquals(14, ReglasDeTablero.paraTamano(12).maximoPalabras());
-	}
-
-	@Test
-	public void unTableroEsJugableConPalabrasEntreElMinimoYElMaximo() {
+	public void unTableroEsJugableConPalabrasDesdeElMinimo() {
 		ReglasDeTablero reglas = ReglasDeTablero.paraTamano(9);
 
 		assertFalse("con menos del mínimo no hay juego", reglas.esJugable(reglas.minimoPalabras() - 1));
 		assertTrue("con el mínimo hay juego", reglas.esJugable(reglas.minimoPalabras()));
-		assertTrue("con el máximo hay juego", reglas.esJugable(reglas.maximoPalabras()));
-		assertFalse("con más del máximo no hay juego", reglas.esJugable(reglas.maximoPalabras() + 1));
+	}
+
+	@Test
+	public void unTableroConMasPalabrasDeLasMinimasSigueSiendoJugable() {
+		/*
+		 * Un tablero no es malo por tener muchas palabras. Con los cruces, un
+		 * tablero de 9x9 puede tener muchas más de las nueve palabras que
+		 * el antiguo máximo de tamaño cinegita.
+		 */
+		ReglasDeTablero reglas = ReglasDeTablero.paraTamano(9);
+
+		assertTrue("muchas palabras no estropean la partida", reglas.esJugable(17));
+		assertTrue("muchas palabras no estropean la partida", reglas.esJugable(40));
 	}
 
 	@Test

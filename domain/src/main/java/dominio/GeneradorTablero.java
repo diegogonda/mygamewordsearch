@@ -183,11 +183,4 @@ public class GeneradorTablero {
 	public static int minimoPalabras(int tamano) {
 		return ReglasDeTablero.paraTamano(tamano).minimoPalabras();
 	}
-
-	/**
-	 * Número de palabras máximo que se considera un tablero válido.
-	 */
-	public static int maximoPalabras(int tamano) {
-		return ReglasDeTablero.paraTamano(tamano).maximoPalabras();
-	}
 }
