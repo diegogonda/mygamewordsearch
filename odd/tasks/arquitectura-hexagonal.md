@@ -27,8 +27,8 @@ Runner: `./gradlew test lintDebug` (los tests de todos los módulos) y el emulad
 
 - T1 (S1, S2) Los módulos Gradle `:domain` y `:application`, con el modelo del dominio movido a `:domain`. Route: inline. Estado: hecho en `d26a2bf`.
 - T2 (S4, S5) El vocabulario del dominio: `Partida`, `PalabraColocada`, `Palabra`, `Pista`, `TipoPista`, con test primero. Route: inline. Estado: hecho en `8fbf26f`.
-- T3 (S2, S6) El caso de uso "generar partida" y los puertos, con test primero. Route: inline. Estado: pendiente.
-- T4 (S3, S6, S7, S8, S9) Los adaptadores Android y el cambio de la app para usar el caso de uso. Route: inline. Estado: pendiente.
+- T3 (S2, S6) El caso de uso "generar partida" y los puertos, con test primero. Route: inline. Estado: **aplazado** (ver L9).
+- T4 (S3, S6, S7, S8, S9) Los adaptadores Android y el cambio de la app para usar el caso de uso. Route: inline. Estado: **aplazado** (ver L9).
 
 ## Log
 
@@ -40,3 +40,5 @@ Runner: `./gradlew test lintDebug` (los tests de todos los módulos) y el emulad
 - L6 (2026-11-05): Decisión de vocabulario: una sola noción de "palabra en el juego". `PosicionPalabra` (la geometría que devolvía el motor) y `TableroGenerado` (el tablero y las posiciones) se sustituyen por `PalabraColocada` y `Partida`. El motor recibe `Palabra` (el texto y su pista) y devuelve `PalabraColocada`. La pista viaja con la palabra desde el contenido hasta la partida, así que no hace falta emparejarla por texto, que fallaría con palabras repetidas.
 - L7 (2026-11-05): `Partida` sólo se puede crear si todas sus palabras se leen en el tablero y si sus celdas siguen la orientación que declaran. El invariante ha pagado: en desarrollo ha detectado datos de test incoherentes, y es el que habría pillado el fallo legacy en el que las posiciones registradas apuntaban a un tablero que ya no existía.
 - L8 (2026-11-05): Lo que queda fuera de esta tanda, y por qué: S9 (restaurar la partida en curso tal cual se guardó) sigue pendiente porque depende de que la partida sea un objeto que la actividad pueda guardar y restaurar, y eso es T4. El progreso (qué palabras ha encontrado el jugador) sigue en la capa de presentación, como estaba.
+- L9 (2026-11-05): T3 y T4 quedan aplazados por decisión del usuario: "los cambios en android todavía no los quiero abordar, me gustaría centrarme en el motor al 100%". La consecuencia técnica es que la API pública del motor queda congelada mientras tanto, porque la app la consume: si la firma cambia, `CreaTablero` tiene que cambiar con ella, y eso es un cambio en Android. El trabajo del motor sigue siendo posible por detrás de esa API. Lo que no se pierde: el módulo `:application` queda listo y con su esqueleto, y los specs S1, S2, S4 y S5 ya están cumplidos.
+
