@@ -177,4 +177,71 @@ public class GeneradorTableroTest {
 			assertTrue("el error debe explicar el motivo", e.getMessage().contains("4"));
 		}
 	}
+
+	@Test
+	public void conservaElOrdenDeLasPalabrasDeIgualLongitud() throws TableroException {
+		/*
+		 * Las palabras de la misma longitud se colocan en el mismo orden que
+		 * vienen en la lista de la partida.
+		 */
+		List<String> palabras = new ArrayList<String>(Arrays.asList("luna", "gato", "casa", "mesa"));
+
+		TableroGenerado generado = generador(21).genera(new ConfiguracionJuego(TAMANO, ModoOrientacion.TODAS, false), palabras);
+
+		List<String> colocadas = new ArrayList<String>();
+		for (PosicionPalabra posicion : generado.getPosiciones()) {
+			colocadas.add(posicion.getPalabra());
+		}
+		assertEquals("el orden de las palabras debe respetarse", palabras, colocadas);
+	}
+
+	@Test
+	public void lasPalabrasConTildeSeEscribenSinTilde() throws TableroException {
+		/*
+		 * El tablero sólo tiene las 26 letras del abecedario, así que una
+		 * palabra con tilde se escribe sin ella.
+		 */
+		List<String> palabras = new ArrayList<String>(Arrays.asList("corazón", "árbol", "miel"));
+
+		TableroGenerado generado = generador(11).genera(new ConfiguracionJuego(TAMANO, ModoOrientacion.TODAS, false), palabras);
+
+		for (PosicionPalabra posicion : generado.getPosiciones()) {
+			assertEquals("la palabra debe estar escrita sin tildes", Palabras.sinTildes(posicion.getPalabra()), leer(generado.getTablero(), posicion));
+		}
+		for (int y = 0; y < generado.getTablero().getTamano(); y++) {
+			for (int x = 0; x < generado.getTablero().getTamano(); x++) {
+				char letra = generado.getTablero().getCelda(x, y);
+				assertTrue("el tablero sólo puede contener las 26 letras del abecedario", letra >= 'a' && letra <= 'z');
+			}
+		}
+	}
+
+	@Test
+	public void elErrorLlevaElMejorTableroParcial() {
+		/*
+		 * En un tablero de 4x4 sólo caben dos diagonales, así que de estas
+		 * cuatro palabras sólo se pueden colocar dos: la tercera y la cuarta
+		 * chocan con las letras que ya están escritas. El número de palabras
+		 * queda por debajo del mínimo y el motor da el tablero con más
+		 * palabras que ha encontrado, para que la partida siga siendo jugable.
+		 */
+		List<String> palabras = new ArrayList<String>(Arrays.asList("abcd", "wxyz", "pqrs", "tuvw"));
+
+		try {
+			generador(3).genera(new ConfiguracionJuego(4, ModoOrientacion.DIAGONALES, false), palabras);
+			assertTrue("se esperaba un error de dominio", false);
+		} catch (TableroException e) {
+			TableroGenerado parcial = e.getTableroParcial();
+			assertNotNull("el error debe llevar el mejor tablero parcial", parcial);
+			assertEquals("el tablero parcial debe tener las dos palabras colocadas", 2, parcial.getPosiciones().size());
+			for (PosicionPalabra posicion : parcial.getPosiciones()) {
+				assertEquals("la palabra debe estar en el tablero parcial", posicion.getPalabra(), leer(parcial.getTablero(), posicion));
+			}
+			for (int y = 0; y < parcial.getTablero().getTamano(); y++) {
+				for (int x = 0; x < parcial.getTablero().getTamano(); x++) {
+					assertTrue("el tablero parcial no puede tener celdas vacías", parcial.getTablero().getCelda(x, y) != Tablero.LETRA_RELLENO);
+				}
+			}
+		}
+	}
 }

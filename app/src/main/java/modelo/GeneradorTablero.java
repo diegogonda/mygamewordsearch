@@ -57,12 +57,12 @@ public class GeneradorTablero {
 		List<String> ordenadas = ordenaPorLongitud(palabras);
 		List<Orientacion> permitidas = configuracion.getModoOrientacion().orientacionesPermitidas();
 
-		Tablero tablero = new Tablero(tamano);
-		List<PosicionPalabra> posiciones = new ArrayList<PosicionPalabra>();
+		TableroGenerado mejor = null;
+		int mejoresColocadas = -1;
 
 		for (int intento = 0; intento < TABLEROS_MAXIMOS; intento++) {
-			tablero.rellena();
-			posiciones.clear();
+			Tablero tablero = new Tablero(tamano);
+			List<PosicionPalabra> posiciones = new ArrayList<PosicionPalabra>();
 
 			int colocadas = colocaPalabras(ordenadas, permitidas, configuracion.isPalabrasInvertidas(), tablero, posiciones);
 
@@ -72,9 +72,24 @@ public class GeneradorTablero {
 				completa(tablero);
 				return new TableroGenerado(tablero, posiciones);
 			}
+
+			/*
+			 * El tablero no sirve, pero se guarda el que más palabras ha
+			 * colocado por si no sale ninguno bueno: es mejor jugar con un
+			 * tablero incompleto que dejar la aplicación colgada.
+			 */
+			if (colocadas > mejoresColocadas) {
+				mejoresColocadas = colocadas;
+				mejor = new TableroGenerado(tablero, posiciones);
+			}
 		}
 
-		throw new TableroException("No se ha podido generar un tablero de " + tamano + " con " + ordenadas.size() + " palabras");
+		if (mejor == null) {
+			mejor = new TableroGenerado(new Tablero(tamano), new ArrayList<PosicionPalabra>());
+		}
+		completa(mejor.getTablero());
+
+		throw new TableroException("No se ha podido generar un tablero de " + tamano + " con " + ordenadas.size() + " palabras", mejor);
 	}
 
 	/**
@@ -87,11 +102,16 @@ public class GeneradorTablero {
 
 		for (int i = 0; i < palabras.size(); i++) {
 			String palabra = palabras.get(i);
-			String aColocar = palabra;
+			/*
+			 * El tablero sólo tiene las 26 letras del abecedario, así que la
+			 * palabra se escribe sin tildes. La palabra que se informa es la
+			 * original, con sus tildes.
+			 */
+			String aColocar = Palabras.sinTildes(palabra);
 			boolean palabraInvertida = false;
 
 			if (invertidas && aleatorio.nextBoolean()) {
-				aColocar = Palabras.invertida(palabra);
+				aColocar = Palabras.invertida(aColocar);
 				palabraInvertida = true;
 			}
 
