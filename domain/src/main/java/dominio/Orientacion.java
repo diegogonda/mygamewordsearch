@@ -1,4 +1,4 @@
-package modelo;
+package dominio;
 
 /**
  * Orientaciones en las que se puede colocar una palabra en el tablero.

@@ -7,10 +7,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import modelo.Celda;
-import modelo.Orientacion;
-import modelo.PosicionPalabra;
-import modelo.TableroGenerado;
+import dominio.Celda;
+import dominio.Orientacion;
+import dominio.PosicionPalabra;
+import dominio.TableroGenerado;
 
 /**
  * Traduce el resultado del motor de tableros a los datos que necesita la

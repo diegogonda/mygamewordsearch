@@ -1,4 +1,4 @@
-package modelo;
+package dominio;
 
 /**
  * Utilidades sobre el texto de las palabras del tablero.

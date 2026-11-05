@@ -1,4 +1,4 @@
-package modelo;
+package dominio;
 
 import java.util.Arrays;
 import java.util.Collections;

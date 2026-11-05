@@ -15,4 +15,15 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = 'mygamewordsearch'
+
+/*
+ * Las tres capas de la arquitectura hexagonal.
+ *
+ * :domain       el modelo y las reglas del juego. Java puro.
+ * :application  los casos de uso y los puertos. Java puro.
+ * :app          la interfaz de Android y la infraestructura, que implementa
+ *               los puertos de :application.
+ */
+include ':domain'
+include ':application'
 include ':app'

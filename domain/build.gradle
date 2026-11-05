@@ -1,0 +1,30 @@
+/*
+ * El dominio del juego: el modelo y las reglas de la sopa de letras.
+ *
+ * Es Java puro a propósito. Este módulo no depende del plugin de Android, así
+ * que el compilador no deja que el dominio importe nada de android.*: la
+ * frontera entre las capas no depende de que nos acordemos.
+ */
+plugins {
+    id 'java-library'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('test') {
+    testLogging {
+        events 'failed'
+        exceptionFormat 'full'
+    }
+}

@@ -11,11 +11,11 @@ import java.util.List;
 
 import org.junit.Test;
 
-import modelo.Celda;
-import modelo.Orientacion;
-import modelo.PosicionPalabra;
-import modelo.Tablero;
-import modelo.TableroGenerado;
+import dominio.Celda;
+import dominio.Orientacion;
+import dominio.PosicionPalabra;
+import dominio.Tablero;
+import dominio.TableroGenerado;
 
 /**
  * Tests del adaptador entre el motor de tableros y los datos que consume la

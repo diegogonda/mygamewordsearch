@@ -1,4 +1,4 @@
-package modelo;
+package dominio;
 
 /**
  * Resultado de generar un tablero: las letras y dónde quedó cada palabra.

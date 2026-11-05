@@ -1,4 +1,4 @@
-package modelo;
+package dominio;
 
 /**
  * Configuración de una partida: cómo se genera el tablero.

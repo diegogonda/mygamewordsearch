@@ -1,4 +1,4 @@
-package modelo;
+package dominio;
 
 /**
  * Celda del tablero, identificada por sus coordenadas.

@@ -1,4 +1,4 @@
-package modelo;
+package dominio;
 
 /**
  * Error del dominio: no se ha podido generar un tablero con la configuración

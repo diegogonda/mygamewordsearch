@@ -1,4 +1,4 @@
-package modelo;
+package dominio;
 
 import static org.junit.Assert.assertEquals;
 

@@ -1,4 +1,4 @@
-package modelo;
+package dominio;
 
 /**
  * Tablero de juego: una cuadrícula de letras.
