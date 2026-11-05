@@ -1,11 +1,13 @@
 package dominio;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 
@@ -100,5 +102,38 @@ public class PartidaTest {
 		Partida partida = Partida.crea(tableroCon("aaaaa", 0, 0, 5), new ArrayList<PalabraColocada>());
 
 		assertEquals(0, partida.getCantidadPalabras());
+	}
+
+	@Test
+	public void elJugadorEncuentraLaPalabraQueArrastraDePrincipioAFin() throws PartidaIncoherenteException {
+		Partida partida = partidaConPerro();
+
+		Optional<PalabraColocada> encontrada = partida.buscaPalabra(new Celda(0, 0), new Celda(4, 0));
+
+		assertTrue("el jugador tiene que encontrar la palabra", encontrada.isPresent());
+		assertEquals("perro", encontrada.get().getTexto());
+	}
+
+	@Test
+	public void elJugadorEncuentraLaPalabraQueArrastraAlReves() throws PartidaIncoherenteException {
+		Partida partida = partidaConPerro();
+
+		Optional<PalabraColocada> encontrada = partida.buscaPalabra(new Celda(4, 0), new Celda(0, 0));
+
+		assertTrue("da igual la dirección del arrastre", encontrada.isPresent());
+		assertEquals("perro", encontrada.get().getTexto());
+	}
+
+	@Test
+	public void unArrastreQueNoEsUnaPalabraNoEncuentraNada() throws PartidaIncoherenteException {
+		Partida partida = partidaConPerro();
+
+		assertFalse("unas celdas sueltas no son una palabra", partida.buscaPalabra(new Celda(0, 0), new Celda(2, 0)).isPresent());
+		assertFalse("unas celdas sueltas no son una palabra", partida.buscaPalabra(new Celda(3, 3), new Celda(6, 6)).isPresent());
+	}
+
+	private Partida partidaConPerro() throws PartidaIncoherenteException {
+		Tablero tablero = tableroCon("perro", 0, 0, 9);
+		return Partida.crea(tablero, Arrays.asList(new PalabraColocada(new Palabra("perro", Pista.nombre("perro")), Orientacion.HORIZONTAL, celdas(0, 5), false)));
 	}
 }

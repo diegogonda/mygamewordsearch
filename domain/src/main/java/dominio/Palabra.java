@@ -14,6 +14,12 @@ public final class Palabra {
 	private final Pista pista;
 
 	public Palabra(String texto, Pista pista) {
+		if (texto == null || texto.trim().isEmpty()) {
+			throw new IllegalArgumentException("Una palabra no puede estar vacía");
+		}
+		if (pista == null) {
+			throw new IllegalArgumentException("Una palabra necesita una pista");
+		}
 		this.texto = texto;
 		this.pista = pista;
 	}

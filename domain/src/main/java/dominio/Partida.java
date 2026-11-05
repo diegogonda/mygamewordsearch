@@ -3,6 +3,7 @@ package dominio;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Una partida en juego: el tablero y las palabras que hay que encontrar.
@@ -107,5 +108,38 @@ public final class Partida {
 	 */
 	public int getCantidadPalabras() {
 		return palabras.size();
+	}
+
+	/**
+	 * Busca la palabra que el jugador ha encontrado al arrastrar de una celda
+	 * a otra.
+	 *
+	 * Da igual la dirección del arrastre: se puede empezar por cualquiera de
+	 * los dos extremos. Sólo cuenta si las dos celdas son los extremos de la
+	 * palabra, porque una palabra que va del revés tiene su primera letra en
+	 * el final.
+	 *
+	 * @param inicio
+	 *            la celda donde empezó el arrastre
+	 * @param fin
+	 *            la celda donde terminó el arrastre
+	 * @return la palabra encontrada, o vacío si el arrastre no ha encontrado
+	 *         ninguna
+	 */
+	public Optional<PalabraColocada> buscaPalabra(Celda inicio, Celda fin) {
+		for (PalabraColocada palabra : palabras) {
+			List<Celda> celdas = palabra.getCeldas();
+			if (celdas.size() < 2) {
+				continue;
+			}
+			Celda primero = celdas.get(0);
+			Celda ultimo = celdas.get(celdas.size() - 1);
+			boolean mismoSentido = primero.equals(inicio) && ultimo.equals(fin);
+			boolean sentidoInverso = primero.equals(fin) && ultimo.equals(inicio);
+			if (mismoSentido || sentidoInverso) {
+				return Optional.of(palabra);
+			}
+		}
+		return Optional.empty();
 	}
 }

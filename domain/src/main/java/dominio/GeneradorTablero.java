@@ -53,7 +53,11 @@ public class GeneradorTablero {
 	 *             si no se ha podido generar un tablero con esas palabras
 	 */
 	public Partida genera(ConfiguracionJuego configuracion, List<Palabra> palabras) throws TableroException {
+		if (palabras == null) {
+			throw new IllegalArgumentException("Las palabras de la partida no pueden ser null");
+		}
 		int tamano = configuracion.getTamanoTablero();
+		ReglasDeTablero reglas = ReglasDeTablero.paraTamano(tamano);
 		List<Palabra> ordenadas = ordenaPorLongitud(palabras);
 		List<Orientacion> permitidas = configuracion.getModoOrientacion().orientacionesPermitidas();
 
@@ -67,7 +71,7 @@ public class GeneradorTablero {
 			int numero = colocaPalabras(ordenadas, permitidas, configuracion.isPalabrasInvertidas(), tablero, colocadas);
 
 			boolean todasColocadas = numero == ordenadas.size();
-			boolean numeroRazonable = numero >= minimoPalabras(tamano) && numero <= maximoPalabras(tamano);
+			boolean numeroRazonable = reglas.esJugable(numero);
 			if (todasColocadas || numeroRazonable) {
 				completa(tablero);
 				return creaPartida(tablero, colocadas);
@@ -177,55 +181,13 @@ public class GeneradorTablero {
 	 * Número de palabras mínimo que se considera un tablero válido.
 	 */
 	public static int minimoPalabras(int tamano) {
-		switch (tamano) {
-		case 4:
-			return 3;
-		case 5:
-			return 4;
-		case 6:
-			return 5;
-		case 7:
-			return 6;
-		case 8:
-			return 7;
-		case 9:
-			return 8;
-		case 10:
-			return 9;
-		case 11:
-			return 10;
-		case 12:
-			return 11;
-		default:
-			return 4;
-		}
+		return ReglasDeTablero.paraTamano(tamano).minimoPalabras();
 	}
 
 	/**
 	 * Número de palabras máximo que se considera un tablero válido.
 	 */
 	public static int maximoPalabras(int tamano) {
-		switch (tamano) {
-		case 4:
-			return 4;
-		case 5:
-			return 5;
-		case 6:
-			return 6;
-		case 7:
-			return 7;
-		case 8:
-			return 8;
-		case 9:
-			return 9;
-		case 10:
-			return 11;
-		case 11:
-			return 12;
-		case 12:
-			return 14;
-		default:
-			return 4;
-		}
+		return ReglasDeTablero.paraTamano(tamano).maximoPalabras();
 	}
 }

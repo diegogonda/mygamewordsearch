@@ -234,6 +234,18 @@ public class GeneradorTableroTest {
 	}
 
 	@Test
+	public void unaListaDePalabrasNullNoEsUnaPartida() {
+		try {
+			generador(1).genera(configuracion(ModoOrientacion.TODAS), null);
+			assertTrue("se esperaba un error de dominio", false);
+		} catch (IllegalArgumentException e) {
+			assertTrue("el error debe explicar el motivo", e.getMessage().contains("null"));
+		} catch (TableroException e) {
+			assertTrue("se esperaba un error de dominio", false);
+		}
+	}
+
+	@Test
 	public void elErrorLlevaLaMejorPartidaParcial() {
 		/*
 		 * En un tablero de 4x4 sólo caben dos diagonales, así que de estas

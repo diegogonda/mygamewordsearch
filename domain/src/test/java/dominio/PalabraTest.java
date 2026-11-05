@@ -1,6 +1,7 @@
 package dominio;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -51,5 +52,25 @@ public class PalabraTest {
 	@Test
 	public void invierteLaPalabra() {
 		assertEquals("los", Palabra.invertida("sol"));
+	}
+
+	@Test
+	public void unaPalabraVaciaNoEsUnaPalabra() {
+		try {
+			new Palabra("", Pista.nombre(""));
+			assertTrue("se esperaba un error de dominio", false);
+		} catch (IllegalArgumentException e) {
+			assertTrue("el error debe explicar el motivo", e.getMessage().contains("vacía"));
+		}
+	}
+
+	@Test
+	public void unaPalabraSinPistaNoEsUnaPalabra() {
+		try {
+			new Palabra("marte", null);
+			assertTrue("se esperaba un error de dominio", false);
+		} catch (IllegalArgumentException e) {
+			assertTrue("el error debe explicar el motivo", e.getMessage().contains("pista"));
+		}
 	}
 }
